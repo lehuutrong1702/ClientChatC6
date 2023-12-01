@@ -44,6 +44,32 @@ public class Request {
         builder.GET();
     }
 
+    public void POST(Object object){
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        try {
+            String jsonObject = objectMapper.writeValueAsString(object);
+            builder.POST(HttpRequest.BodyPublishers.ofString(jsonObject));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void DELETE(Object object){
+        builder.DELETE();
+    }
+    public void PUT(Object object){
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        try {
+            String jsonObject = objectMapper.writeValueAsString(object);
+            builder.PUT(HttpRequest.BodyPublishers.ofString(jsonObject));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
     public void build(){
      httpRequest =  builder.build();
     }
