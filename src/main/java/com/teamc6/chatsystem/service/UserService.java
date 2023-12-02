@@ -11,21 +11,21 @@ import com.teamc6.chatsystem.request.Request;
 import java.util.Set;
 
 public class UserService {
-//    public Page<User> getUser() throws JsonProcessingException {
-//        Request request = new Request("http://localhost:8081/api/v1/users");
-//        request.authorization("LTAT123", Account.getInstance().getPassWord());
-//
-//        request.GET();
-//        request.build();
-//        request.send();
-//
-//        Page<User> page = (Page<User>) request.getResBody(Page.class);
-//        System.out.println(page.getContent());
-//        return  page;
-//    }
+    public Page<User> filterUser(String username, long page, long size) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/users/filter/username?username=%s&page=%d&size=%d", username, page, size);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<User> pageUser = (Page<User>) request.getResBody(Page.class);
+        return  pageUser;
+    }
 
     public User findById(long Id) throws JsonProcessingException{
-        String url = String.format("http://localhost:8081/api/v1/users/Search/id=%d", Id);
+        String url = String.format("http://localhost:8081/api/v1/users/search/id=%d", Id);
         System.out.println(url);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -39,16 +39,16 @@ public class UserService {
     }
 
     public User findByUserName(String username) throws JsonProcessingException{
-        String url = String.format("http://localhost:8081/api/v1/users/Search/username=%d", username);
+        String url = String.format("http://localhost:8081/api/v1/users/search/username=%s", username);
         System.out.println(url);
         Request request = new Request(url);
-        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
         request.GET();
         request.build();
         request.send();
 
         User user = (User) request.getResBody(User.class);
+        System.out.println(user);
         return user;
     }
 
@@ -103,6 +103,7 @@ public class UserService {
 
         return user;
     }
+
     private static final UserService INSTANCE = new UserService();
 
     private UserService() {

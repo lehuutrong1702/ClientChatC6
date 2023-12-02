@@ -1,6 +1,9 @@
 package SwingUI.SignIn;
 
 import SwingUI.Utils.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatsystem.model.User;
+import com.teamc6.chatsystem.service.UserService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -116,7 +119,16 @@ public class SignInFrame extends JFrame {
         //submit button action listener
         bSignIn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                String username = tfUsername.getText();
+                String password = "123";
+                try {
+                    User u = UserService.getInstance().findByUserName(tfUsername.getText());
+                    if(u.getUserName().equals(username) && u.getPassword().equals(password)){
+                        System.out.println("true");
+                    }
+                } catch (JsonProcessingException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
