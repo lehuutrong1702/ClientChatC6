@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class GroupChatService {
     public GroupChat searchGroupChatById(long Id) throws JsonProcessingException {
-        String url = String.format("http://localhost:8081/api/v1/groups/search/id=%d", Id);
+        String url = String.format("http://localhost:8081/api/v1/groups/%d", Id);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -53,7 +53,7 @@ public class GroupChatService {
     }
 
     public GroupChat addMemberGroupChat(long idGroup, long idMember) throws JsonProcessingException{
-        String url = String.format("http://localhost:8081/api/v1/groups/%d/add-members/%d", idGroup, idMember);
+        String url = String.format("http://localhost:8081/api/v1/groups/%d/members/%d", idGroup, idMember);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -67,7 +67,7 @@ public class GroupChatService {
     }
 
     public GroupChat addAdminGroupChat(long idGroup, long idAdmin) throws JsonProcessingException{
-        String url = String.format("http://localhost:8081/api/v1/groups/%d/add-admins/%d", idGroup, idAdmin);
+        String url = String.format("http://localhost:8081/api/v1/groups/%d/admins/%d", idGroup, idAdmin);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -81,7 +81,7 @@ public class GroupChatService {
     }
 
     public GroupChat createGroupChat() throws JsonProcessingException{
-        String url = "http://localhost:8081/api/v1/groups/add";
+        String url = "http://localhost:8081/api/v1/groups";
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());

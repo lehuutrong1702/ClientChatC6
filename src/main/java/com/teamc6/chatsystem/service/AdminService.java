@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class AdminService {
     public GroupChat searchGroupChatById(long Id) throws JsonProcessingException {
-        String url = String.format("http://localhost:8081/api/v1/groups/search/id=%d", Id);
+        String url = String.format("http://localhost:8081/api/v1/groups/%d", Id);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -53,7 +53,7 @@ public class AdminService {
     }
 
     public GroupChat addMemberGroupChat(long idGroup, long idMember) throws JsonProcessingException{
-        String url = String.format("http://localhost:8081/api/v1/groups/%d/add-members/%d", idGroup, idMember);
+        String url = String.format("http://localhost:8081/api/v1/groups/%d/members/%d", idGroup, idMember);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -67,7 +67,7 @@ public class AdminService {
     }
 
     public GroupChat addAdminGroupChat(long idGroup, long idAdmin) throws JsonProcessingException{
-        String url = String.format("http://localhost:8081/api/v1/groups/%d/add-admins/%d", idGroup, idAdmin);
+        String url = String.format("http://localhost:8081/api/v1/groups/%d/admins/%d", idGroup, idAdmin);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -82,6 +82,45 @@ public class AdminService {
 
     public Page<User> allUser(long page, long size) throws JsonProcessingException {
         String url = String.format("http://localhost:8081/api/v1/users?page=%d&size=%d", page, size);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<User> pageUser = (Page<User>) request.getResBody(Page.class);
+        return  pageUser;
+    }
+
+    public Page<GroupChat> allGroupChat(long page, long size) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/groups?page=%d&size=%d", page, size);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<GroupChat> pageGroup = (Page<GroupChat>) request.getResBody(Page.class);
+        return  pageGroup;
+    }
+
+    public Page<GroupChat> filterByNameGroupChat(String name, long page, long size) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/groups/search/%s?page=%d&size=%d", name, page, size);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<GroupChat> pageGroup = (Page<GroupChat>) request.getResBody(Page.class);
+        return  pageGroup;
+    }
+
+    public Page<User> filterUser(String username, long page, long size) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/users/filter/%s?page=%d&size=%d", username, page, size);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
