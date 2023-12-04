@@ -19,7 +19,7 @@ import java.io.IOException;
             Account.getInstance().setUserName("LTAT123");
             Account.getInstance().setPassWord("123");
 
-            System.out.println(AdminService.getInstance().allUser(0,4));
+            System.out.println(AdminService.getInstance().allUser(1, 2));
         }
 
     }

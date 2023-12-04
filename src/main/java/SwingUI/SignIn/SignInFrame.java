@@ -123,6 +123,7 @@ public class SignInFrame extends JFrame {
                 String password = "123";
                 try {
                     User u = UserService.getInstance().findByUserName(tfUsername.getText());
+                    System.out.println(u.getPassword());
                     if(u.getUserName().equals(username) && u.getPassword().equals(password)){
                         System.out.println("true");
                     }

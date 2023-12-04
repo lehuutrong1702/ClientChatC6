@@ -85,8 +85,13 @@ public class Request {
     public Object getResBody(Class T) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-         Object  t= objectMapper.readValue(httpResponse.body(), T);
-         return T.cast(t);
+        if(httpResponse.statusCode() == 200)
+        {
+            Object  t= objectMapper.readValue(httpResponse.body(), T);
+            return T.cast(t);
+        }
+        else{
+            return null;
+        }
     }
 }
