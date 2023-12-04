@@ -20,12 +20,12 @@ import java.util.Base64;
 
 public class Request {
 
-    private static HttpClient httpClient = HttpClient.newBuilder()
+    private static final HttpClient httpClient = HttpClient.newBuilder()
             .version(HttpClient.Version.HTTP_1_1)
             .build();
     private HttpRequest httpRequest;
     private HttpResponse<String> httpResponse;
-    private HttpRequest.Builder builder;
+    private final HttpRequest.Builder builder;
 
     private static final String getBasicAuthenticationHeader(String username, String password) {
         String valueToEncode = username + ":" + password;

@@ -14,7 +14,7 @@ import java.io.IOException;
     public class App {
 
 
-        public static void main (String args[]) throws JsonProcessingException {
+        public static void main (String[] args) throws JsonProcessingException {
             Account.getInstance().setId(19);
             Account.getInstance().setUserName("LTAT123");
             Account.getInstance().setPassWord("123");

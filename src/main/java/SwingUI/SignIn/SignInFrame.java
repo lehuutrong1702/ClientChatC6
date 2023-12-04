@@ -24,12 +24,12 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class SignInFrame extends JFrame {
-    private JLabel lbMain;
-    private JButton bSignIn;
-    private JButton bSignUp;
-    private JTextField tfUsername;
-    private JPasswordField pfPassword;
-    private SignInControl signInControl;
+    private final JLabel lbMain;
+    private final JButton bSignIn;
+    private final JButton bSignUp;
+    private final JTextField tfUsername;
+    private final JPasswordField pfPassword;
+    private final SignInControl signInControl;
 
     public JLabel getLbMain() {
         return lbMain;
@@ -129,7 +129,7 @@ public class SignInFrame extends JFrame {
         };
 
         setContentPane(new JPanel() {
-            BufferedImage bufferedImage = ImageIO.read(Objects.requireNonNull(SignInFrame.class.getClassLoader().getResourceAsStream("background.jpg")));
+            final BufferedImage bufferedImage = ImageIO.read(Objects.requireNonNull(SignInFrame.class.getClassLoader().getResourceAsStream("background.jpg")));
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 g.drawImage(bufferedImage,0,0,this);

@@ -1,28 +1,28 @@
 package SwingUI.Home;
 
+import SwingUI.Home.Component.Navigator;
+import SwingUI.Home.Component.Search;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 public class SidePanel extends JPanel {
     public SidePanel() {
-        setBackground(new Color(66, 245, 114));
         setPreferredSize(new Dimension(200, 650));
         setLayout(new BorderLayout());
 
-        JPanel chatNavigator = new JPanel();
-        chatNavigator.setPreferredSize(new Dimension(200, 50));
-        chatNavigator.setBackground(Color.yellow);
-        chatNavigator.setLayout(new FlowLayout());
-        JPanel friends = new JPanel();
-        friends.setSize(100, 50);
-        friends.add(new JLabel("friends"));
-        JPanel groups = new JPanel();
-        groups.setSize(100, 50);
+        Navigator chatNavigator = new Navigator();
 
-        chatNavigator.add(friends);
-        chatNavigator.add(groups);
+        JPanel listPanel = new JPanel();
+        listPanel.setBackground(Color.green);
+        listPanel.setLayout(new BorderLayout());
+
+        Search search = new Search();
+        listPanel.add(search, BorderLayout.NORTH);
 
         add(chatNavigator, BorderLayout.NORTH);
-
+        add(listPanel, BorderLayout.CENTER);
     }
 }

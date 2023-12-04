@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class SignUpControl implements ActionListener {
-    private UserService userService;
-    private SignUpFrame SignUpFrame;
+    private final UserService userService;
+    private final SignUpFrame SignUpFrame;
 
     public SignUpControl(SignUpFrame SignUpFrame) {
         userService = UserService.getInstance();

@@ -6,6 +6,7 @@ import SwingUI.SignUp.SignUpFrame;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatsystem.model.User;
 import com.teamc6.chatsystem.service.UserService;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,8 +14,8 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class SignInControl implements ActionListener {
-    private UserService userService;
-    private SignInFrame signInFrame;
+    private final UserService userService;
+    private final SignInFrame signInFrame;
 
     public SignInControl(SignInFrame signInFrame) {
         userService = UserService.getInstance();
@@ -24,9 +25,22 @@ public class SignInControl implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == signInFrame.getbSignIn()) {
-            //do sth here
-            signInFrame.dispose();
-            new HomeFrame();
+            boolean success = false;
+            String username = signInFrame.getTfUsername().getText();
+            String password = signInFrame.getPfPassword().getText();
+            try {
+                User u = UserService.getInstance().findByUserName(username);
+
+                if(u != null && BCrypt.checkpw(password, u.getPassword())){
+                    signInFrame.dispose();
+                    new HomeFrame();
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Account not found");
+                }
+            } catch (JsonProcessingException ex) {
+                throw new RuntimeException(ex);
+            }
         }
         else {
             signInFrame.dispose();

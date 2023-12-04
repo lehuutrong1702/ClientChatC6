@@ -8,7 +8,6 @@ public class HomeFrame extends JFrame {
         setTitle("Chat System C6");
         setLayout(new BorderLayout());
         SidePanel sidePanel = new SidePanel();
-
         JPanel centerPanel = new JPanel();
 
         add(sidePanel, BorderLayout.WEST);
@@ -26,7 +25,7 @@ public class HomeFrame extends JFrame {
         requestFocus();
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         new HomeFrame();
     }
 }
