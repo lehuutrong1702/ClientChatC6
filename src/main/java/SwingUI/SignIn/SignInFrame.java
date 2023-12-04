@@ -1,5 +1,7 @@
 package SwingUI.SignIn;
 
+import Controller.SignInControl;
+import SwingUI.SignUp.SignUpFrame;
 import SwingUI.Utils.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatsystem.model.User;
@@ -22,15 +24,37 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class SignInFrame extends JFrame {
-    private JLabel mainLabel;
+    private JLabel lbMain;
     private JButton bSignIn;
     private JButton bSignUp;
     private JTextField tfUsername;
     private JPasswordField pfPassword;
+    private SignInControl signInControl;
+
+    public JLabel getLbMain() {
+        return lbMain;
+    }
+
+    public JButton getbSignIn() {
+        return bSignIn;
+    }
+
+    public JButton getbSignUp() {
+        return bSignUp;
+    }
+
+    public JTextField getTfUsername() {
+        return tfUsername;
+    }
+
+    public JPasswordField getPfPassword() {
+        return pfPassword;
+    }
 
     public SignInFrame() throws IOException {
         setTitle("Sign In");
-        mainLabel = new JLabel("SIGN IN");
+        signInControl = new SignInControl(this);
+        lbMain = new JLabel("SIGN IN");
 
         tfUsername = new JTextField() {
             protected void paintComponent(Graphics g) {
@@ -117,26 +141,9 @@ public class SignInFrame extends JFrame {
 
     public void addEventListeners() {
         //submit button action listener
-        bSignIn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String username = tfUsername.getText();
-                String password = "123";
-                try {
-                    User u = UserService.getInstance().findByUserName(tfUsername.getText());
-                    if(u.getUserName().equals(username) && u.getPassword().equals(password)){
-                        System.out.println("true");
-                    }
-                } catch (JsonProcessingException ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-        });
+        bSignIn.addActionListener(signInControl);
 
-        bSignUp.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
+        bSignUp.addActionListener(signInControl);
 
         tfUsername.addFocusListener(new FocusListener() {
             public void focusLost(FocusEvent e) {
@@ -157,7 +164,7 @@ public class SignInFrame extends JFrame {
         pfPassword.addFocusListener(new FocusListener() {
 
             public void focusLost(FocusEvent e) {
-                if(pfPassword.getText().equals("")) {
+                if(pfPassword.getText().isEmpty()) {
                     pfPassword.setText("Enter your password");
                     pfPassword.setForeground(Color.gray);
                     pfPassword.setEchoChar((char)0);
@@ -175,8 +182,8 @@ public class SignInFrame extends JFrame {
     }
 
     public void init() {
-        mainLabel.setFont(new Font("Arial", Font.BOLD, 60));
-        mainLabel.setForeground(Color.white);
+        lbMain.setFont(new Font("Arial", Font.BOLD, 60));
+        lbMain.setForeground(Color.white);
 
         tfUsername.setPreferredSize(new Dimension(250,35));
         pfPassword.setPreferredSize(new Dimension(250,35));
@@ -206,7 +213,7 @@ public class SignInFrame extends JFrame {
         input.anchor = GridBagConstraints.CENTER;
         input.insets = labelInsets;
         input.gridy = 0;
-        add(mainLabel,input);
+        add(lbMain,input);
 
         input.anchor = GridBagConstraints.CENTER;
         input.insets = textInsets;

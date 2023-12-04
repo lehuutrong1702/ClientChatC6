@@ -1,49 +1,61 @@
 package SwingUI.SignUp;
 
-import SwingUI.Utils.RoundedCornerBorder;
+import Controller.SignUpControl;
+import SwingUI.SignIn.SignInFrame;
+import SwingUI.Utils.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatsystem.model.User;
+import com.teamc6.chatsystem.service.UserService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.regex.Pattern;
+import java.util.Objects;
 
 public class SignUpFrame extends JFrame {
-    JButton loginButton;
-    JTextField email;
-    JPasswordField password;
-    JLabel usernameError;
-    JLabel passwordError;
+    private JLabel lbMain;
+    private JButton bSignIn;
+    private JButton bSignUp;
+    private JTextField tfUsername;
+    private JPasswordField pfPassword;
+    private SignUpControl signUpControl;
+    public JLabel getLbMain() {
+        return lbMain;
+    }
 
+    public JButton getbSignIn() {
+        return bSignIn;
+    }
+
+    public JButton getbSignUp() {
+        return bSignUp;
+    }
+
+    public JTextField getTfUsername() {
+        return tfUsername;
+    }
+
+    public JPasswordField getPfPassword() {
+        return pfPassword;
+    }
 
     public SignUpFrame() throws IOException {
         setTitle("Sign Up");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        email = new JTextField() {
-            protected void paintComponent(Graphics g) {
-                if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
-                    Graphics2D g2 = (Graphics2D) g.create();
-                    g2.setPaint(getBackground());
-                    g2.fill(((RoundedCornerBorder) getBorder()).getBorderShape(
-                            0, 0, getWidth() - 1, getHeight() - 1));
-                    g2.dispose();
-                }
-                super.paintComponent(g);
-            }
-            public void updateUI() {
-                super.updateUI();
-                setOpaque(false);
-                setBorder(new RoundedCornerBorder());
-            }
-        };
-        password = new JPasswordField() {
+        signUpControl = new SignUpControl(this);
+        lbMain = new JLabel("SIGN UP");
+
+        tfUsername = new JTextField() {
             protected void paintComponent(Graphics g) {
                 if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
                     Graphics2D g2 = (Graphics2D) g.create();
@@ -61,7 +73,7 @@ public class SignUpFrame extends JFrame {
             }
         };
 
-        loginButton = new JButton("Sign Up") {
+        pfPassword = new JPasswordField() {
             protected void paintComponent(Graphics g) {
                 if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
                     Graphics2D g2 = (Graphics2D) g.create();
@@ -78,236 +90,151 @@ public class SignUpFrame extends JFrame {
                 setBorder(new RoundedCornerBorder());
             }
         };
-        usernameError = new JLabel();
-        passwordError = new JLabel();
+
+        bSignIn = new JButton("Return to sign in") {
+            protected void paintComponent(Graphics g) {
+                if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
+                    Graphics2D g2 = (Graphics2D) g.create();
+                    g2.setPaint(getBackground());
+                    g2.fill(((RoundedCornerBorder) getBorder()).getBorderShape(
+                            0, 0, getWidth() - 1, getHeight() - 1));
+                    g2.dispose();
+                }
+                super.paintComponent(g);
+            }
+            public void updateUI() {
+                super.updateUI();
+                setOpaque(false);
+                setBorder(new RoundedCornerBorder());
+            }
+        };
+
+        bSignUp = new JButton("Sign up") {
+            protected void paintComponent(Graphics g) {
+                if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
+                    Graphics2D g2 = (Graphics2D) g.create();
+                    g2.setPaint(getBackground());
+                    g2.fill(((RoundedCornerBorder) getBorder()).getBorderShape(
+                            0, 0, getWidth() - 1, getHeight() - 1));
+                    g2.dispose();
+                }
+                super.paintComponent(g);
+            }
+            public void updateUI() {
+                super.updateUI();
+                setOpaque(false);
+                setBorder(new RoundedCornerBorder());
+            }
+        };
 
         setContentPane(new JPanel() {
-            BufferedImage bufferedImage = ImageIO.read(SignUpFrame.class.getClassLoader().getResourceAsStream("background.jpg"));
+            BufferedImage bufferedImage = ImageIO.read(Objects.requireNonNull(SignUpFrame.class.getClassLoader().getResourceAsStream("background.jpg")));
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 g.drawImage(bufferedImage,0,0,this);
             }
         });
+
         init();
     }
 
     public void addEventListeners() {
         //submit button action listener
-        loginButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String data = "Username: " + email.getText();
-                data += "\n" + "Password: " + password.getText();
-                JOptionPane.showMessageDialog(null, data);
-            }
-        });
+        bSignUp.addActionListener(signUpControl);
 
-        //email validation listener
-        email.getDocument().addDocumentListener(new DocumentListener() {
+        bSignIn.addActionListener(signUpControl);
 
-            public void removeUpdate(DocumentEvent e) {
-                if(email.getText().length() > 0 && !email.getText().equals("Enter your email")) {
-                    if(validateMail(email.getText())) {
-                        usernameError.setForeground(new Color(50, 168, 58));
-                        usernameError.setText("Email is valid");
-                    }
-                    else {
-                        usernameError.setForeground(Color.RED);
-                        usernameError.setText("Email is not valid");
-                    }
-                }
-                else {
-                    usernameError.setText("");
-                }
-            }
-
-            public void insertUpdate(DocumentEvent e) {
-                if(email.getText().length() > 0 && !email.getText().equals("Enter your email")) {
-                    if(validateMail(email.getText())) {
-                        usernameError.setForeground(new Color(50, 168, 58));
-                        usernameError.setText("Email is valid");
-                    }
-                    else {
-                        usernameError.setForeground(Color.RED);
-                        usernameError.setText("Email is not valid");
-                    }
-                }
-                else {
-                    usernameError.setText("");
-                }
-            }
-
-            public void changedUpdate(DocumentEvent e) {
-                if(email.getText().length() > 0  && !email.getText().equals("Enter your email")) {
-                    if(validateMail(email.getText())) {
-                        usernameError.setForeground(new Color(50, 168, 58));
-                        usernameError.setText("Email is valid");
-                    }
-                    else {
-                        usernameError.setForeground(Color.RED);
-                        usernameError.setText("Email is not valid");
-                    }
-                }
-                else {
-                    usernameError.setText("");
-                }
-            }
-        });
-
-        //password validation listener
-        password.getDocument().addDocumentListener(new DocumentListener() {
-
-            public void removeUpdate(DocumentEvent e) {
-                if(password.getText().length() > 0  && !password.getText().equals("Enter your password")) {
-                    if(validatePassword(password.getText())) {
-                        passwordError.setForeground(new Color(50, 168, 58));
-                        passwordError.setText("Password is valid");
-                    }
-                }
-                else {
-                    passwordError.setText("");
-                }
-            }
-
-            public void insertUpdate(DocumentEvent e) {
-                if(password.getText().length() > 0  && !password.getText().equals("Enter your password")) {
-                    if(validatePassword(password.getText())) {
-                        passwordError.setForeground(new Color(50, 168, 58));
-                        passwordError.setText("Password is valid");
-                    }
-                }
-                else {
-                    passwordError.setText("");
-                }
-            }
-
-            public void changedUpdate(DocumentEvent e) {
-                if(password.getText().length() > 0  && !password.getText().equals("Enter your password")) {
-                    if(validatePassword(password.getText())) {
-                        passwordError.setForeground(new Color(50, 168, 58));
-                        passwordError.setText("Password is valid");
-                    }
-                }
-                else {
-                    passwordError.setText("");
-                }
-            }
-        });
-
-        email.addFocusListener(new FocusListener() {
+        tfUsername.addFocusListener(new FocusListener() {
             public void focusLost(FocusEvent e) {
-                if(email.getText().equals("")) {
-                    email.setText("Enter your email");
-                    email.setForeground(Color.gray);
+                if(tfUsername.getText().isEmpty()) {
+                    tfUsername.setText("Enter your username");
+                    tfUsername.setForeground(Color.gray);
                 }
             }
 
             public void focusGained(FocusEvent e) {
-                if(email.getText().equals("Enter your email")) {
-                    email.setText("");
-                    email.setForeground(Color.black);
+                if(tfUsername.getText().equals("Enter your username")) {
+                    tfUsername.setText("");
+                    tfUsername.setForeground(Color.black);
                 }
             }
         });
 
-        password.addFocusListener(new FocusListener() {
+        pfPassword.addFocusListener(new FocusListener() {
 
             public void focusLost(FocusEvent e) {
-                if(password.getText().equals("")) {
-                    password.setText("Enter your password");
-                    password.setForeground(Color.gray);
-                    password.setEchoChar((char)0);
+                if(pfPassword.getText().isEmpty()) {
+                    pfPassword.setText("Enter your password");
+                    pfPassword.setForeground(Color.gray);
+                    pfPassword.setEchoChar((char)0);
                 }
             }
 
             public void focusGained(FocusEvent e) {
-                if(password.getText().equals("Enter your password")) {
-                    password.setText("");
-                    password.setEchoChar('*');
-                    password.setForeground(Color.black);
+                if(pfPassword.getText().equals("Enter your password")) {
+                    pfPassword.setText("");
+                    pfPassword.setEchoChar('*');
+                    pfPassword.setForeground(Color.black);
                 }
             }
         });
-    }
-
-    private boolean validateMail(String mail) {
-        String regExp = "^[a-zA-Z0-9_+&*-]+(?:\\."+
-                "[a-zA-Z0-9_+&*-]+)*@" +
-                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                "A-Z]{2,7}$";
-        Pattern pattern = Pattern.compile(regExp);
-        return pattern.matcher(mail).matches();
-    }
-
-    private boolean validatePassword(String text) {
-        passwordError.setForeground(Color.RED);
-        if(text.length() < 8) {
-            passwordError.setText("Password must be of length 8");
-            return false;
-        }
-        else if(!text.matches(".*[a-zA-Z]+.*")) {
-            passwordError.setText("Password must contain alphabates");
-            return false;
-        }
-        else if(!text.matches(".*\\d.*")) {
-            passwordError.setText("Password must contain digits");
-            return false;
-        }
-
-        else
-            return true;
     }
 
     public void init() {
-        email.setPreferredSize(new Dimension(250,35));
-        password.setPreferredSize(new Dimension(250,35));
-        loginButton.setPreferredSize(new Dimension(250,35));
-        loginButton.setBackground(new Color(66, 245, 114));
-        loginButton.setFocusPainted(false);
+        lbMain.setFont(new Font("Arial", Font.BOLD, 60));
+        lbMain.setForeground(Color.white);
 
-        email.setText("Enter your email");
-        email.setForeground(Color.gray);
-        password.setText("Enter your password");
-        password.setForeground(Color.gray);
-        password.setEchoChar((char)0);
+        tfUsername.setPreferredSize(new Dimension(250,35));
+        pfPassword.setPreferredSize(new Dimension(250,35));
 
-        usernameError.setFont(new Font("SansSerif", Font.BOLD, 11));
-        usernameError.setForeground(Color.RED);
+        bSignIn.setPreferredSize(new Dimension(250,35));
+        bSignIn.setBackground(new Color(66, 245, 114));
+        bSignIn.setFocusPainted(false);
 
-        passwordError.setFont(new Font("SansSerif", Font.BOLD, 11));
-        passwordError.setForeground(Color.RED);
+        bSignUp.setPreferredSize(new Dimension(250,35));
+        bSignUp.setBackground(new Color(66, 245, 114));
+        bSignUp.setFocusPainted(false);
+
+        tfUsername.setText("Enter your username");
+        tfUsername.setForeground(Color.gray);
+        pfPassword.setText("Enter your password");
+        pfPassword.setForeground(Color.gray);
+        pfPassword.setEchoChar((char)0);
 
         setLayout(new GridBagLayout());
 
+        Insets labelInsets = new Insets(-200, 10, 0, 10);
         Insets textInsets = new Insets(10, 10, 5, 10);
-        Insets buttonInsets = new Insets(20, 10, 10, 10);
-        Insets errorInsets = new Insets(0,20,0,0);
+        Insets bSignInInsets = new Insets(20, 10, 10, 10);
+        Insets bSignUpInsets = new Insets(0, 10, 0, 10);
 
         GridBagConstraints input = new GridBagConstraints();
         input.anchor = GridBagConstraints.CENTER;
+        input.insets = labelInsets;
+        input.gridy = 0;
+        add(lbMain,input);
+
+        input.anchor = GridBagConstraints.CENTER;
         input.insets = textInsets;
-        input.gridy = 1;
-        add(email,input);
-
-        input.gridy = 2;
-        input.insets = errorInsets;
-        input.anchor = GridBagConstraints.WEST;
-        add(usernameError,input);
-
         input.gridy = 3;
+        add(tfUsername,input);
+
         input.insets = textInsets;
         input.anchor = GridBagConstraints.CENTER;
-        add(password,input);
+        input.gridy = 5;
+        add(pfPassword,input);
 
-        input.gridy = 4;
-        input.insets = errorInsets;
-        input.anchor = GridBagConstraints.WEST;
-        add(passwordError,input);
-
-        input.insets = buttonInsets;
+        input.insets = bSignInInsets;
         input.anchor = GridBagConstraints.WEST;
         input.gridx = 0;
-        input.gridy = 5;
-        add(loginButton,input);
+        input.gridy = 7;
+        add(bSignUp,input);
+
+        input.insets = bSignUpInsets;
+        input.anchor = GridBagConstraints.WEST;
+        input.gridx = 0;
+        input.gridy = 8;
+        add(bSignIn,input);
 
         setSize(950,650);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -317,13 +244,5 @@ public class SignUpFrame extends JFrame {
 
         requestFocus();
         addEventListeners();
-    }
-
-    public static void main(String args[]) {
-        try {
-            new SignUpFrame();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
