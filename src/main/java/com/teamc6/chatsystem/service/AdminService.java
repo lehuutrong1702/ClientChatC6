@@ -118,6 +118,20 @@ public class AdminService {
         Page<GroupChat> pageGroup = (Page<GroupChat>) request.getResBody(Page.class);
         return  pageGroup;
     }
+
+    public Page<User> filterUser(String username, long page, long size) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/users/filter/%s?page=%d&size=%d", username, page, size);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<User> pageUser = (Page<User>) request.getResBody(Page.class);
+        return  pageUser;
+    }
+
     private static final AdminService INSTANCE = new AdminService();
 
     private AdminService() {
