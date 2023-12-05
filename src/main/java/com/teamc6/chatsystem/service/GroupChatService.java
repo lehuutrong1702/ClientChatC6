@@ -1,14 +1,13 @@
 package com.teamc6.chatsystem.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.teamc6.chatsystem.model.GroupChat;
+import com.teamc6.chatsystem.model.Page;
 import com.teamc6.chatsystem.model.User;
 import com.teamc6.chatsystem.properties.Account;
 import com.teamc6.chatsystem.request.Request;
 
 import java.awt.event.MouseWheelEvent;
-import java.util.List;
 import java.util.Set;
 
 public class GroupChatService {
@@ -22,11 +21,11 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        GroupChat group = (GroupChat) request.getResBody(new TypeReference<GroupChat>(){});
+        GroupChat group = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return group;
     }
 
-    public List<User> listMember(long Id) throws JsonProcessingException{
+    public Set<User> listMember(long Id) throws JsonProcessingException{
         String url = String.format("http://localhost:8081/api/v1/groups/%d/members", Id);
         Request request = new Request(url);
 
@@ -36,11 +35,11 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        List<User> members = (List<User>) request.getResBody(new TypeReference<List<User>>() {});
+        Set<User> members = (Set<User>) request.getResBody(new TypeReference<Set<User>>() {});
         return members;
     }
 
-    public List<User> listAdmin(long Id) throws JsonProcessingException{
+    public Set<User> listAdmin(long Id) throws JsonProcessingException{
         String url = String.format("http://localhost:8081/api/v1/groups/%d/admins", Id);
         Request request = new Request(url);
 
@@ -50,7 +49,7 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        List<User> admins = (List<User>) request.getResBody(new TypeReference<List<User>>() {});
+        Set<User> admins = (Set<User>) request.getResBody(new TypeReference<Set<User>>() {});
         return admins;
     }
 
@@ -64,7 +63,7 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>(){});
+        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return groupChat;
     }
 
@@ -78,7 +77,7 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>(){});
+        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return groupChat;
     }
 
@@ -92,7 +91,7 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>(){});
+        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return groupChat;
     }
 }
