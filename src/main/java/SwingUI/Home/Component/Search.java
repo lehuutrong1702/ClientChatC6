@@ -9,10 +9,11 @@ import java.awt.event.FocusListener;
 
 public class Search extends JPanel {
     public Search() {
-        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        setLayout(new BorderLayout());
         JTextField tfSearch = new JTextField("Search");
-        //tfSearch.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
-        JButton bSearch = new JButton(new ImageIcon((SidePanel.class.getClassLoader().getResource("searchIcon.png"))));
+        tfSearch.setPreferredSize(new Dimension(150, 35));
+        JButton bSearch = new JButton("🔍");
+        bSearch.setPreferredSize(new Dimension(50, 35));
         tfSearch.addFocusListener(new FocusListener() {
             public void focusLost(FocusEvent e) {
                 if(tfSearch.getText().isEmpty()) {
@@ -28,7 +29,7 @@ public class Search extends JPanel {
                 }
             }
         });
-        add(tfSearch);
-        add(bSearch);
+        add(tfSearch, BorderLayout.CENTER);
+        add(bSearch, BorderLayout.EAST);
     }
 }

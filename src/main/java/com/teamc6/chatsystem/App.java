@@ -1,25 +1,77 @@
 package com.teamc6.chatsystem;
 
+import javax.swing.*;
+import javax.swing.border.MatteBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+public class App {
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatsystem.properties.Account;
-import com.teamc6.chatsystem.request.Request;
-import com.teamc6.chatsystem.model.*;
-import com.teamc6.chatsystem.service.AdminService;
-import com.teamc6.chatsystem.service.UserService;
+    public static void main(String[] args) {
+        new App();
+    }
 
-import java.io.IOException;
+    public App() {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (Exception ex) {
+                }
 
-    public class App {
+                JFrame frame = new JFrame("Test");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.add(new TestPane());
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+            }
+        });
+    }
 
+    public class TestPane extends JPanel {
 
-        public static void main (String[] args) throws JsonProcessingException {
-            Account.getInstance().setId(19);
-            Account.getInstance().setUserName("LTAT123");
-            Account.getInstance().setPassWord("123");
+        private JPanel mainList;
 
-            System.out.println(AdminService.getInstance().allUser(1, 2));
+        public TestPane() {
+            setLayout(new BorderLayout());
+
+            mainList = new JPanel(new GridBagLayout());
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.gridwidth = GridBagConstraints.REMAINDER;
+            gbc.weightx = 1;
+            gbc.weighty = 1;
+            mainList.add(new JPanel(), gbc);
+
+            add(new JScrollPane(mainList));
+
+            JButton add = new JButton("Add");
+            add.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JPanel panel = new JPanel();
+                    panel.add(new JLabel("Hello"));
+                    //panel.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
+                    GridBagConstraints gbc = new GridBagConstraints();
+                    gbc.gridwidth = GridBagConstraints.REMAINDER;
+                    gbc.weightx = 1;
+                    gbc.fill = GridBagConstraints.HORIZONTAL;
+                    mainList.add(panel, gbc, 0);
+
+                    validate();
+                    repaint();
+                }
+            });
+
+            add(add, BorderLayout.SOUTH);
+
         }
 
+        @Override
+        public Dimension getPreferredSize() {
+            return new Dimension(200, 200);
+        }
     }
+}

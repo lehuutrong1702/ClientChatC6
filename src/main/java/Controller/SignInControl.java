@@ -5,6 +5,7 @@ import SwingUI.SignIn.SignInFrame;
 import SwingUI.SignUp.SignUpFrame;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatsystem.model.User;
+import com.teamc6.chatsystem.properties.Account;
 import com.teamc6.chatsystem.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
@@ -30,8 +31,8 @@ public class SignInControl implements ActionListener {
             String password = signInFrame.getPfPassword().getText();
             try {
                 User u = UserService.getInstance().findByUserName(username);
-
                 if(u != null && BCrypt.checkpw(password, u.getPassword())){
+                    Account.getInstance().setId(u.getUserId());
                     signInFrame.dispose();
                     new HomeFrame();
                 }
