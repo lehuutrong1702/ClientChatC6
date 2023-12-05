@@ -1,6 +1,7 @@
 package com.teamc6.chatsystem.request;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.teamc6.chatsystem.model.Page;
@@ -82,13 +83,13 @@ public class Request {
             throw new RuntimeException(e);
         }
     }
-    public Object getResBody(Class T) throws JsonProcessingException {
+    public Object getResBody(TypeReference T) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         if(httpResponse.statusCode() == 200)
         {
             Object  t= objectMapper.readValue(httpResponse.body(), T);
-            return T.cast(t);
+            return (T);
         }
         else{
             return null;
