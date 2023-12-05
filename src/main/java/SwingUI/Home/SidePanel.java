@@ -13,19 +13,35 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SidePanel extends JPanel {
+    Navigator chatNavigator;
+    Search search;
+    ListComponent list;
+
+    public Navigator getChatNavigator() {
+        return chatNavigator;
+    }
+
+    public Search getSearch() {
+        return search;
+    }
+
+    public ListComponent getList() {
+        return list;
+    }
+
     public SidePanel() {
         setPreferredSize(new Dimension(200, 650));
         setLayout(new BorderLayout());
 
-        Navigator chatNavigator = new Navigator();
+        chatNavigator = new Navigator(this);
 
         JPanel listPanel = new JPanel();
         listPanel.setBackground(Color.green);
         listPanel.setLayout(new BorderLayout());
 
-        Search search = new Search();
+        search = new Search();
 
-        ListComponent list = new ListComponent();
+        list = new ListComponent();
         listPanel.add(search, BorderLayout.NORTH);
         listPanel.add(list, BorderLayout.CENTER);
 

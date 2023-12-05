@@ -1,6 +1,7 @@
 package com.teamc6.chatsystem.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.teamc6.chatsystem.model.GroupChat;
 import com.teamc6.chatsystem.model.Page;
 import com.teamc6.chatsystem.model.Relationship;
@@ -20,7 +21,7 @@ public class UserService {
         request.build();
         request.send();
 
-        Page<User> pageUser = (Page<User>) request.getResBody(Page.class);
+        Page<User> pageUser = (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
         return  pageUser;
     }
 
@@ -34,7 +35,7 @@ public class UserService {
         request.build();
         request.send();
 
-        User user = (User) request.getResBody(User.class);
+        User user = (User) request.getResBody(new TypeReference<User>() {});
         return user;
     }
 
@@ -46,7 +47,7 @@ public class UserService {
         request.build();
         request.send();
 
-        User user = (User) request.getResBody(User.class);
+        User user = (User) request.getResBody(new TypeReference<User>() {});
         return user;
     }
 
@@ -59,26 +60,25 @@ public class UserService {
         request.build();
         request.send();
 
-        Relationship relationship = (Relationship) request.getResBody(Relationship.class);
+        Relationship relationship = (Relationship) request.getResBody(new TypeReference<Relationship>() {});
         return relationship;
     }
 
     public Set<User> getListFriend() throws JsonProcessingException {
         String url = String.format("http://localhost:8080/api/v1/users/%d/friends",  Account.getInstance().getId());
         Request request = new Request(url);
-        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
         request.GET();
         request.build();
         request.send();
 
-        if (request.getResBody(GroupChat.class) != null)
-            return (Set<User>) request.getResBody(GroupChat.class);
-        return null;
+        Set<User> listUser = (Set<User>) request.getResBody(new TypeReference<Set<User>>() {});
+        return listUser;
     }
 
     public Set<GroupChat> getListGroup() throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/users/%id/groups",  Account.getInstance().getId());
+        String url = String.format("http://localhost:8080/api/v1/users/%d/groups",  Account.getInstance().getId());
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
@@ -86,7 +86,7 @@ public class UserService {
         request.build();
         request.send();
 
-        Set<GroupChat> listGroup = (Set<GroupChat>) request.getResBody(GroupChat.class);
+        Set<GroupChat> listGroup = (Set<GroupChat>) request.getResBody(new TypeReference<Set<GroupChat>>() {});
         return listGroup;
     }
 
@@ -98,7 +98,7 @@ public class UserService {
         request.build();
         request.send();
 
-        User user = (User) request.getResBody(User.class);
+        User user = (User) request.getResBody(new TypeReference<User>() {});
 
         return user;
     }

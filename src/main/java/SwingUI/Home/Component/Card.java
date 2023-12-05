@@ -1,5 +1,6 @@
 package SwingUI.Home.Component;
 
+import com.teamc6.chatsystem.model.GroupChat;
 import com.teamc6.chatsystem.model.User;
 
 import javax.swing.*;
@@ -18,13 +19,13 @@ public class Card<T> extends JPanel {
         setBorder(new CompoundBorder(border, margin));
 
         if (item instanceof User) {
+            System.out.println(((User) item).getFullName());
             add(new JLabel(((User) item).getFullName()), BorderLayout.CENTER);
-            add(new JLabel("Online"), BorderLayout.SOUTH);
-            add(new JLabel("\uD83D\uDC64"), BorderLayout.WEST);
-        } else if (item instanceof String) {
-            add(new JLabel((String) item), BorderLayout.CENTER);
-            add(new JLabel("Online"), BorderLayout.SOUTH);
-            add(new JLabel("\uD83D\uDC64"), BorderLayout.WEST);
+        } else if (item instanceof GroupChat g) {
+            add(new JLabel(g.getGroupName()), BorderLayout.CENTER);
         }
+
+        add(new JLabel("Online"), BorderLayout.SOUTH);
+        add(new JLabel("\uD83D\uDC64"), BorderLayout.WEST);
     }
 }

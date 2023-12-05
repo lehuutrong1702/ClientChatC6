@@ -1,7 +1,9 @@
 package com.teamc6.chatsystem.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.teamc6.chatsystem.model.GroupChat;
+import com.teamc6.chatsystem.model.Page;
 import com.teamc6.chatsystem.model.User;
 import com.teamc6.chatsystem.properties.Account;
 import com.teamc6.chatsystem.request.Request;
@@ -20,7 +22,7 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        GroupChat group = (GroupChat) request.getResBody(GroupChat.class);
+        GroupChat group = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return group;
     }
 
@@ -34,7 +36,7 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        Set<User> members = (Set<User>) request.getResBody(User.class);
+        Set<User> members = (Set<User>) request.getResBody(new TypeReference<Set<User>>() {});
         return members;
     }
 
@@ -48,7 +50,7 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        Set<User> admins = (Set<User>) request.getResBody(User.class);
+        Set<User> admins = (Set<User>) request.getResBody(new TypeReference<Set<User>>() {});
         return admins;
     }
 
@@ -62,7 +64,7 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        GroupChat groupChat = (GroupChat) request.getResBody(GroupChat.class);
+        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return groupChat;
     }
 
@@ -76,7 +78,7 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        GroupChat groupChat = (GroupChat) request.getResBody(GroupChat.class);
+        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return groupChat;
     }
 
@@ -90,7 +92,7 @@ public class GroupChatService {
         request.build();
         request.send();
 
-        GroupChat groupChat = (GroupChat) request.getResBody(GroupChat.class);
+        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return groupChat;
     }
 }

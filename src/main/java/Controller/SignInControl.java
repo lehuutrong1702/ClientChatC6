@@ -26,13 +26,14 @@ public class SignInControl implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == signInFrame.getbSignIn()) {
-            boolean success = false;
             String username = signInFrame.getTfUsername().getText();
             String password = signInFrame.getPfPassword().getText();
             try {
                 User u = UserService.getInstance().findByUserName(username);
                 if(u != null && BCrypt.checkpw(password, u.getPassword())){
                     Account.getInstance().setId(u.getUserId());
+                    Account.getInstance().setUserName(username);
+                    Account.getInstance().setPassWord(password);
                     signInFrame.dispose();
                     new HomeFrame();
                 }
