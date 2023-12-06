@@ -7,12 +7,6 @@ public class GroupChat {
     private String groupName;
     private Date timeCreate;
 
-    public GroupChat(long groupId, String groupName, Date timeCreate) {
-        this.groupId = groupId;
-        this.groupName = groupName;
-        this.timeCreate = timeCreate;
-    }
-
     public long getGroupId() {
         return groupId;
     }

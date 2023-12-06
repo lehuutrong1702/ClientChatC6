@@ -1,6 +1,7 @@
 package com.teamc6.chatsystem.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.teamc6.chatsystem.model.GroupChat;
 import com.teamc6.chatsystem.model.Page;
 import com.teamc6.chatsystem.model.User;
@@ -14,13 +15,10 @@ public class GroupChatService {
     public GroupChat searchGroupChatById(long Id) throws JsonProcessingException {
         String url = String.format("http://localhost:8081/api/v1/groups/%d", Id);
         Request request = new Request(url);
-
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
-
         request.GET();
         request.build();
         request.send();
-
         GroupChat group = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return group;
     }
@@ -56,15 +54,15 @@ public class GroupChatService {
     public GroupChat addMemberGroupChat(long idGroup, long idMember) throws JsonProcessingException{
         String url = String.format("http://localhost:8081/api/v1/groups/%d/members/%d", idGroup, idMember);
         Request request = new Request(url);
-
+        System.out.println(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
-        request.PUT(GroupChat.class);
+        request.POST(null);
         request.build();
         request.send();
 
-        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
-        return groupChat;
+        //GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
+        return searchGroupChatById(idGroup);
     }
 
     public GroupChat addAdminGroupChat(long idGroup, long idAdmin) throws JsonProcessingException{
@@ -73,12 +71,12 @@ public class GroupChatService {
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
-        request.PUT(GroupChat.class);
+        request.PUT(null);
         request.build();
         request.send();
 
-        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
-        return groupChat;
+        //GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
+        return searchGroupChatById(idGroup);
     }
 
     public GroupChat createGroupChat() throws JsonProcessingException{
@@ -93,5 +91,15 @@ public class GroupChatService {
 
         GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return groupChat;
+    }
+
+    private static final GroupChatService INSTANCE = new GroupChatService();
+
+    private GroupChatService() {
+
+    }
+
+    public static GroupChatService getInstance() {
+        return INSTANCE;
     }
 }

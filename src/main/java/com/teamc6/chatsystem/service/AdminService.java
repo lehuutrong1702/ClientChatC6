@@ -59,12 +59,12 @@ public class AdminService {
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
-        request.PUT(GroupChat.class);
+        request.POST(null);
         request.build();
         request.send();
 
-        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
-        return groupChat;
+        //GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
+        return searchGroupChatById(idGroup);
     }
 
     public GroupChat addAdminGroupChat(long idGroup, long idAdmin) throws JsonProcessingException{
@@ -73,12 +73,12 @@ public class AdminService {
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
-        request.PUT(GroupChat.class);
+        request.POST(null);
         request.build();
         request.send();
 
-        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
-        return groupChat;
+        //GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
+        return searchGroupChatById(idGroup);
     }
 
     public Page<User> allUser(long page, long size) throws JsonProcessingException {

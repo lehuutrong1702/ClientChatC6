@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class UserService {
     public Page<User> filterUser(String username, long page, long size) throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/users/filter/username?username=%s&page=%d&size=%d", username, page, size);
+        String url = String.format("http://localhost:8081/api/v1/users/filter/username?username=%s&page=%d&size=%d", username, page, size);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
@@ -26,33 +26,28 @@ public class UserService {
     }
 
     public User findById(long Id) throws JsonProcessingException{
-        String url = String.format("http://localhost:8080/api/v1/users/search/id=%d", Id);
-        System.out.println(url);
+        String url = String.format("http://localhost:8081/api/v1/users/%d", Id);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
-
         request.GET();
         request.build();
         request.send();
-
         User user = (User) request.getResBody(new TypeReference<User>() {});
         return user;
     }
 
     public User findByUserName(String username) throws JsonProcessingException{
-        String url = String.format("http://localhost:8080/api/v1/users/search?username=%s", username);
+        String url = String.format("http://localhost:8081/api/v1/users/search?username=%s", username);
         Request request = new Request(url);
-
         request.GET();
         request.build();
         request.send();
-
         User user = (User) request.getResBody(new TypeReference<User>() {});
         return user;
     }
 
     public Relationship addFriend(long id) throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/users/%d/friends/%d", Account.getInstance().getId(), id);
+        String url = String.format("http://localhost:8081/api/v1/users/%d/friends/%d", Account.getInstance().getId(), id);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
@@ -65,7 +60,7 @@ public class UserService {
     }
 
     public Set<User> getListFriend() throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/users/%d/friends",  Account.getInstance().getId());
+        String url = String.format("http://localhost:8081/api/v1/users/%d/friends",  Account.getInstance().getId());
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -78,7 +73,7 @@ public class UserService {
     }
 
     public Set<GroupChat> getListGroup() throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/users/%d/groups",  Account.getInstance().getId());
+        String url = String.format("http://localhost:8081/api/v1/users/%d/groups",  Account.getInstance().getId());
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
@@ -90,15 +85,15 @@ public class UserService {
         return listGroup;
     }
 
-    public User updateUser() throws JsonProcessingException{
-        String url = String.format("http://localhost:8080/api/v1/users/id=%d",  Account.getInstance().getId());
+    public User updateUser(User user) throws JsonProcessingException{
+        String url = String.format("http://localhost:8081/api/v1/users/%d",  Account.getInstance().getId());
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
-        request.PUT(User.class);
+        request.PUT(user);
         request.build();
         request.send();
 
-        User user = (User) request.getResBody(new TypeReference<User>() {});
+        //User user = (User) request.getResBody(new TypeReference<User>() {});
 
         return user;
     }
