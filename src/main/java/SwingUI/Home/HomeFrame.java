@@ -10,7 +10,7 @@ public class HomeFrame extends JFrame {
         setTitle("Chat System C6");
         setLayout(new BorderLayout());
         SidePanel sidePanel = new SidePanel();
-        MainPanel mainPanel = new MainPanel();
+        MainPanel mainPanel = new MainPanel(this);
 
         add(sidePanel, BorderLayout.WEST);
         add(mainPanel, BorderLayout.CENTER);

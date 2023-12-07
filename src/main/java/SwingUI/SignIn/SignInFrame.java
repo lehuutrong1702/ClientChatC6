@@ -145,21 +145,7 @@ public class SignInFrame extends JFrame {
 
         bSignUp.addActionListener(signInControl);
 
-        tfUsername.addFocusListener(new FocusListener() {
-            public void focusLost(FocusEvent e) {
-                if(tfUsername.getText().isEmpty()) {
-                    tfUsername.setText("Enter your username");
-                    tfUsername.setForeground(Color.gray);
-                }
-            }
-
-            public void focusGained(FocusEvent e) {
-                if(tfUsername.getText().equals("Enter your username")) {
-                    tfUsername.setText("");
-                    tfUsername.setForeground(Color.black);
-                }
-            }
-        });
+        tfUsername.addFocusListener(new CustomFocusListener(tfUsername, "Enter your username"));
 
         pfPassword.addFocusListener(new FocusListener() {
 

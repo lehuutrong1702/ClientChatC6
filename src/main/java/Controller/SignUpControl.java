@@ -2,14 +2,13 @@ package Controller;
 
 import SwingUI.SignIn.SignInFrame;
 import SwingUI.SignUp.SignUpFrame;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatsystem.model.User;
 import com.teamc6.chatsystem.service.UserService;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.Date;
 
 public class SignUpControl implements ActionListener {
     private final UserService userService;
@@ -23,15 +22,30 @@ public class SignUpControl implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == SignUpFrame.getbSignUp()) {
-            //do sth here
+            String username = SignUpFrame.getTfUsername().getText();
+            String fullname =  SignUpFrame.getTfFullname().getText();
+            Date dob = SignUpFrame.getDatePicker().getDate();
+            String email = SignUpFrame.getTfEmail().getText();
+            boolean gender = SignUpFrame.getGender().getSelection().getActionCommand().equals("Male");
+
+            User u = new User();
+            u.setEmail(email);
+            u.setBirthDay(dob);
+            u.setFullName(fullname);
+            u.setUserName(username);
+            u.setGender(gender);
+            u.setRole("USER");
+
+            System.out.println(u);
+        } else {
+            SignUpFrame.dispose();
         }
-        else {
-            try {
-                SignUpFrame.dispose();
-                SignInFrame signInFrame = new SignInFrame();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+
+        try {
+            SignUpFrame.dispose();
+            SignInFrame signInFrame = new SignInFrame();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
     }
 }

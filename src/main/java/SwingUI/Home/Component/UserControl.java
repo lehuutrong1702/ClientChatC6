@@ -1,13 +1,17 @@
 package SwingUI.Home.Component;
 
-import SwingUI.Utils.RoundedCornerBorder;
+import SwingUI.Home.MainPanel;
+import SwingUI.SignIn.SignInFrame;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class UserControl extends JPanel {
-    public UserControl() {
+    public UserControl(MainPanel mainPanel) {
         setBackground(new Color(72, 72, 72));
         setPreferredSize(new Dimension(100, 50));
         setLayout(new GridBagLayout());
@@ -30,6 +34,23 @@ public class UserControl extends JPanel {
                 setBorder(BorderFactory.createLineBorder(Color.GRAY));
             }
         };
+
+        userControlList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                var selectedItem =  userControlList.getSelectedItem();
+                if (userControlList.getItemAt(0) == selectedItem) {
+                    mainPanel.replace(new InfoPanel());
+                } else {
+                    mainPanel.getHomeFrame().dispose();
+                    try {
+                        new SignInFrame();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            }
+        });
 
         add(userControlList);
     }

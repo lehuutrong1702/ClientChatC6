@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class Navigator extends JPanel {
     private final JButton groups;
     private JButton isSelected;
-    private JButton friends;
+    private final JButton friends;
 
     public JButton getGroups() {
         return groups;

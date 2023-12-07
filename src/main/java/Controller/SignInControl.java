@@ -15,11 +15,9 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class SignInControl implements ActionListener {
-    private final UserService userService;
     private final SignInFrame signInFrame;
 
     public SignInControl(SignInFrame signInFrame) {
-        userService = UserService.getInstance();
         this.signInFrame = signInFrame;
     }
 
@@ -31,9 +29,11 @@ public class SignInControl implements ActionListener {
             try {
                 User u = UserService.getInstance().findByUserName(username);
                 if(u != null && BCrypt.checkpw(password, u.getPassword())){
-                    Account.getInstance().setId(u.getUserId());
-                    Account.getInstance().setUserName(username);
-                    Account.getInstance().setPassWord(password);
+                    Account curUser = Account.getInstance();
+                    curUser.setId(u.getUserId());
+                    curUser.setUserName(username);
+                    curUser.setPassWord(password);
+
                     signInFrame.dispose();
                     new HomeFrame();
                 }

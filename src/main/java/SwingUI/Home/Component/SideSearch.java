@@ -37,11 +37,7 @@ public class SideSearch extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 String name = tfSearch.getText();
                 Navigator navigator = sidePanel.getChatNavigator();
-                if (navigator.getIsSelected() == navigator.getFriends()) {
-                    sidePanel.getList().getList(true, name);
-                } else {
-                    sidePanel.getList().getList(false, name);
-                }
+                sidePanel.getList().getList(navigator.getIsSelected() == navigator.getFriends(), name);
             }
         });
 

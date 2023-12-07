@@ -33,7 +33,7 @@ public class App {
 
     public class TestPane extends JPanel {
 
-        private JPanel mainList;
+        private final JPanel mainList;
 
         public TestPane() {
             setLayout(new BorderLayout());
