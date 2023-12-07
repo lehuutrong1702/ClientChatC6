@@ -14,6 +14,7 @@ public class User {
     private String role;
     private boolean Active;
 
+
     public long getUserId() {
         return userId;
     }
@@ -94,6 +95,19 @@ public class User {
         Active = active;
     }
 
+
+    public User(String fullName, Date birthDay, boolean gender, String email, String userName, String password) {
+        this.fullName = fullName;
+        this.birthDay = birthDay;
+        this.gender = gender;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+    }
+    public User()
+    {
+
+    }
 
     @Override
     public String toString() {

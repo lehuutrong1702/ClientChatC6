@@ -2,6 +2,7 @@ package com.teamc6.chatsystem.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.teamc6.chatsystem.model.Connection;
 import com.teamc6.chatsystem.model.GroupChat;
 import com.teamc6.chatsystem.model.Page;
 import com.teamc6.chatsystem.model.User;
@@ -77,6 +78,20 @@ public class GroupChatService {
 
         //GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return searchGroupChatById(idGroup);
+    }
+
+    public Connection getConnect(long idGroup) throws  JsonProcessingException{
+        String url = String.format("http://localhost:8081/api/v1/groups/%d/connection", idGroup);
+        Request request = new Request(url);
+
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Connection connection = (Connection) request.getResBody(new TypeReference<Connection>() {});
+        return connection;
     }
 
     public GroupChat createGroupChat() throws JsonProcessingException{

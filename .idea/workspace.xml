@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="update code commit">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ChatApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ChatApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SignInControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SignInControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/GroupChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/GroupChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ChatApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChatApp$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ChatApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChatApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/GroupChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/GroupChat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
     </list>
@@ -56,21 +50,23 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Minh&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Code/Java/untitled2/src/main/resources&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Minh",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/HCMUS/Nam 3/java/Client/src/main/java/SwingUI/test",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\HCMUS\Nam 3\java\Client\src\main\java\SwingUI\test" />
       <recent name="C:\Code\Java\untitled2\src\main\resources" />
     </key>
   </component>
@@ -194,7 +190,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java</url>
-          <line>40</line>
+          <line>41</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

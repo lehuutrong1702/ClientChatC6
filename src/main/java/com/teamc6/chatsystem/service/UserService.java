@@ -2,10 +2,7 @@ package com.teamc6.chatsystem.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.teamc6.chatsystem.model.GroupChat;
-import com.teamc6.chatsystem.model.Page;
-import com.teamc6.chatsystem.model.Relationship;
-import com.teamc6.chatsystem.model.User;
+import com.teamc6.chatsystem.model.*;
 import com.teamc6.chatsystem.properties.Account;
 import com.teamc6.chatsystem.request.Request;
 
@@ -90,6 +87,47 @@ public class UserService {
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
         request.PUT(user);
+        request.build();
+        request.send();
+
+        //User user = (User) request.getResBody(new TypeReference<User>() {});
+
+        return user;
+    }
+
+    public Page<User> filterFriendByName(Long id, String username, long page, long size) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/users/%d/friends/%s?page=%d&size=%d", id, username, page, size);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<User> pageUser = (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
+        return  pageUser;
+    }
+
+
+    public Page<GroupChat> filterGroupsByName(Long id, String groupname, long page, long size) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/users/%d/groups/%s?page=%d&size=%d", id, groupname, page, size);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<GroupChat> pageGroup = (Page<GroupChat>) request.getResBody(new TypeReference<Page<GroupChat>>() {});
+        return  pageGroup;
+    }
+
+    public User createUser(User user) throws JsonProcessingException{
+        String url = String.format("http://localhost:8081/api/v1/users");
+        Request request = new Request(url);
+        //request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.POST(user);
         request.build();
         request.send();
 

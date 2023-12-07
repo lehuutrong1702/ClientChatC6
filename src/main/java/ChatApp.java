@@ -16,9 +16,9 @@ public class ChatApp {
         Account.getInstance().setPassWord("123");
         //User user = UserService.getInstance().findById(Account.getInstance().getId());
         //user.setFullName("PhanLyBaoHanh");
-        //User user = new User(Account.getInstance().getId(), "PhanLyBaoHanh", null, true, "nguyen123@gmail.com", null, Account.getInstance().getUserName(), Account.getInstance().getPassWord(), "USER", true);
-        System.out.println(GroupChatService.getInstance().searchGroupChatById(1).getGroupName());
-        //System.out.println(UserService.getInstance().getListGroup());
+        //User user = new User("PhanLyBaoHanh", null, true, "nguyenpv.30@gmail.com", "HT123", null);
+        //System.out.println(GroupChatService.getInstance().searchGroupChatById(1).getGroupName());
+        System.out.println(UserService.getInstance().findById(23));
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
