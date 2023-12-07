@@ -12,6 +12,18 @@ public class Navigator extends JPanel {
     private JButton isSelected;
     private JButton friends;
 
+    public JButton getGroups() {
+        return groups;
+    }
+
+    public JButton getIsSelected() {
+        return isSelected;
+    }
+
+    public JButton getFriends() {
+        return friends;
+    }
+
     public Navigator(SidePanel sidePanel) {
         setPreferredSize(new Dimension(200, 50));
         setBackground(Color.yellow);

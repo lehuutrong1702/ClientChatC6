@@ -23,7 +23,6 @@ public class RoundedCornerBorder extends AbstractBorder {
         Area corner = new Area(new Rectangle2D.Double(x, y, width, height));
         corner.subtract(new Area(border));
         g2.fill(corner);
-        g2.setPaint(Color.GRAY);
         g2.draw(border);
         g2.dispose();
     }

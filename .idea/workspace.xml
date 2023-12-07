@@ -4,20 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="update getFriend list">
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="update get friend/group list">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/MessagePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/NavSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Navbar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/UserControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SignInControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SignInControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/ListComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/ListComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Navigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SideSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomeFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/SidePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/request/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/request/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/request/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/request/Request.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/AdminService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/RoundedCornerBorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/RoundedCornerBorder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/Utils/RoundedCornerBorder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/Utils/RoundedCornerBorder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +73,7 @@
       <recent name="C:\Code\Java\untitled2\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ChatApp">
+  <component name="RunManager" selected="Application.HomeFrame">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.teamc6.chatsystem.App" />
       <module name="clientChat" />
@@ -108,8 +109,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ChatApp" />
         <item itemvalue="Application.HomeFrame" />
+        <item itemvalue="Application.ChatApp" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.App" />
       </list>
@@ -154,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701779571453</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update get friend/group list">
+      <option name="closed" value="true" />
+      <created>1701789556055</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701789556055</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,6 +194,7 @@
     <MESSAGE value="update code service 1" />
     <MESSAGE value="update Main frame" />
     <MESSAGE value="update getFriend list" />
-    <option name="LAST_COMMIT_MESSAGE" value="update getFriend list" />
+    <MESSAGE value="update get friend/group list" />
+    <option name="LAST_COMMIT_MESSAGE" value="update get friend/group list" />
   </component>
 </project>

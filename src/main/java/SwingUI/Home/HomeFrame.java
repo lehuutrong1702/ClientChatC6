@@ -1,5 +1,7 @@
 package SwingUI.Home;
 
+import org.example.Main;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,10 +10,10 @@ public class HomeFrame extends JFrame {
         setTitle("Chat System C6");
         setLayout(new BorderLayout());
         SidePanel sidePanel = new SidePanel();
-        JPanel centerPanel = new JPanel();
+        MainPanel mainPanel = new MainPanel();
 
         add(sidePanel, BorderLayout.WEST);
-        add(centerPanel, BorderLayout.CENTER);
+        add(mainPanel, BorderLayout.CENTER);
         init();
     }
 

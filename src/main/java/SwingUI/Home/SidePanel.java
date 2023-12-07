@@ -2,27 +2,22 @@ package SwingUI.Home;
 
 import SwingUI.Home.Component.ListComponent;
 import SwingUI.Home.Component.Navigator;
-import SwingUI.Home.Component.Search;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatsystem.model.User;
-import com.teamc6.chatsystem.service.UserService;
+import SwingUI.Home.Component.SideSearch;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashSet;
-import java.util.Set;
 
 public class SidePanel extends JPanel {
     Navigator chatNavigator;
-    Search search;
+    SideSearch sideSearch;
     ListComponent list;
 
     public Navigator getChatNavigator() {
         return chatNavigator;
     }
 
-    public Search getSearch() {
-        return search;
+    public SideSearch getSearch() {
+        return sideSearch;
     }
 
     public ListComponent getList() {
@@ -39,10 +34,10 @@ public class SidePanel extends JPanel {
         listPanel.setBackground(Color.green);
         listPanel.setLayout(new BorderLayout());
 
-        search = new Search();
+        sideSearch = new SideSearch(this);
 
         list = new ListComponent();
-        listPanel.add(search, BorderLayout.NORTH);
+        listPanel.add(sideSearch, BorderLayout.NORTH);
         listPanel.add(list, BorderLayout.CENTER);
 
         add(chatNavigator, BorderLayout.NORTH);
