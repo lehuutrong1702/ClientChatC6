@@ -1,6 +1,7 @@
 package SwingUI.Home.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatsystem.model.Page;
 import com.teamc6.chatsystem.service.UserService;
 
 import javax.swing.*;
@@ -19,7 +20,7 @@ public class ListComponent extends JPanel {
         main_gbc.weightx = 1;
         main_gbc.weighty = 1;
         mainList.add(new JPanel(), main_gbc);
-        getList(true);
+        //getList(true);
 
         add(new JScrollPane(mainList));
     }
@@ -43,6 +44,39 @@ public class ListComponent extends JPanel {
                 comp_gbc.fill = GridBagConstraints.HORIZONTAL;
 
                 for (var item : list) {
+                    //card component
+                    Card newCard = new Card<>(item);
+                    mainList.add(newCard, comp_gbc, 0);
+                }
+            }
+
+            mainList.revalidate();
+            mainList.repaint();
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void getList(boolean friends, String name) {
+        try {
+            for (var i = 0; i < mainList.getComponentCount() - 1; i++) {
+                mainList.remove(i);
+            }
+
+            Page list = null;
+            if (friends)
+                list = UserService.getInstance().filterUser(name, 1, 20);
+            else {
+
+            }
+
+            if (list != null) {
+                GridBagConstraints comp_gbc = new GridBagConstraints();
+                comp_gbc.gridwidth = GridBagConstraints.REMAINDER;
+                comp_gbc.weightx = 1;
+                comp_gbc.fill = GridBagConstraints.HORIZONTAL;
+
+                for (var item : list.getContent()) {
                     //card component
                     Card newCard = new Card<>(item);
                     mainList.add(newCard, comp_gbc, 0);
