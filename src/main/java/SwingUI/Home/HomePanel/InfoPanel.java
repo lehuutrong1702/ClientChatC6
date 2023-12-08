@@ -1,4 +1,4 @@
-package SwingUI.Home.Component;
+package SwingUI.Home.HomePanel;
 
 import SwingUI.Utils.RoundedCornerBorder;
 import com.fasterxml.jackson.core.JsonProcessingException;

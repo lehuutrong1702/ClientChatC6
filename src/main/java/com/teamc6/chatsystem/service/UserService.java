@@ -103,6 +103,33 @@ public class UserService {
         return user;
     }
 
+    public Page<User> filterFriendByName(Long id, String username, long page, long size) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/users/%d/friends/%s?page=%d&size=%d", id, username, page, size);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<User> pageUser = (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
+        return  pageUser;
+    }
+
+
+    public Page<GroupChat> filterGroupsByName(Long id, String groupname, long page, long size) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/users/%d/groups/%s?page=%d&size=%d", id, groupname, page, size);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<GroupChat> pageGroup = (Page<GroupChat>) request.getResBody(new TypeReference<Page<GroupChat>>() {});
+        return  pageGroup;
+    }
+
     private static final UserService INSTANCE = new UserService();
 
     private UserService() {

@@ -1,6 +1,9 @@
 package SwingUI.Home.Component;
 
+import SwingUI.Home.HomePanel.SearchPanel;
+import SwingUI.Home.MainPanel;
 import SwingUI.Utils.*;
+import org.example.Main;
 
 import javax.swing.*;
 
@@ -14,6 +17,7 @@ import java.awt.Insets;
 import java.awt.event.*;
 
 public class NavSearch extends JPanel {
+    private final MainPanel mainPanel;
     private final JButton bSearch;
     private final JTextField tfSearch;
 
@@ -27,7 +31,8 @@ public class NavSearch extends JPanel {
     }
 
 
-    public NavSearch()  {
+    public NavSearch(MainPanel mainPanel)  {
+        this.mainPanel = mainPanel;
         tfSearch = new JTextField() {
             protected void paintComponent(Graphics g) {
                 if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
@@ -69,19 +74,12 @@ public class NavSearch extends JPanel {
 
     public void addEventListeners() {
         //submit button action listener
-        tfSearch.addFocusListener(new FocusListener() {
-            public void focusLost(FocusEvent e) {
-                if(tfSearch.getText().isEmpty()) {
-                    tfSearch.setText("Search");
-                    tfSearch.setForeground(Color.gray);
-                }
-            }
-
-            public void focusGained(FocusEvent e) {
-                if(tfSearch.getText().equals("Search")) {
-                    tfSearch.setText("");
-                    tfSearch.setForeground(Color.black);
-                }
+        tfSearch.addFocusListener(new CustomFocusListener(tfSearch, "Search"));
+        bSearch.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SearchPanel searchPanel = new SearchPanel();
+                mainPanel.replace(searchPanel);
             }
         });
     }

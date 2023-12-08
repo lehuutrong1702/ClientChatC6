@@ -1,5 +1,6 @@
 package SwingUI.Home.Component;
 
+import SwingUI.Home.HomePanel.InfoPanel;
 import SwingUI.Home.MainPanel;
 import SwingUI.SignIn.SignInFrame;
 

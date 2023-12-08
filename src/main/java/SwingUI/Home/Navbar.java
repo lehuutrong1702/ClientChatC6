@@ -1,5 +1,7 @@
-package SwingUI.Home.Component;
+package SwingUI.Home;
 
+import SwingUI.Home.Component.NavSearch;
+import SwingUI.Home.Component.UserControl;
 import SwingUI.Home.MainPanel;
 import SwingUI.Utils.RoundedCornerBorder;
 import org.example.Main;
@@ -13,8 +15,7 @@ public class Navbar extends JPanel {
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(750, 50));
 
-        NavSearch navSearch = new NavSearch();
-
+        NavSearch navSearch = new NavSearch(mainPanel);
         UserControl userControl = new UserControl(mainPanel);
 
         add(navSearch, BorderLayout.CENTER);

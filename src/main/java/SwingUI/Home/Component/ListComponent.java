@@ -2,6 +2,7 @@ package SwingUI.Home.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatsystem.model.Page;
+import com.teamc6.chatsystem.properties.Account;
 import com.teamc6.chatsystem.service.UserService;
 
 import javax.swing.*;
@@ -65,10 +66,10 @@ public class ListComponent extends JPanel {
 
             Page list = null;
             if (friends)
-                list = UserService.getInstance().filterUser(name, 1, 20);
-            else {
+                list = UserService.getInstance().filterFriendByName(Account.getInstance().getId(), name, 1, 20);
+            else
+                list = UserService.getInstance().filterGroupsByName(Account.getInstance().getId(), name, 1, 20);
 
-            }
 
             if (list != null) {
                 GridBagConstraints comp_gbc = new GridBagConstraints();
