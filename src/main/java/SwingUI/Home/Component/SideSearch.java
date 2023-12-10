@@ -1,5 +1,6 @@
 package SwingUI.Home.Component;
 
+import Controller.SideSearchControl;
 import SwingUI.Home.SidePanel;
 
 import javax.swing.*;
@@ -10,11 +11,28 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
 public class SideSearch extends JPanel {
+    private final JTextField tfSearch;
+    private final JButton bSearch;
+    private final SidePanel sidePanel;
+
+    public JTextField getTfSearch() {
+        return tfSearch;
+    }
+
+    public JButton getbSearch() {
+        return bSearch;
+    }
+
+    public SidePanel getSidePanel() {
+        return sidePanel;
+    }
+
     public SideSearch(SidePanel sidePanel) {
+        this.sidePanel = sidePanel;
         setLayout(new BorderLayout());
-        JTextField tfSearch = new JTextField("Search");
+        tfSearch = new JTextField("Search");
         tfSearch.setPreferredSize(new Dimension(150, 35));
-        JButton bSearch = new JButton("🔍");
+        bSearch = new JButton("🔍");
         bSearch.setPreferredSize(new Dimension(50, 35));
         tfSearch.addFocusListener(new FocusListener() {
             public void focusLost(FocusEvent e) {
@@ -32,14 +50,7 @@ public class SideSearch extends JPanel {
             }
         });
 
-        bSearch.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String name = tfSearch.getText();
-                Navigator navigator = sidePanel.getChatNavigator();
-                sidePanel.getList().getList(navigator.getIsSelected() == navigator.getFriends(), name);
-            }
-        });
+        bSearch.addActionListener(new SideSearchControl(this));
 
         add(tfSearch, BorderLayout.CENTER);
         add(bSearch, BorderLayout.EAST);

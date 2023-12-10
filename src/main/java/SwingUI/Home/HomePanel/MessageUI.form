@@ -12,13 +12,13 @@
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="9a0d0" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <component id="ca9d4" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
             <constraints/>
-            <properties/>
-            <border type="none"/>
-            <children/>
-          </grid>
+            <properties>
+              <editable value="true"/>
+              <enabled value="false"/>
+            </properties>
+          </component>
         </children>
       </scrollpane>
       <grid id="73fc5" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -52,11 +52,11 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="cbfb0" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+          <component id="cbfb0" class="javax.swing.JComboBox" binding="option">
             <constraints border-constraint="East"/>
             <properties/>
           </component>
-          <component id="d1ebe" class="javax.swing.JLabel">
+          <component id="d1ebe" class="javax.swing.JLabel" binding="name">
             <constraints border-constraint="West"/>
             <properties>
               <text value="Name"/>

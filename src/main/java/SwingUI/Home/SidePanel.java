@@ -11,6 +11,11 @@ public class SidePanel extends JPanel {
     Navigator chatNavigator;
     SideSearch sideSearch;
     ListComponent list;
+    HomeFrame homeFrame;
+
+    public HomeFrame getHomeFrame() {
+        return homeFrame;
+    }
 
     public Navigator getChatNavigator() {
         return chatNavigator;
@@ -24,10 +29,10 @@ public class SidePanel extends JPanel {
         return list;
     }
 
-    public SidePanel() {
+    public SidePanel(HomeFrame homeFrame) {
+        this.homeFrame = homeFrame;
         setPreferredSize(new Dimension(200, 650));
         setLayout(new BorderLayout());
-
         chatNavigator = new Navigator(this);
 
         JPanel listPanel = new JPanel();
@@ -35,10 +40,15 @@ public class SidePanel extends JPanel {
         listPanel.setLayout(new BorderLayout());
 
         sideSearch = new SideSearch(this);
+        list = new ListComponent(this);
 
-        list = new ListComponent();
         listPanel.add(sideSearch, BorderLayout.NORTH);
         listPanel.add(list, BorderLayout.CENTER);
+
+        if (chatNavigator.getSelected() == chatNavigator.getGroups()) {
+            JButton addNew = new JButton("Add new group");
+            listPanel.add(addNew, BorderLayout.SOUTH);
+        }
 
         add(chatNavigator, BorderLayout.NORTH);
         add(listPanel, BorderLayout.CENTER);

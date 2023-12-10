@@ -2,6 +2,7 @@ package Controller;
 
 import SwingUI.SignIn.SignInFrame;
 import SwingUI.SignUp.SignUpFrame;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatsystem.model.User;
 import com.teamc6.chatsystem.service.UserService;
 
@@ -35,6 +36,12 @@ public class SignUpControl implements ActionListener {
             u.setUserName(username);
             u.setGender(gender);
             u.setRole("USER");
+
+            try {
+                UserService.getInstance().adduser(u);
+            } catch (JsonProcessingException ex) {
+                throw new RuntimeException(ex);
+            }
 
             System.out.println(u);
         } else {

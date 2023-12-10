@@ -1,5 +1,6 @@
 package SwingUI.Home.Component;
 
+import Controller.NavSearchControl;
 import SwingUI.Home.HomePanel.SearchPanel;
 import SwingUI.Home.MainPanel;
 import SwingUI.Utils.*;
@@ -21,6 +22,9 @@ public class NavSearch extends JPanel {
     private final JButton bSearch;
     private final JTextField tfSearch;
 
+    public MainPanel getMainPanel() {
+        return mainPanel;
+    }
 
     public JButton getbSearch() {
         return bSearch;
@@ -75,13 +79,7 @@ public class NavSearch extends JPanel {
     public void addEventListeners() {
         //submit button action listener
         tfSearch.addFocusListener(new CustomFocusListener(tfSearch, "Search"));
-        bSearch.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SearchPanel searchPanel = new SearchPanel();
-                mainPanel.replace(searchPanel);
-            }
-        });
+        bSearch.addActionListener(new NavSearchControl(this));
     }
 
     public void init() {

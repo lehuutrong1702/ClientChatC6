@@ -25,6 +25,19 @@ public class UserService {
         return  pageUser;
     }
 
+    public User adduser(User u) throws JsonProcessingException {
+        String url = "http://localhost:8080/api/v1/users";
+        Request request = new Request(url);
+        //request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.POST(u);
+        request.build();
+        request.send();
+
+        User user = (User) request.getResBody(new TypeReference<User>() {});
+        return  user;
+    }
+
     public User findById(long Id) throws JsonProcessingException{
         String url = String.format("http://localhost:8080/api/v1/users/search/id=%d", Id);
         System.out.println(url);

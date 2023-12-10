@@ -1,5 +1,6 @@
 package SwingUI.Home.Component;
 
+import Controller.SideNavControl;
 import SwingUI.Home.SidePanel;
 
 import javax.swing.*;
@@ -11,12 +12,21 @@ public class Navigator extends JPanel {
     private final JButton groups;
     private JButton isSelected;
     private final JButton friends;
+    private SidePanel sidePanel;
+
+    public SidePanel getSidePanel() {
+        return sidePanel;
+    }
+
+    public void setIsSelected(JButton isSelected) {
+        this.isSelected = isSelected;
+    }
 
     public JButton getGroups() {
         return groups;
     }
 
-    public JButton getIsSelected() {
+    public JButton getSelected() {
         return isSelected;
     }
 
@@ -25,6 +35,7 @@ public class Navigator extends JPanel {
     }
 
     public Navigator(SidePanel sidePanel) {
+        this.sidePanel = sidePanel;
         setPreferredSize(new Dimension(200, 50));
         setBackground(Color.yellow);
         setLayout(new GridLayout(1, 2));
@@ -35,28 +46,9 @@ public class Navigator extends JPanel {
         friends.setBackground(Color.gray);
         isSelected = friends;
 
-        friends.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (isSelected != friends) {
-                    isSelected = friends;
-                    groups.setBackground(friends.getBackground());
-                    friends.setBackground(Color.gray);
-                    sidePanel.getList().getList(true);
-                }
-            }
-        });
-        groups.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (isSelected != groups) {
-                    isSelected = groups;
-                    friends.setBackground(groups.getBackground());
-                    groups.setBackground(Color.gray);
-                    sidePanel.getList().getList(false);
-                }
-            }
-        });
+        SideNavControl sideNavControl = new SideNavControl(this);
+        friends.addActionListener(sideNavControl);
+        groups.addActionListener(sideNavControl);
 
         add(friends);
         add(groups);

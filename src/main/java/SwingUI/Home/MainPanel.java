@@ -9,15 +9,12 @@ import java.awt.*;
 public class MainPanel extends JPanel {
     HomeFrame homeFrame;
 
-    public MainPanel(HomeFrame homeFrame) {
-        this.homeFrame = homeFrame;
+    public MainPanel() {
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(750, 650));
 
         Navbar navbar = new Navbar(this);
-        MessagePanel messagePanel = new MessagePanel();
         add(navbar, BorderLayout.NORTH);
-        add(messagePanel, BorderLayout.CENTER);
     }
 
     public HomeFrame getHomeFrame() {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="SwingUI.Home.Component.SearchCard">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+  <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
@@ -20,20 +20,20 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="d33cb" class="javax.swing.JLabel">
+          <component id="d33cb" class="javax.swing.JLabel" binding="name">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Name (Username)"/>
+              <text value="Name"/>
             </properties>
           </component>
-          <component id="3eac2" class="javax.swing.JLabel">
+          <component id="3eac2" class="javax.swing.JLabel" binding="other">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Gender"/>
+              <text value="Username"/>
             </properties>
           </component>
         </children>
@@ -44,7 +44,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="755a9" class="javax.swing.JButton" binding="addFriendButton" default-binding="true">
+          <component id="755a9" class="javax.swing.JButton" binding="bAdd">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -54,7 +54,7 @@
               <text value="+"/>
             </properties>
           </component>
-          <component id="991a8" class="javax.swing.JButton" binding="xButton" default-binding="true">
+          <component id="991a8" class="javax.swing.JButton" binding="bDel">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>

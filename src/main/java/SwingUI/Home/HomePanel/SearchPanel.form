@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="SwingUI.Home.HomePanel.SearchUi">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="SwingUI.Home.HomePanel.SearchPanel">
   <grid id="27dc6" binding="MainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="20" y="20" width="417" height="400"/>
@@ -25,10 +25,12 @@
           </component>
         </children>
       </grid>
-      <grid id="65520" layout-manager="BorderLayout" hgap="0" vgap="0">
+      <grid id="65520" binding="panelSearch" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="Center"/>
         <properties/>
-        <border type="none"/>
+        <border type="empty">
+          <size top="0" left="10" bottom="10" right="10"/>
+        </border>
         <children>
           <grid id="8904b" binding="FilterPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="10" right="0"/>
@@ -76,7 +78,7 @@
               </grid>
             </children>
           </grid>
-          <scrollpane id="24ab6">
+          <scrollpane id="24ab6" binding="ScrollPane">
             <constraints border-constraint="Center"/>
             <properties/>
             <border type="none">
