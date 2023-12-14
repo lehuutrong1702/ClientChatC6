@@ -1,5 +1,7 @@
 package SwingUI.Home.HomePanel;
 
+import Controller.InfoPanelControl;
+import SwingUI.Utils.CustomDatePicker;
 import SwingUI.Utils.RoundedCornerBorder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatsystem.model.User;
@@ -8,19 +10,21 @@ import com.teamc6.chatsystem.service.UserService;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 
 public class InfoPanel extends JPanel {
     private final JLabel lbMain;
     private final JButton bUpdate;
     private final JTextField tfName;
     private final JTextField tfPassword;
-    private final JTextField tfBirthday;
+    private final CustomDatePicker datePicker;
     private final JTextField tfEmail;
     private User u;
 
-    public InfoPanel() {
+    public InfoPanel(User u) {
+        this.u = u;
+
+        datePicker = new CustomDatePicker();
+
         lbMain = new JLabel("User info");
         tfName = new JTextField() {
             protected void paintComponent(Graphics g) {
@@ -60,24 +64,6 @@ public class InfoPanel extends JPanel {
             }
         };
 
-        tfBirthday = new JTextField() {
-            protected void paintComponent(Graphics g) {
-                if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
-                    Graphics2D g2 = (Graphics2D) g.create();
-                    g2.setPaint(getBackground());
-                    g2.fill(((RoundedCornerBorder) getBorder()).getBorderShape(
-                            0, 0, getWidth() - 1, getHeight() - 1));
-                    g2.dispose();
-                }
-                super.paintComponent(g);
-            }
-
-            public void updateUI() {
-                super.updateUI();
-                setOpaque(false);
-                setBorder(new RoundedCornerBorder());
-            }
-        };
 
         tfEmail = new JTextField() {
             protected void paintComponent(Graphics g) {
@@ -116,10 +102,35 @@ public class InfoPanel extends JPanel {
                 setBorder(new RoundedCornerBorder());
             }
         };
+        bUpdate.addActionListener(new InfoPanelControl(this));
 
         init();
 
 
+    }
+
+    public CustomDatePicker getDatePicker() {
+        return datePicker;
+    }
+
+    public JLabel getLbMain() {
+        return lbMain;
+    }
+
+    public JTextField getTfName() {
+        return tfName;
+    }
+
+    public JTextField getTfPassword() {
+        return tfPassword;
+    }
+
+    public JTextField getTfEmail() {
+        return tfEmail;
+    }
+
+    public User getU() {
+        return u;
     }
 
     public void getInfo() throws JsonProcessingException {
@@ -130,29 +141,6 @@ public class InfoPanel extends JPanel {
         return bUpdate;
     }
 
-    public JTextField gettfName() {
-        return tfName;
-    }
-
-
-    public void addEventListeners() {
-        //submit button action listener
-        tfName.addFocusListener(new FocusListener() {
-            public void focusLost(FocusEvent e) {
-                if (tfName.getText().isEmpty()) {
-                    tfName.setText("Search");
-                    tfName.setForeground(Color.gray);
-                }
-            }
-
-            public void focusGained(FocusEvent e) {
-                if (tfName.getText().equals("Search")) {
-                    tfName.setText("");
-                    tfName.setForeground(Color.black);
-                }
-            }
-        });
-    }
 
     public void init() {
         setLayout(new GridBagLayout());
@@ -164,19 +152,19 @@ public class InfoPanel extends JPanel {
         bUpdate.setBackground(new Color(66, 245, 114));
         bUpdate.setFocusPainted(false);
 
-        tfName.setText("Full name");
+        tfName.setText(u.getFullName());
         tfName.setPreferredSize(new Dimension(300, 40));
         tfName.setForeground(Color.gray);
 
-        tfPassword.setText("Password");
+        tfPassword.setText(Account.getInstance().getPassWord());
         tfPassword.setPreferredSize(new Dimension(300, 40));
         tfPassword.setForeground(Color.gray);
 
-        tfBirthday.setText("Birthday");
-        tfBirthday.setPreferredSize(new Dimension(300, 40));
-        tfBirthday.setForeground(Color.gray);
+        datePicker.setDate(u.getBirthDay());
+        datePicker.setPreferredSize(new Dimension(300, 40));
+        datePicker.setForeground(Color.gray);
 
-        tfEmail.setText("Email");
+        tfEmail.setText(u.getEmail());
         tfEmail.setPreferredSize(new Dimension(300, 40));
         tfEmail.setForeground(Color.gray);
 
@@ -189,7 +177,7 @@ public class InfoPanel extends JPanel {
         input.anchor = GridBagConstraints.CENTER;
         input.insets = labelInsets;
         input.gridy = 0;
-        add(lbMain,input);
+        add(lbMain, input);
 
         input.gridx = 0;
         input.gridy = 1;
@@ -215,7 +203,7 @@ public class InfoPanel extends JPanel {
 
         input.gridy = 6;
         input.insets = textInsets;
-        add(tfBirthday, input);
+        add(datePicker, input);
 
         input.gridy = 7;
         JLabel email = new JLabel("Email");
@@ -229,7 +217,5 @@ public class InfoPanel extends JPanel {
         input.anchor = GridBagConstraints.WEST;
         input.gridy = 9;
         add(bUpdate, input);
-
-        addEventListeners();
     }
 }

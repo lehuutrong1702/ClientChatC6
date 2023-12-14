@@ -1,6 +1,6 @@
 package Controller;
 
-import SwingUI.Home.Component.Navigator;
+import SwingUI.Home.Component.SideNav;
 import SwingUI.Home.Component.SideSearch;
 
 import java.awt.event.ActionEvent;
@@ -16,8 +16,8 @@ public class SideSearchControl implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String name = search.getTfSearch().getText();
-        Navigator navigator = search.getSidePanel().getChatNavigator();
-        search.getSidePanel().getList().getList(navigator.getSelected() == navigator.getFriends(), name);
+        SideNav sideNav = search.getSidePanel().getChatNavigator();
+        search.getSidePanel().getList().getList(sideNav.getSelected() == sideNav.getFriends(), name);
     }
 
 }

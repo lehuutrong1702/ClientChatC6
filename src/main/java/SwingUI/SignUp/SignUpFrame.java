@@ -95,7 +95,6 @@ public class SignUpFrame extends JFrame {
         };
 
         datePicker = new CustomDatePicker();
-
         male = new JRadioButton("Male");
         male.setActionCommand("Male");
         female = new JRadioButton("Female");

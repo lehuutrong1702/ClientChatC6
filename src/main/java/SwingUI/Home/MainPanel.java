@@ -2,6 +2,8 @@ package SwingUI.Home;
 
 import SwingUI.Home.HomePanel.MessagePanel;
 import SwingUI.Home.HomePanel.SearchPanel;
+import com.teamc6.chatsystem.model.GroupChat;
+import com.teamc6.chatsystem.model.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,12 +11,18 @@ import java.awt.*;
 public class MainPanel extends JPanel {
     HomeFrame homeFrame;
 
-    public MainPanel() {
+    public MainPanel(HomeFrame homeFrame) {
+        this.homeFrame = homeFrame;
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(750, 650));
 
         Navbar navbar = new Navbar(this);
         add(navbar, BorderLayout.NORTH);
+
+        //User u = new User(); u.setFullName("Phan Van Nguyen");
+        GroupChat g = new GroupChat();
+        g.setGroupName("Doi hoa simp");
+        add(new MessagePanel<>(g), BorderLayout.CENTER);
     }
 
     public HomeFrame getHomeFrame() {

@@ -5,10 +5,8 @@ import SwingUI.Home.SidePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class Navigator extends JPanel {
+public class SideNav extends JPanel {
     private final JButton groups;
     private JButton isSelected;
     private final JButton friends;
@@ -34,7 +32,7 @@ public class Navigator extends JPanel {
         return friends;
     }
 
-    public Navigator(SidePanel sidePanel) {
+    public SideNav(SidePanel sidePanel) {
         this.sidePanel = sidePanel;
         setPreferredSize(new Dimension(200, 50));
         setBackground(Color.yellow);

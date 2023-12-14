@@ -7,32 +7,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="update SearchUI and MessageUI">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/CardControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/NavSearchControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/SideNavControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/SideSearchControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserControl.java" afterDir="false" />
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="add controllers and update ui">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/ChatControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/InfoPanelControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/MessageUIControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SignUpControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SignUpControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/ListComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/ListComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/NavSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/NavSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SearchCard.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SearchCard.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SearchCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SearchCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SideSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SideSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SideNavControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SideNavControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SidePanelControl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SideSearchControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SideSearchControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UCControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SideNav.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/UserControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/UserControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/InfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/InfoPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessagePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessageUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessageUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessageUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessageUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/SearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/SearchPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/SearchUi.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/SearchPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/SearchUi.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/SidePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/SignUp/SignUpFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/SignUp/SignUpFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomDatePicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomDatePicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/GroupChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/GroupChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/Utils/RoundedCornerBorder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/Utils/RoundedCornerBorder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/request/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/request/Request.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +67,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Nguyen" />
+        <entry key="$PROJECT_DIR$" value="Minh" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,22 +87,22 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;269&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;309&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Minh&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Code/Java/jdatepicker-1.3.4.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "195",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "309",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Code/Java/jdatepicker-1.3.4.jar",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Code\Java\untitled2\src\main\resources" />
@@ -133,7 +150,8 @@
         <item itemvalue="Application.HomeFrame" />
         <item itemvalue="Application.ChatApp" />
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.App" />
+        <item itemvalue="Application.ChatApp" />
+        <item itemvalue="Application.HomeFrame" />
       </list>
     </recent_temporary>
   </component>
@@ -208,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702047246511</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add controllers and update ui">
+      <option name="closed" value="true" />
+      <created>1702224012545</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702224012545</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,6 +269,7 @@
     <MESSAGE value="update searching" />
     <MESSAGE value="update SignUp and MainFrame" />
     <MESSAGE value="update SearchUI and MessageUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="update SearchUI and MessageUI" />
+    <MESSAGE value="add controllers and update ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="add controllers and update ui" />
   </component>
 </project>

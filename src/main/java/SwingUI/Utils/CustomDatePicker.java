@@ -48,4 +48,14 @@ public class CustomDatePicker extends JPanel {
         return new Date(uDate.getTime());
     }
 
+
+    public void setDate(int year, int month, int day) {
+        model.setDate(year, month - 1, day);
+    }
+
+    public void setDate(java.util.Date date) {
+        if (date == null) return;
+
+        model.setDate(date.getYear(), date.getMonth(), date.getDay());
+    }
 }

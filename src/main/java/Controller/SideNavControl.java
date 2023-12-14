@@ -1,15 +1,15 @@
 package Controller;
 
-import SwingUI.Home.Component.Navigator;
+import SwingUI.Home.Component.SideNav;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SideNavControl implements ActionListener {
-    private final Navigator nav;
+    private final SideNav nav;
 
-    public SideNavControl(Navigator nav) {
+    public SideNavControl(SideNav nav) {
         this.nav = nav;
     }
     @Override

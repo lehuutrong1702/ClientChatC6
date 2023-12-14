@@ -1,8 +1,13 @@
 package SwingUI.Home.Component;
 
+import Controller.UCControl;
 import SwingUI.Home.HomePanel.InfoPanel;
 import SwingUI.Home.MainPanel;
 import SwingUI.SignIn.SignInFrame;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatsystem.model.User;
+import com.teamc6.chatsystem.properties.Account;
+import com.teamc6.chatsystem.service.UserService;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicComboBoxUI;
@@ -26,29 +31,14 @@ public class UserControl extends JPanel {
         setLayout(new GridBagLayout());
 
         userControlList = initJComboBox();
-        userControlList.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                var selectedItem =  userControlList.getSelectedItem();
-                if (userControlList.getItemAt(0) == selectedItem) {
-                    mainPanel.replace(new InfoPanel());
-                } else {
-                    mainPanel.getHomeFrame().dispose();
-                    try {
-                        new SignInFrame();
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                }
-            }
-        });
+        userControlList.addActionListener(new UCControl(this));
 
         add(userControlList);
     }
 
     private JComboBox<String> initJComboBox() {
         DefaultComboBoxModel<String> action = new DefaultComboBoxModel<>();
-        action.addElement("\uD83D\uDC64 Username");
+        action.addElement("\uD83D\uDC64 " + Account.getInstance().getUserName());
         action.addElement("Log out");
         JComboBox<String> userControlList = new JComboBox<String>(action) {
             @Override public void updateUI() {

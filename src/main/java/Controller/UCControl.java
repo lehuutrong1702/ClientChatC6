@@ -1,20 +1,24 @@
 package Controller;
 
+import SwingUI.Home.Component.UserControl;
 import SwingUI.Home.HomePanel.InfoPanel;
 import SwingUI.Home.MainPanel;
 import SwingUI.SignIn.SignInFrame;
-import org.example.Main;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatsystem.model.User;
+import com.teamc6.chatsystem.properties.Account;
+import com.teamc6.chatsystem.service.UserService;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class UserControl implements ActionListener {
+public class UCControl implements ActionListener {
 
-    private final SwingUI.Home.Component.UserControl userControl;
+    private final UserControl userControl;
 
-    public UserControl(SwingUI.Home.Component.UserControl userControl) {
+    public UCControl(UserControl userControl) {
         this.userControl = userControl;
     }
 
@@ -22,9 +26,14 @@ public class UserControl implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JComboBox<String> userControlList = userControl.getUserControlList();
         MainPanel mainPanel = userControl.getMainPanel();
-        var selectedItem =  userControlList.getSelectedItem();
+        var selectedItem = userControlList.getSelectedItem();
         if (userControlList.getItemAt(0) == selectedItem) {
-            mainPanel.replace(new InfoPanel());
+            try {
+                User u = UserService.getInstance().findByUserName(Account.getInstance().getUserName());
+                mainPanel.replace(new InfoPanel(u));
+            } catch (JsonProcessingException ex) {
+                throw new RuntimeException(ex);
+            }
         } else {
             mainPanel.getHomeFrame().dispose();
             try {

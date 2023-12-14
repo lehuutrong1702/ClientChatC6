@@ -13,6 +13,10 @@ public class GroupChat {
         this.timeCreate = timeCreate;
     }
 
+    public GroupChat() {
+
+    }
+
     public long getGroupId() {
         return groupId;
     }

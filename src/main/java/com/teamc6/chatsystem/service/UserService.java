@@ -103,11 +103,11 @@ public class UserService {
         return listGroup;
     }
 
-    public User updateUser() throws JsonProcessingException{
+    public User updateUser(User u) throws JsonProcessingException{
         String url = String.format("http://localhost:8080/api/v1/users/id=%d",  Account.getInstance().getId());
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
-        request.PUT(User.class);
+        request.PUT(u);
         request.build();
         request.send();
 
