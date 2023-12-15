@@ -104,6 +104,20 @@ public class User {
         this.userName = userName;
         this.password = password;
     }
+
+    public User(String fullName, Date birthDay, boolean gender, String email, Date timeRegister,
+                String userName, String password, String role, boolean active) {
+        this.fullName = fullName;
+        this.birthDay = birthDay;
+        this.gender = gender;
+        this.email = email;
+        this.timeRegister = timeRegister;
+        this.userName = userName;
+        this.password = password;
+        this.role = role;
+        Active = active;
+    }
+
     public User()
     {
 

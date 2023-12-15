@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="update code commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ChatApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ChatApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ChatApp$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ChatApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChatApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,20 +46,20 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Minh",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/HCMUS/Nam 3/java/Client/src/main/java/SwingUI/test",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Minh&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/HCMUS/Nam 3/java/Client/src/main/java/SwingUI/test&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.ignored.files&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\HCMUS\Nam 3\java\Client\src\main\java\SwingUI\test" />

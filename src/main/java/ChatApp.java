@@ -11,25 +11,25 @@ import java.io.IOException;
 
 public class ChatApp {
     public static void main(String[] args) throws JsonProcessingException {
-        Account.getInstance().setId(20);
-        Account.getInstance().setUserName("Khiem123");
-        Account.getInstance().setPassWord("123");
+//        Account.getInstance().setId(20);
+//        Account.getInstance().setUserName("Khiem123");
+//        Account.getInstance().setPassWord("123");
         //User user = UserService.getInstance().findById(Account.getInstance().getId());
         //user.setFullName("PhanLyBaoHanh");
-        //User user = new User("PhanLyBaoHanh", null, true, "nguyenpv.30@gmail.com", "HT123", null);
+        User user = new User("PhanLyBaoHanh", null, true, "nguyenpv.30@gmail.com", null , "HT1234", null, "USER", true);
         //System.out.println(GroupChatService.getInstance().searchGroupChatById(1).getGroupName());
-        System.out.println(UserService.getInstance().findById(23));
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-
-                    new SignInFrame();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
+        System.out.println(UserService.getInstance().createUser(user));
+//        SwingUtilities.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//
+//                    new SignInFrame();
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+//        });
 
     }
 }
