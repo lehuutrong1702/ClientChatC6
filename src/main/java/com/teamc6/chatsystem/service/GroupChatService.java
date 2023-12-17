@@ -14,7 +14,7 @@ import java.util.Set;
 
 public class GroupChatService {
     public Connection getConnectionByID(long Id) throws JsonProcessingException {
-        String url = String.format("http://localhost:8081/api/v1/groups/%d/connection", Id);
+        String url = String.format("http://localhost:8080/api/v1/groups/%d/connection", Id);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
@@ -26,7 +26,7 @@ public class GroupChatService {
         return connection;
     }
     public GroupChat searchGroupChatById(long Id) throws JsonProcessingException {
-        String url = String.format("http://localhost:8081/api/v1/groups/%d", Id);
+        String url = String.format("http://localhost:8080/api/v1/groups/%d", Id);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -40,7 +40,7 @@ public class GroupChatService {
     }
 
     public Set<User> listMember(long Id) throws JsonProcessingException{
-        String url = String.format("http://localhost:8081/api/v1/groups/%d/members", Id);
+        String url = String.format("http://localhost:8080/api/v1/groups/%d/members", Id);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -54,7 +54,7 @@ public class GroupChatService {
     }
 
     public Set<User> listAdmin(long Id) throws JsonProcessingException{
-        String url = String.format("http://localhost:8081/api/v1/groups/%d/admins", Id);
+        String url = String.format("http://localhost:8080/api/v1/groups/%d/admins", Id);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -68,7 +68,7 @@ public class GroupChatService {
     }
 
     public GroupChat addMemberGroupChat(long idGroup, long idMember) throws JsonProcessingException{
-        String url = String.format("http://localhost:8081/api/v1/groups/%d/members/%d", idGroup, idMember);
+        String url = String.format("http://localhost:8080/api/v1/groups/%d/members/%d", idGroup, idMember);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -82,7 +82,7 @@ public class GroupChatService {
     }
 
     public GroupChat addAdminGroupChat(long idGroup, long idAdmin) throws JsonProcessingException{
-        String url = String.format("http://localhost:8081/api/v1/groups/%d/admins/%d", idGroup, idAdmin);
+        String url = String.format("http://localhost:8080/api/v1/groups/%d/admins/%d", idGroup, idAdmin);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -96,7 +96,7 @@ public class GroupChatService {
     }
 
     public GroupChat createGroupChat() throws JsonProcessingException{
-        String url = "http://localhost:8081/api/v1/groups";
+        String url = "http://localhost:8080/api/v1/groups";
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -107,5 +107,12 @@ public class GroupChatService {
 
         GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return groupChat;
+    }
+    private static final GroupChatService INSTANCE = new GroupChatService();
+    private GroupChatService() {
+
+    }
+    public static GroupChatService getInstance() {
+        return INSTANCE;
     }
 }

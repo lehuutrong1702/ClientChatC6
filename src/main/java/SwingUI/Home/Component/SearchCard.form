@@ -51,7 +51,7 @@
             <properties>
               <background color="-7930055"/>
               <borderPainted value="true"/>
-              <text value="+"/>
+              <text value="Add friend"/>
             </properties>
           </component>
           <component id="991a8" class="javax.swing.JButton" binding="bDel">
@@ -60,7 +60,7 @@
             </constraints>
             <properties>
               <background color="-4639178"/>
-              <text value="x"/>
+              <text value="Block"/>
             </properties>
           </component>
         </children>

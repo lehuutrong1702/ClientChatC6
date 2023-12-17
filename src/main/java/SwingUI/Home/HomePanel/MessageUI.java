@@ -1,14 +1,22 @@
 package SwingUI.Home.HomePanel;
 
+import Controller.MessageUIControl;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatsystem.model.Connection;
 import com.teamc6.chatsystem.model.GroupChat;
 import com.teamc6.chatsystem.model.User;
+import com.teamc6.chatsystem.service.GroupChatService;
+import com.teamc6.chatsystem.service.UserService;
+import com.teamc6.chatsystem.socket.SocketClient;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class MessageUI<T> {
-    private Connection connection;
+    private SocketClient socketClient;
     private JPanel UiPanel;
     private JTextArea textArea;
     private JTextField message;
@@ -28,6 +36,23 @@ public class MessageUI<T> {
 
         if (item instanceof User u) {
             name.setText(u.getFullName());
+            textArea.setLineWrap(true);
+            try {
+                GroupChat groupChat = UserService.getInstance().getPrivateGroupChat(u.getUserId());
+                System.out.println(groupChat.getId());
+                Connection connection = GroupChatService.getInstance().getConnectionByID(groupChat.getId());
+                Socket socket = new Socket(connection.getIpv4(), connection.getPort());
+                socketClient = new SocketClient(socket, u.getUserName(), textArea);
+                socketClient.listenForMessage();
+
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            } catch (UnknownHostException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
             utilPanel.add(new JButton("Delete chat"));
         } else if (item instanceof GroupChat g) {
             name.setText(g.getGroupName());
@@ -43,16 +68,13 @@ public class MessageUI<T> {
             utilPanel.add(new JButton("Remove"),comp_gbc);
             utilPanel.add(new JButton("Assign admin"),comp_gbc);
         }
+        bSend.addActionListener(new MessageUIControl(this));
 
         GridBagConstraints main_gbc = new GridBagConstraints();
         main_gbc.gridwidth = GridBagConstraints.REMAINDER;
         main_gbc.weightx = 1;
         main_gbc.weighty = 1;
         utilPanel.add(new JPanel(), main_gbc);
-    }
-
-    public Connection getConnection() {
-        return connection;
     }
 
     public JPanel getUiPanel() {
@@ -85,5 +107,9 @@ public class MessageUI<T> {
 
     public JPanel getUtilPanel() {
         return utilPanel;
+    }
+
+    public SocketClient getSocketClient() {
+        return socketClient;
     }
 }

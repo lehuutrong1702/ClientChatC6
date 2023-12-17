@@ -18,6 +18,7 @@ public class SideSearchControl implements ActionListener {
         String name = search.getTfSearch().getText();
         SideNav sideNav = search.getSidePanel().getChatNavigator();
         search.getSidePanel().getList().getList(sideNav.getSelected() == sideNav.getFriends(), name);
+
     }
 
 }

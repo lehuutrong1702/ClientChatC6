@@ -3,12 +3,12 @@ package com.teamc6.chatsystem.model;
 import java.util.Date;
 
 public class GroupChat {
-    private long groupId;
+    private long id;
     private String groupName;
     private Date timeCreate;
 
-    public GroupChat(long groupId, String groupName, Date timeCreate) {
-        this.groupId = groupId;
+    public GroupChat(long id, String groupName, Date timeCreate) {
+        this.id = id;
         this.groupName = groupName;
         this.timeCreate = timeCreate;
     }
@@ -17,12 +17,12 @@ public class GroupChat {
 
     }
 
-    public long getGroupId() {
-        return groupId;
+    public long getId() {
+        return id;
     }
 
-    public void setGroupId(long groupId) {
-        this.groupId = groupId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getGroupName() {

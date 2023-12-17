@@ -92,6 +92,7 @@
               <component id="858ed" class="javax.swing.JTextArea" binding="textArea">
                 <constraints/>
                 <properties>
+                  <editable value="false"/>
                   <font size="28" style="1"/>
                   <inheritsPopupMenu value="false"/>
                 </properties>

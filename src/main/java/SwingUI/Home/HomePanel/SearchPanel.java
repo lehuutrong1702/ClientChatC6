@@ -1,12 +1,16 @@
 package SwingUI.Home.HomePanel;
 
+import Controller.SearchPanelControl;
 import SwingUI.Home.Component.SearchCard;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatsystem.model.Page;
 import com.teamc6.chatsystem.model.User;
+import com.teamc6.chatsystem.service.UserService;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class SearchPanel {
+public class SearchPanel extends JPanel{
     private JComboBox comboBox1;
     private JComboBox comboBox2;
     private JPanel MainPanel;
@@ -28,17 +32,16 @@ public class SearchPanel {
         who.addElement("People");
         who.addElement("Groups");
         this.comboBox1.setModel(who);
+        this.comboBox1.addActionListener(new SearchPanelControl(this.comboBox1, this.comboBox2, this.ResultPanel, text));
 
         DefaultComboBoxModel<String> what = new DefaultComboBoxModel<>();
         what.addElement("Any");
         what.addElement("Name");
         what.addElement("Created time");
         this.comboBox2.setModel(what);
+        this.comboBox2.addActionListener(new SearchPanelControl(this.comboBox1, this.comboBox2, this.ResultPanel, text));
 
         this.ResultPanel.setLayout(new GridLayout(10, 3));
-        User u = new User();
-        u.setFullName("Minh");
-        u.setUserName("minh3107");
-        this.ResultPanel.add(new SearchCard<>(u));
+
     }
 }
