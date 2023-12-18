@@ -18,6 +18,7 @@ import java.net.UnknownHostException;
 
 public class MessageUI<T> {
     private SocketClient socketClient;
+    private GroupChat groupChat;
     private JPanel UiPanel;
     private JTextArea textArea;
     private JTextField message;
@@ -34,26 +35,15 @@ public class MessageUI<T> {
         message.setPreferredSize(new Dimension(500, 30));
         searchField.setPreferredSize(new Dimension(500, 30));
         utilPanel.setPreferredSize(new Dimension(150, 550));
+        textArea.setLineWrap(true);
 
         if (item instanceof User u) {
             name.setText(u.getFullName());
-            textArea.setLineWrap(true);
             try {
-                GroupChat groupChat = UserService.getInstance().getPrivateGroupChat(u.getUserId());
-                System.out.println(groupChat.getId());
-                Connection connection = GroupChatService.getInstance().getConnectionByID(groupChat.getId());
-                Socket socket = new Socket(connection.getIpv4(), connection.getPort());
-                socketClient = new SocketClient(socket, Account.getInstance().getUserName(), textArea);
-                socketClient.listenForMessage();
-
+                groupChat = UserService.getInstance().getPrivateGroupChat(u.getUserId());
             } catch (JsonProcessingException e) {
                 throw new RuntimeException(e);
-            } catch (UnknownHostException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
-
             utilPanel.add(new JButton("Delete chat"));
         } else if (item instanceof GroupChat g) {
             name.setText(g.getGroupName());
@@ -69,6 +59,25 @@ public class MessageUI<T> {
             utilPanel.add(new JButton("Remove"),comp_gbc);
             utilPanel.add(new JButton("Assign admin"),comp_gbc);
         }
+
+        if(groupChat != null) {
+            try {
+
+                Connection connection = GroupChatService.getInstance().getConnectionByID(groupChat.getId());
+                Socket socket = new Socket(connection.getIpv4(), connection.getPort());
+                socketClient = new SocketClient(socket, Account.getInstance().getUserName(), textArea);
+                
+                socketClient.listenForMessage();
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            } catch (UnknownHostException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+
         bSend.addActionListener(new MessageUIControl(this));
 
         GridBagConstraints main_gbc = new GridBagConstraints();
