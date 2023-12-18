@@ -1,11 +1,6 @@
 package SwingUI.Home.HomePanel;
 
 import Controller.SearchPanelControl;
-import SwingUI.Home.Component.SearchCard;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatsystem.model.Page;
-import com.teamc6.chatsystem.model.User;
-import com.teamc6.chatsystem.service.UserService;
 
 import javax.swing.*;
 import java.awt.*;

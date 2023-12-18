@@ -1,4 +1,4 @@
-package com.teamc6.chatsystem.model;
+package com.teamc6.chatSystem.model;
 
 import java.util.List;
 

@@ -2,12 +2,13 @@ package SwingUI.Home.HomePanel;
 
 import Controller.MessageUIControl;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatsystem.model.Connection;
-import com.teamc6.chatsystem.model.GroupChat;
-import com.teamc6.chatsystem.model.User;
-import com.teamc6.chatsystem.service.GroupChatService;
-import com.teamc6.chatsystem.service.UserService;
-import com.teamc6.chatsystem.socket.SocketClient;
+import com.teamc6.chatSystem.model.Connection;
+import com.teamc6.chatSystem.model.GroupChat;
+import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.properties.Account;
+import com.teamc6.chatSystem.service.GroupChatService;
+import com.teamc6.chatSystem.service.UserService;
+import com.teamc6.chatSystem.socket.SocketClient;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,7 +43,7 @@ public class MessageUI<T> {
                 System.out.println(groupChat.getId());
                 Connection connection = GroupChatService.getInstance().getConnectionByID(groupChat.getId());
                 Socket socket = new Socket(connection.getIpv4(), connection.getPort());
-                socketClient = new SocketClient(socket, u.getUserName(), textArea);
+                socketClient = new SocketClient(socket, Account.getInstance().getUserName(), textArea);
                 socketClient.listenForMessage();
 
             } catch (JsonProcessingException e) {

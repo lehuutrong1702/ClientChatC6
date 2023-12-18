@@ -1,9 +1,7 @@
 package SwingUI.Home;
 
 import SwingUI.Home.HomePanel.MessagePanel;
-import SwingUI.Home.HomePanel.SearchPanel;
-import com.teamc6.chatsystem.model.GroupChat;
-import com.teamc6.chatsystem.model.User;
+import com.teamc6.chatSystem.model.GroupChat;
 
 import javax.swing.*;
 import java.awt.*;

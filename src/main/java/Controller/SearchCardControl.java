@@ -1,10 +1,8 @@
 package Controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatsystem.service.UserService;
+import com.teamc6.chatSystem.service.UserService;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 

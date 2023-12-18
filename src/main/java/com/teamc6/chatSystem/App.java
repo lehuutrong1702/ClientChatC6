@@ -1,7 +1,6 @@
-package com.teamc6.chatsystem;
+package com.teamc6.chatSystem;
 
 import javax.swing.*;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

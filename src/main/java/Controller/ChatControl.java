@@ -1,7 +1,7 @@
 package Controller;
 
 import SwingUI.Home.HomePanel.MessageUI;
-import com.teamc6.chatsystem.model.Connection;
+import com.teamc6.chatSystem.model.Connection;
 
 public class ChatControl implements Runnable{
     Connection connection;

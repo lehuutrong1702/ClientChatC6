@@ -1,12 +1,12 @@
-package com.teamc6.chatsystem.service;
+package com.teamc6.chatSystem.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.teamc6.chatsystem.model.GroupChat;
-import com.teamc6.chatsystem.model.Page;
-import com.teamc6.chatsystem.model.User;
-import com.teamc6.chatsystem.properties.Account;
-import com.teamc6.chatsystem.request.Request;
+import com.teamc6.chatSystem.model.GroupChat;
+import com.teamc6.chatSystem.model.Page;
+import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.properties.Account;
+import com.teamc6.chatSystem.request.Request;
 
 import java.util.Set;
 

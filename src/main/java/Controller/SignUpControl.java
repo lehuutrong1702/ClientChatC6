@@ -3,8 +3,8 @@ package Controller;
 import SwingUI.SignIn.SignInFrame;
 import SwingUI.SignUp.SignUpFrame;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatsystem.model.User;
-import com.teamc6.chatsystem.service.UserService;
+import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.service.UserService;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

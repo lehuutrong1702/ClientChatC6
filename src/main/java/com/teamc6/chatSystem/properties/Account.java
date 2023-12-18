@@ -1,6 +1,4 @@
-package com.teamc6.chatsystem.properties;
-
-import com.teamc6.chatsystem.service.UserService;
+package com.teamc6.chatSystem.properties;
 
 public class Account {
     private  long Id;

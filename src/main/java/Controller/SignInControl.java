@@ -4,9 +4,9 @@ import SwingUI.Home.HomeFrame;
 import SwingUI.SignIn.SignInFrame;
 import SwingUI.SignUp.SignUpFrame;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatsystem.model.User;
-import com.teamc6.chatsystem.properties.Account;
-import com.teamc6.chatsystem.service.UserService;
+import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.properties.Account;
+import com.teamc6.chatSystem.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.swing.*;

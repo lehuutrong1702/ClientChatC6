@@ -1,8 +1,8 @@
 package SwingUI.Home.Component;
 
 import Controller.SearchCardControl;
-import com.teamc6.chatsystem.model.GroupChat;
-import com.teamc6.chatsystem.model.User;
+import com.teamc6.chatSystem.model.GroupChat;
+import com.teamc6.chatSystem.model.User;
 
 import javax.swing.*;
 

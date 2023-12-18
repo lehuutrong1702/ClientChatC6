@@ -1,20 +1,12 @@
 package SwingUI.Home.Component;
 
 import Controller.UCControl;
-import SwingUI.Home.HomePanel.InfoPanel;
 import SwingUI.Home.MainPanel;
-import SwingUI.SignIn.SignInFrame;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatsystem.model.User;
-import com.teamc6.chatsystem.properties.Account;
-import com.teamc6.chatsystem.service.UserService;
+import com.teamc6.chatSystem.properties.Account;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
 
 public class UserControl extends JPanel {
     private final JComboBox<String> userControlList;

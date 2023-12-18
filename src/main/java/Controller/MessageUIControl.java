@@ -1,10 +1,8 @@
 package Controller;
 
 import SwingUI.Home.HomePanel.MessageUI;
-import SwingUI.Home.MainPanel;
-import com.teamc6.chatsystem.socket.SocketClient;
+import com.teamc6.chatSystem.socket.SocketClient;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

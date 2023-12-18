@@ -2,14 +2,12 @@ package SwingUI.Home.Component;
 
 import SwingUI.Home.SidePanel;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatsystem.model.Page;
-import com.teamc6.chatsystem.model.User;
-import com.teamc6.chatsystem.properties.Account;
-import com.teamc6.chatsystem.service.UserService;
+import com.teamc6.chatSystem.model.Page;
+import com.teamc6.chatSystem.properties.Account;
+import com.teamc6.chatSystem.service.UserService;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashSet;
 import java.util.Set;
 
 public class ListComponent extends JPanel {

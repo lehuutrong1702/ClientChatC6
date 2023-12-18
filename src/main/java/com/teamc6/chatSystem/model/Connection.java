@@ -1,4 +1,4 @@
-package com.teamc6.chatsystem.model;
+package com.teamc6.chatSystem.model;
 public class Connection {
     private String Ipv4;
     private int port;
