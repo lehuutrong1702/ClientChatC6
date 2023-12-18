@@ -3,10 +3,12 @@ package com.teamc6.chatSystem.service;
 import SwingUI.Home.HomePanel.MessageUI;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.datatype.jsr310.*;
 import com.teamc6.chatSystem.model.*;
 import com.teamc6.chatSystem.properties.Account;
 import com.teamc6.chatSystem.request.Request;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -106,18 +108,32 @@ public class GroupChatService {
         GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return groupChat;
     }
-    public Page<Message> getOldMessages(long Id) throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/groups/%d/messages", Id);
+
+    public void setPage(long page) {
+        this.page = page;
+    }
+
+    private long page = 0;
+    private long size = 20;
+    private long total = 1;
+    public List<Message> getOldMessages(long Id) throws JsonProcessingException {
+        if(page + 1 > total){
+            return new ArrayList<Message>();
+        }
+        String url = String.format("http://localhost:8080/api/v1/groups/%d/messages?page=%d&size=%d", Id, page, size);
+        page++;
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
-        request.PUT(GroupChat.class);
+        request.GET();
         request.build();
         request.send();
 
         Page<Message> pageMessage = (Page<Message>) request.getResBody(new TypeReference<Page<Message>>() {});
-        return  pageMessage;
+        total = pageMessage.getTotalPages();
+
+        return  pageMessage.getContent();
     }
     private static final GroupChatService INSTANCE = new GroupChatService();
     private GroupChatService() {

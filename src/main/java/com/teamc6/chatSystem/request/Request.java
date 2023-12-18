@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
 
 import java.io.IOException;
 import java.net.URI;
@@ -79,7 +80,10 @@ public class Request {
     }
     public Object getResBody(TypeReference T) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
+//        objectMapper.registerModule(new JSR310Module());
+        objectMapper.findAndRegisterModules();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
         if(httpResponse.statusCode() == 200)
         {
             Object  t= objectMapper.readValue(httpResponse.body(), T);

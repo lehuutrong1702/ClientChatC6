@@ -84,7 +84,7 @@
               </component>
             </children>
           </grid>
-          <scrollpane id="aaca9">
+          <scrollpane id="aaca9" binding="scrollPane">
             <constraints border-constraint="Center"/>
             <properties/>
             <border type="none"/>
@@ -95,6 +95,7 @@
                   <editable value="false"/>
                   <font size="28" style="1"/>
                   <inheritsPopupMenu value="false"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>
