@@ -1,8 +1,8 @@
-package SwingUI.Home;
+package SwingUI.User;
 
-import SwingUI.Home.Component.ListComponent;
-import SwingUI.Home.Component.SideNav;
-import SwingUI.Home.Component.SideSearch;
+import SwingUI.User.Component.ListComponent;
+import SwingUI.User.Component.SideNav;
+import SwingUI.User.Component.SideSearch;
 
 import javax.swing.*;
 import java.awt.*;

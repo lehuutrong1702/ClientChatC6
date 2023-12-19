@@ -1,7 +1,7 @@
-package SwingUI.Home.Component;
+package SwingUI.User.Component;
 
 import Controller.SideNavControl;
-import SwingUI.Home.SidePanel;
+import SwingUI.User.SidePanel;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,6 +1,6 @@
 package Controller;
 
-import SwingUI.Home.Component.SideNav;
+import SwingUI.User.Component.SideNav;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

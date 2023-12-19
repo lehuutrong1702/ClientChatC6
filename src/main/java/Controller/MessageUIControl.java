@@ -1,11 +1,10 @@
 package Controller;
 
-import SwingUI.Home.HomePanel.MessageUI;
+import SwingUI.User.HomePanel.MessageUI;
 import com.teamc6.chatSystem.socket.SocketClient;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.AdjustmentListener;
 
 public class MessageUIControl implements ActionListener {
     private MessageUI messageUI;

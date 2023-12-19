@@ -1,7 +1,7 @@
 package Controller;
 
-import SwingUI.Home.Component.NavSearch;
-import SwingUI.Home.HomePanel.SearchPanel;
+import SwingUI.User.Component.NavSearch;
+import SwingUI.User.HomePanel.SearchPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

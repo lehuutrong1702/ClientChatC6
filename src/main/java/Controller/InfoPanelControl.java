@@ -1,6 +1,6 @@
 package Controller;
 
-import SwingUI.Home.HomePanel.InfoPanel;
+import SwingUI.User.HomePanel.InfoPanel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.User;
 import com.teamc6.chatSystem.service.UserService;

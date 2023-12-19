@@ -1,6 +1,6 @@
 package Controller;
 
-import SwingUI.Home.Component.SearchCard;
+import SwingUI.User.Component.SearchCard;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.GroupChat;
 import com.teamc6.chatSystem.model.Page;

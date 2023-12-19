@@ -1,4 +1,4 @@
-package SwingUI.Home.HomePanel;
+package SwingUI.User.HomePanel;
 
 import Controller.LoadMessageControl;
 import Controller.MessageUIControl;

@@ -1,6 +1,6 @@
-package SwingUI.Home.Component;
+package SwingUI.User.Component;
 
-import SwingUI.Home.SidePanel;
+import SwingUI.User.SidePanel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.Page;
 import com.teamc6.chatSystem.properties.Account;

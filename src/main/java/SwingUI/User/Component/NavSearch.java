@@ -1,10 +1,8 @@
-package SwingUI.Home.Component;
+package SwingUI.User.Component;
 
 import Controller.NavSearchControl;
-import SwingUI.Home.HomePanel.SearchPanel;
-import SwingUI.Home.MainPanel;
+import SwingUI.User.MainPanel;
 import SwingUI.Utils.*;
-import org.example.Main;
 
 import javax.swing.*;
 
@@ -15,7 +13,6 @@ import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.*;
 
 public class NavSearch extends JPanel {
     private final MainPanel mainPanel;

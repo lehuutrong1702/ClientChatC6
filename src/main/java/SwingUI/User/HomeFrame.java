@@ -1,6 +1,4 @@
-package SwingUI.Home;
-
-import org.example.Main;
+package SwingUI.User;
 
 import javax.swing.*;
 import java.awt.*;

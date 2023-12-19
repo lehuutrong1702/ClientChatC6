@@ -1,7 +1,7 @@
 package Controller;
 
-import SwingUI.Home.HomePanel.MessagePanel;
-import SwingUI.Home.MainPanel;
+import SwingUI.User.HomePanel.MessagePanel;
+import SwingUI.User.MainPanel;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

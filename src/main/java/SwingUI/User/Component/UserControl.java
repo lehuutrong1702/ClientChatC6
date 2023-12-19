@@ -1,7 +1,7 @@
-package SwingUI.Home.Component;
+package SwingUI.User.Component;
 
 import Controller.UCControl;
-import SwingUI.Home.MainPanel;
+import SwingUI.User.MainPanel;
 import com.teamc6.chatSystem.properties.Account;
 
 import javax.swing.*;

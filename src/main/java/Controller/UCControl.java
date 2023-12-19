@@ -1,8 +1,8 @@
 package Controller;
 
-import SwingUI.Home.Component.UserControl;
-import SwingUI.Home.HomePanel.InfoPanel;
-import SwingUI.Home.MainPanel;
+import SwingUI.User.Component.UserControl;
+import SwingUI.User.HomePanel.InfoPanel;
+import SwingUI.User.MainPanel;
 import SwingUI.SignIn.SignInFrame;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.User;

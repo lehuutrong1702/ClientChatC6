@@ -1,7 +1,7 @@
 package Controller;
 
-import SwingUI.Home.Component.SideNav;
-import SwingUI.Home.Component.SideSearch;
+import SwingUI.User.Component.SideNav;
+import SwingUI.User.Component.SideSearch;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

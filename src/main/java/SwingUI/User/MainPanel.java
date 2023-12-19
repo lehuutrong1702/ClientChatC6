@@ -1,6 +1,6 @@
-package SwingUI.Home;
+package SwingUI.User;
 
-import SwingUI.Home.HomePanel.MessagePanel;
+import SwingUI.User.HomePanel.MessagePanel;
 import com.teamc6.chatSystem.model.GroupChat;
 
 import javax.swing.*;

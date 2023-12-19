@@ -1,13 +1,9 @@
-package SwingUI.Home;
+package SwingUI.User;
 
-import SwingUI.Home.Component.NavSearch;
-import SwingUI.Home.Component.UserControl;
-import SwingUI.Home.MainPanel;
-import SwingUI.Utils.RoundedCornerBorder;
-import org.example.Main;
+import SwingUI.User.Component.NavSearch;
+import SwingUI.User.Component.UserControl;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicComboBoxUI;
 import java.awt.*;
 
 public class Navbar extends JPanel {
