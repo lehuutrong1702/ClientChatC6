@@ -41,7 +41,7 @@ public class ListComponent extends JPanel {
 
             Set list;
             if (friends)
-                list = UserService.getInstance().getListFriend();
+                list = UserService.getInstance().getListFriend(Account.getInstance().getId());
             else
                 list = UserService.getInstance().getListGroup();
 

@@ -1,4 +1,4 @@
-package Controller;
+package Controller.User;
 
 import SwingUI.User.Component.NavSearch;
 import SwingUI.User.HomePanel.SearchPanel;

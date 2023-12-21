@@ -1,6 +1,6 @@
 package SwingUI.User.HomePanel;
 
-import Controller.InfoPanelControl;
+import Controller.User.InfoPanelControl;
 import SwingUI.Utils.CustomDatePicker;
 import SwingUI.Utils.RoundedCornerBorder;
 import com.fasterxml.jackson.core.JsonProcessingException;

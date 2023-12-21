@@ -1,4 +1,4 @@
-package Controller;
+package Controller.User;
 
 import SwingUI.User.Component.SearchCard;
 import com.fasterxml.jackson.core.JsonProcessingException;

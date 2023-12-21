@@ -1,6 +1,6 @@
 package SwingUI.User.Component;
 
-import Controller.SideSearchControl;
+import Controller.User.SideSearchControl;
 import SwingUI.User.SidePanel;
 
 import javax.swing.*;

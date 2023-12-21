@@ -1,4 +1,4 @@
-package Controller;
+package Controller.User;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.GroupChat;

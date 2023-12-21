@@ -1,4 +1,4 @@
-package Controller;
+package Controller.User;
 
 import SwingUI.User.Component.UserControl;
 import SwingUI.User.HomePanel.InfoPanel;

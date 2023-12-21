@@ -1,4 +1,4 @@
-package Controller;
+package Controller.User;
 
 import SwingUI.User.HomePanel.MessageUI;
 import com.teamc6.chatSystem.model.Connection;

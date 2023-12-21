@@ -1,22 +1,20 @@
-package SwingUI.SignUp;
+package SwingUI.Admin.UserManage;
 
-import Controller.User.SignUpControl;
+import SwingUI.Admin.HomeFrame;
 import SwingUI.Utils.CustomDatePicker;
 import SwingUI.Utils.CustomFocusListener;
 import SwingUI.Utils.RoundedCornerBorder;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.Objects;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SignUpFrame extends JFrame {
-    private final JLabel lbMain;
-    private final JButton bSignIn;
-    private final JButton bSignUp;
+public class AddPanel extends JPanel {
+    private final JButton bAdd;
+    private final JButton bReturn;
     private final JTextField tfUsername;
+    private final JTextField tfPassword;
     private final JTextField tfFullname;
     private final JTextField tfEmail;
 
@@ -24,13 +22,8 @@ public class SignUpFrame extends JFrame {
     private final ButtonGroup gender;
     private final JRadioButton male;
     private final JRadioButton female;
-    private final SignUpControl signUpControl;
 
-    public SignUpFrame() throws IOException {
-        setTitle("Sign Up");
-        signUpControl = new SignUpControl(this);
-        lbMain = new JLabel("SIGN UP");
-
+    public AddPanel() {
         tfUsername = new JTextField() {
             protected void paintComponent(Graphics g) {
                 if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
@@ -49,7 +42,24 @@ public class SignUpFrame extends JFrame {
                 setBorder(new RoundedCornerBorder());
             }
         };
+        tfPassword = new JTextField() {
+            protected void paintComponent(Graphics g) {
+                if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
+                    Graphics2D g2 = (Graphics2D) g.create();
+                    g2.setPaint(getBackground());
+                    g2.fill(((RoundedCornerBorder) getBorder()).getBorderShape(
+                            0, 0, getWidth() - 1, getHeight() - 1));
+                    g2.dispose();
+                }
+                super.paintComponent(g);
+            }
 
+            public void updateUI() {
+                super.updateUI();
+                setOpaque(false);
+                setBorder(new RoundedCornerBorder());
+            }
+        };
         tfFullname = new JTextField() {
             protected void paintComponent(Graphics g) {
                 if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
@@ -98,7 +108,7 @@ public class SignUpFrame extends JFrame {
         gender.add(female);
         male.setSelected(true);
 
-        bSignIn = new JButton("Return to sign in") {
+        bAdd = new JButton("Add") {
             protected void paintComponent(Graphics g) {
                 if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
                     Graphics2D g2 = (Graphics2D) g.create();
@@ -117,7 +127,7 @@ public class SignUpFrame extends JFrame {
             }
         };
 
-        bSignUp = new JButton("Sign up") {
+        bReturn = new JButton("Return") {
             protected void paintComponent(Graphics g) {
                 if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
                     Graphics2D g2 = (Graphics2D) g.create();
@@ -135,25 +145,12 @@ public class SignUpFrame extends JFrame {
                 setBorder(new RoundedCornerBorder());
             }
         };
-
-        setContentPane(new JPanel() {
-            final BufferedImage bufferedImage = ImageIO.read(Objects.requireNonNull(SignUpFrame.class.getClassLoader().getResourceAsStream("background.jpg")));
-
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                g.drawImage(bufferedImage, 0, 0, this);
-            }
-        });
-
+        
         init();
     }
 
-    public JLabel getLbMain() {
-        return lbMain;
-    }
-
-    public JButton getbSignIn() {
-        return bSignIn;
+    public JButton getbAdd() {
+        return bAdd;
     }
 
     public JTextField getTfFullname() {
@@ -180,51 +177,56 @@ public class SignUpFrame extends JFrame {
         return female;
     }
 
-    public SignUpControl getSignUpControl() {
-        return signUpControl;
-    }
-
-    public JButton getbSignUp() {
-        return bSignUp;
-    }
-
     public JTextField getTfUsername() {
         return tfUsername;
     }
 
 
     public void addEventListeners() {
-        //submit button action listener
-        bSignUp.addActionListener(signUpControl);
-        bSignIn.addActionListener(signUpControl);
+        tfUsername.addFocusListener(new CustomFocusListener(tfUsername, "Enter username"));
+        tfPassword.addFocusListener(new CustomFocusListener(tfPassword, "Enter password"));
+        tfFullname.addFocusListener(new CustomFocusListener(tfFullname, "Enter full name"));
+        tfEmail.addFocusListener(new CustomFocusListener(tfEmail, "Enter email"));
 
-        tfUsername.addFocusListener(new CustomFocusListener(tfUsername, "Enter your username"));
-        tfFullname.addFocusListener(new CustomFocusListener(tfFullname, "Enter your full name"));
-        tfEmail.addFocusListener(new CustomFocusListener(tfEmail, "Enter your email"));
+        bAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        bReturn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Component component = (Component) e.getSource();
+                HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
+
+                homeFrame.replace(new UserManagePanel());
+            }
+        });
     }
 
     public void init() {
-        lbMain.setFont(new Font("Arial", Font.BOLD, 60));
-        lbMain.setForeground(Color.white);
-
         tfUsername.setPreferredSize(new Dimension(250, 35));
+        tfPassword.setPreferredSize(new Dimension(250, 35));
         tfFullname.setPreferredSize(new Dimension(250, 35));
         tfEmail.setPreferredSize(new Dimension(250, 35));
         datePicker.setPreferredSize(new Dimension(250, 35));
 
-        bSignIn.setPreferredSize(new Dimension(250, 35));
-        bSignIn.setBackground(new Color(66, 245, 114));
-        bSignIn.setFocusPainted(false);
+        bAdd.setPreferredSize(new Dimension(250, 35));
+        bAdd.setBackground(new Color(66, 245, 114));
+        bAdd.setFocusPainted(false);
+        bReturn.setPreferredSize(new Dimension(250, 35));
+        bReturn.setBackground(new Color(66, 245, 114));
+        bReturn.setFocusPainted(false);
 
-        bSignUp.setPreferredSize(new Dimension(250, 35));
-        bSignUp.setBackground(new Color(66, 245, 114));
-        bSignUp.setFocusPainted(false);
-
-        tfUsername.setText("Enter your username");
+        tfUsername.setText("Enter username");
         tfUsername.setForeground(Color.gray);
-        tfFullname.setText("Enter your full name");
+        tfPassword.setText("Enter password");
+        tfPassword.setForeground(Color.gray);
+        tfFullname.setText("Enter full name");
         tfFullname.setForeground(Color.gray);
-        tfEmail.setText("Enter your email");
+        tfEmail.setText("Enter email");
         tfEmail.setForeground(Color.gray);
 
         male.setOpaque(false);
@@ -232,21 +234,20 @@ public class SignUpFrame extends JFrame {
 
         setLayout(new GridBagLayout());
 
-        Insets labelInsets = new Insets(-150, 10, 0, 10);
         Insets textInsets = new Insets(10, 10, 5, 10);
         Insets maleInsets = new Insets(5, -150, -10, 0);
-        Insets bSignInInsets = new Insets(20, 10, 10, 10);
-        Insets bSignUpInsets = new Insets(0, 10, 0, 10);
+        Insets buttonInsets = new Insets(10, 10, 0, 10);
 
         GridBagConstraints input = new GridBagConstraints();
         input.anchor = GridBagConstraints.CENTER;
-        input.insets = labelInsets;
-        input.gridy = 0;
-        add(lbMain, input);
 
         input.insets = textInsets;
         input.gridy = 1;
         add(tfUsername, input);
+
+        input.insets = textInsets;
+        input.gridy = 2;
+        add(tfPassword, input);
 
         input.insets = textInsets;
         input.gridy = 3;
@@ -273,25 +274,18 @@ public class SignUpFrame extends JFrame {
         input.gridx = 1;
         add(female, input);
 
-        input.insets = bSignInInsets;
+        input.insets = buttonInsets;
+        input.anchor = GridBagConstraints.WEST;
+        input.gridx = 0;
+        input.gridy = 8;
+        add(bAdd, input);
+
+        input.insets = buttonInsets;
         input.anchor = GridBagConstraints.WEST;
         input.gridx = 0;
         input.gridy = 9;
-        add(bSignUp, input);
+        add(bReturn, input);
 
-        input.insets = bSignUpInsets;
-        input.anchor = GridBagConstraints.WEST;
-        input.gridx = 0;
-        input.gridy = 10;
-        add(bSignIn, input);
-
-        setSize(950, 650);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
-        setResizable(false);
-        setLocationRelativeTo(null);
-
-        requestFocus();
         addEventListeners();
     }
 }

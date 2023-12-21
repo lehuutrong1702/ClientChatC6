@@ -1,4 +1,4 @@
-package Controller;
+package Controller.User;
 
 import SwingUI.User.Component.SideNav;
 import SwingUI.User.Component.SideSearch;

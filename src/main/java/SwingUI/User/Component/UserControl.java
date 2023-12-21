@@ -1,6 +1,6 @@
 package SwingUI.User.Component;
 
-import Controller.UCControl;
+import Controller.User.UCControl;
 import SwingUI.User.MainPanel;
 import com.teamc6.chatSystem.properties.Account;
 

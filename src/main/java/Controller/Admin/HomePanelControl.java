@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Admin;
 
 import SwingUI.Admin.HomeFrame;
 
@@ -6,10 +6,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AdminHomeFrameControl implements ActionListener {
+public class HomePanelControl implements ActionListener {
     HomeFrame homeFrame;
     String[] actions;
-    public AdminHomeFrameControl(HomeFrame homeFrame, String[] actions) {
+    public HomePanelControl(HomeFrame homeFrame, String[] actions) {
         this.homeFrame = homeFrame;
         this.actions = actions;
     }

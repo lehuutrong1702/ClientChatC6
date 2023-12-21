@@ -1,6 +1,6 @@
 package SwingUI.User.Component;
 
-import Controller.SearchCardControl;
+import Controller.User.SearchCardControl;
 import com.teamc6.chatSystem.model.GroupChat;
 import com.teamc6.chatSystem.model.User;
 

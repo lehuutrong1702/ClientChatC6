@@ -1,4 +1,4 @@
-package Controller;
+package Controller.User;
 
 import SwingUI.User.HomePanel.InfoPanel;
 import com.fasterxml.jackson.core.JsonProcessingException;

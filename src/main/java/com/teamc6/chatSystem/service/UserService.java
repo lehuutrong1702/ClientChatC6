@@ -77,8 +77,8 @@ public class UserService {
         return relationship;
     }
 
-    public Set<User> getListFriend() throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/users/%d/friends",  Account.getInstance().getId());
+    public Set<User> getListFriend(Long id) throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users/%d/friends", id);
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());

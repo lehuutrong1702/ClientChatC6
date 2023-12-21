@@ -1,6 +1,6 @@
 package SwingUI.User.HomePanel;
 
-import Controller.SearchPanelControl;
+import Controller.User.SearchPanelControl;
 
 import javax.swing.*;
 import java.awt.*;

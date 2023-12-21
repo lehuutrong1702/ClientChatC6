@@ -1,6 +1,6 @@
 package SwingUI.User.Component;
 
-import Controller.NavSearchControl;
+import Controller.User.NavSearchControl;
 import SwingUI.User.MainPanel;
 import SwingUI.Utils.*;
 

@@ -1,6 +1,6 @@
 package SwingUI.User.Component;
 
-import Controller.SideNavControl;
+import Controller.User.SideNavControl;
 import SwingUI.User.SidePanel;
 
 import javax.swing.*;

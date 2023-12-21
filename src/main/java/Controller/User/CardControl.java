@@ -1,4 +1,4 @@
-package Controller;
+package Controller.User;
 
 import SwingUI.User.HomePanel.MessagePanel;
 import SwingUI.User.MainPanel;

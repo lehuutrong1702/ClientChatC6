@@ -1,7 +1,7 @@
 package SwingUI.User.HomePanel;
 
-import Controller.LoadMessageControl;
-import Controller.MessageUIControl;
+import Controller.User.LoadMessageControl;
+import Controller.User.MessageUIControl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.Connection;
 import com.teamc6.chatSystem.model.GroupChat;
