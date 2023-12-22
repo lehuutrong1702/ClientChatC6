@@ -7,28 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Add finish manage student UI for admin">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/ChoosePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/GroupChatManagePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/MemberPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/MemberPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SpamPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserFriendPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomChart.java" afterDir="false" />
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Complete UI for admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Admin/HomePanelControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin/HomePanelControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/HomeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SessionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SessionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/AddPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/AddPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/SessionFriendPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/SessionFriendPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/UserManagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/UserManagePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/ViewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/Component/ViewPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomTableModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +90,7 @@
       <recent name="C:\Code\Java\untitled2\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SwingUI.Admin.HomeFrame">
+  <component name="RunManager" selected="Application.HomeFrame">
     <configuration name="ChatApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChatApp" />
       <module name="clientChat" />
@@ -173,11 +153,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HomeFrame" />
         <item itemvalue="Application.SwingUI.Admin.HomeFrame" />
         <item itemvalue="Application.CustomChart" />
         <item itemvalue="Application.ViewPanel" />
         <item itemvalue="Application.ChatApp" />
-        <item itemvalue="Application.HomeFrame" />
       </list>
     </recent_temporary>
   </component>
@@ -351,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703134408483</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Complete UI for admin">
+      <option name="closed" value="true" />
+      <created>1703232093332</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1703232093332</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,6 +381,7 @@
     <MESSAGE value="refactor messaging object" />
     <MESSAGE value="Add admin page" />
     <MESSAGE value="Add finish manage student UI for admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add finish manage student UI for admin" />
+    <MESSAGE value="Complete UI for admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete UI for admin" />
   </component>
 </project>

@@ -1,6 +1,6 @@
 package SwingUI.User;
 
-import SwingUI.User.HomePanel.MessagePanel;
+import SwingUI.User.HomePanel.MessageUI;
 import com.teamc6.chatSystem.model.GroupChat;
 
 import javax.swing.*;
@@ -20,7 +20,8 @@ public class MainPanel extends JPanel {
         //User u = new User(); u.setFullName("Phan Van Nguyen");
         GroupChat g = new GroupChat();
         g.setGroupName("Doi hoa simp");
-        add(new MessagePanel<>(g), BorderLayout.CENTER);
+        MessageUI messagePanel = new MessageUI(g);
+        add(messagePanel.getUiPanel(), BorderLayout.CENTER);
     }
 
     public HomeFrame getHomeFrame() {
