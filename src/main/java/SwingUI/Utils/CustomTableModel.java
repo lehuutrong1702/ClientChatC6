@@ -1,27 +1,29 @@
 package SwingUI.Utils;
 
 import javax.swing.table.AbstractTableModel;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 
 public class CustomTableModel extends AbstractTableModel {
-    private String[] columnNames = { "ID" ,"Username", "Full Name", "Address",
-            "Birthdate", "Gender", "Email", "Banned" };
-    Date date = new Date(2003, Calendar.NOVEMBER, 10);
-    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    String strDate = dateFormat.format(date);
-    private Object[][] data = {
-            { 1, "Mary", "Campione", "Snowboarding", strDate, "Male", "phamminh@gmail.com", false },
-    };
+    private boolean editable;
+    private String[] columnNames;
+    private List<Object[]> data;
+
+    public CustomTableModel(String[] columnNames, List<Object[]> data, boolean editable) {
+        this.columnNames = columnNames;
+        this.data = data;
+        this.editable = editable;
+    }
+
+    public void addRow(Object[] obj) {
+        data.add(obj);
+    }
 
     public int getColumnCount() {
         return columnNames.length;
     }
 
     public int getRowCount() {
-        return data.length;
+        return data.size();
     }
 
     public String getColumnName(int col) {
@@ -29,7 +31,7 @@ public class CustomTableModel extends AbstractTableModel {
     }
 
     public Object getValueAt(int row, int col) {
-        return data[row][col];
+        return data.get(row)[col];
     }
 
     /*
@@ -47,6 +49,9 @@ public class CustomTableModel extends AbstractTableModel {
     public boolean isCellEditable(int row, int col) {
         //Note that the data/cell address is constant,
         //no matter where the cell appears onscreen.
+        if (!editable)
+            return false;
+
         if (col < 2) {
             return false;
         } else {
@@ -66,7 +71,7 @@ public class CustomTableModel extends AbstractTableModel {
                     + value.getClass() + ")");
         }
 
-        data[row][col] = value;
+        data.get(row)[col] = value;
         fireTableCellUpdated(row, col);
 
         if (DEBUG) {
@@ -82,7 +87,7 @@ public class CustomTableModel extends AbstractTableModel {
         for (int i = 0; i < numRows; i++) {
             System.out.print("    row " + i + ":");
             for (int j = 0; j < numCols; j++) {
-                System.out.print("  " + data[i][j]);
+                System.out.print("  " + data.get(i)[j]);
             }
             System.out.println();
         }

@@ -145,7 +145,7 @@ public class AddPanel extends JPanel {
                 setBorder(new RoundedCornerBorder());
             }
         };
-        
+
         init();
     }
 

@@ -13,8 +13,7 @@ public class HomeFrame extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
 
-        //HomePanel homePanel = new HomePanel(this);
-        add(new UserManagePanel());
+        add(new HomePanel(this));
 
         requestFocus();
     }
