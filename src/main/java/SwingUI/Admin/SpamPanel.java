@@ -1,8 +1,6 @@
 package SwingUI.Admin;
 
 import SwingUI.Admin.Component.ViewPanel;
-import SwingUI.Admin.HomeFrame;
-import SwingUI.Admin.HomePanel;
 import SwingUI.Utils.CustomDatePicker;
 
 import javax.swing.*;
@@ -25,7 +23,7 @@ public class SpamPanel extends JPanel {
         setLayout(new BorderLayout());
 
         filterPanel = new JPanel();
-        refreshFilterPanel();
+        initFilterPanel();
 
         add(filterPanel, BorderLayout.NORTH);
 
@@ -57,30 +55,26 @@ public class SpamPanel extends JPanel {
         add(actions, BorderLayout.SOUTH);
     }
 
-    private void refreshFilterPanel() {
-        filterPanel.removeAll();
-
+    private void initFilterPanel() {
         JLabel filterByLabel = new JLabel("Filter by");
         String[] filters = {"Any", "Name", "Date"};
         JComboBox<String> filtersOption = new JComboBox<>(filters);
         filtersOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                refreshFilterPanel();
+                resetFilterPanel();
                 var selectedItem = filtersOption.getSelectedItem();
                 if (filtersOption.getItemAt(1) == selectedItem) {
                     filterPanel.add(new JTextField("Input name"), 2);
                     filterPanel.add(new JButton("Filter"), 3);
-                    filterPanel.revalidate();
-                    filterPanel.repaint();
                 } else if (filtersOption.getItemAt(2) == selectedItem) {
                     filterPanel.add(new JLabel("From"), 2);
                     filterPanel.add(new CustomDatePicker(), 3);
                     filterPanel.add(new JLabel("to"), 4);
                     filterPanel.add(new CustomDatePicker(), 5);
-                    filterPanel.revalidate();
-                    filterPanel.repaint();
                 }
+                filterPanel.revalidate();
+                filterPanel.repaint();
             }
         });
 
@@ -103,5 +97,12 @@ public class SpamPanel extends JPanel {
         filterPanel.add(filtersOption);
         filterPanel.add(sortByLabel);
         filterPanel.add(sortsOptions);
+    }
+
+    private void resetFilterPanel() {
+        int panelItemSize = filterPanel.getComponentCount();
+        for (int i = 0; i < panelItemSize - 4; i++) {
+            filterPanel.remove(2);
+        }
     }
 }

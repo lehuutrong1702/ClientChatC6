@@ -24,7 +24,7 @@ public class CurrentUserPanel extends JPanel {
         setLayout(new BorderLayout());
 
         filterPanel = new JPanel();
-        refreshFilterPanel();
+        initFilterPanel();
 
         add(filterPanel, BorderLayout.NORTH);
 
@@ -60,16 +60,14 @@ public class CurrentUserPanel extends JPanel {
         return table.getModel().getValueAt(selectedRow, col).toString();
     }
 
-    private void refreshFilterPanel() {
-        filterPanel.removeAll();
-
+    private void initFilterPanel() {
         JLabel filterByLabel = new JLabel("Filter by");
         String[] filters = {"Any", "Name", "Activities"};
         JComboBox<String> filtersOption = new JComboBox<>(filters);
         filtersOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                refreshFilterPanel();
+                resetFilterPanel();
                 var selectedItem = filtersOption.getSelectedItem();
                 if (filtersOption.getItemAt(1) == selectedItem) {
                     filterPanel.add(new JTextField("Input name"), 2);
@@ -106,5 +104,12 @@ public class CurrentUserPanel extends JPanel {
         filterPanel.add(filtersOption);
         filterPanel.add(sortByLabel);
         filterPanel.add(sortsOptions);
+    }
+
+    private void resetFilterPanel() {
+        int panelItemSize = filterPanel.getComponentCount();
+        for (int i = 0; i < panelItemSize - 4; i++) {
+            filterPanel.remove(2);
+        }
     }
 }

@@ -18,17 +18,17 @@ import java.util.Date;
 import java.util.List;
 
 public class NewUserPanel extends JPanel {
-    JPanel filterPanel;
+    JPanel sortPanel;
     ViewPanel userList;
 
     public NewUserPanel() {
         setSize(950, 650);
         setLayout(new BorderLayout());
 
-        filterPanel = new JPanel();
-        refreshFilterPanel();
+        sortPanel = new JPanel();
+        initSortPanel();
 
-        add(filterPanel, BorderLayout.NORTH);
+        add(sortPanel, BorderLayout.NORTH);
 
         Date date = new Date(2003 - 1900, Calendar.NOVEMBER, 10);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
@@ -58,7 +58,7 @@ public class NewUserPanel extends JPanel {
         add(actions, BorderLayout.SOUTH);
     }
 
-    private void refreshFilterPanel() {
+    private void initSortPanel() {
         JLabel sortByLabel = new JLabel("Sort by");
         String[] sorts = {"Name", "Date"};
         JComboBox<String> sortsOptions = new JComboBox<>(sorts);
@@ -78,9 +78,9 @@ public class NewUserPanel extends JPanel {
         name.addFocusListener(new CustomFocusListener(name, "Enter name"));
         JButton bFilter = new JButton("Filter");
 
-        filterPanel.add(sortByLabel);
-        filterPanel.add(sortsOptions);
-        filterPanel.add(name);
-        filterPanel.add(bFilter);
+        sortPanel.add(sortByLabel);
+        sortPanel.add(sortsOptions);
+        sortPanel.add(name);
+        sortPanel.add(bFilter);
     }
 }
