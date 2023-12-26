@@ -1,7 +1,10 @@
 package com.teamc6.chatSystem.socket;
 
 
+import com.teamc6.chatSystem.model.CommandObj;
+import com.teamc6.chatSystem.model.InitObj;
 import com.teamc6.chatSystem.model.MessageObj;
+import com.teamc6.chatSystem.properties.Account;
 
 import javax.swing.*;
 import java.io.*;
@@ -22,6 +25,16 @@ public class SocketClient {
             this.writer = new ObjectOutputStream(socket.getOutputStream());
             this.username = username;
             this.textArea = textArea;
+
+            try {
+                if (socket.isConnected()){
+                    writer.writeObject(new InitObj(LocalDateTime.now(), Account.getInstance().getId(), username));
+                    writer.reset();
+                    writer.flush();
+                }
+            } catch (IOException e) {
+                closeEverything(socket, reader, writer);
+            }
         } catch (IOException e) {
             closeEverything(socket, reader, writer);
         }
@@ -31,7 +44,7 @@ public class SocketClient {
         try {
             if (socket.isConnected()){
                 System.out.println(messageToSend);
-                writer.writeObject(new MessageObj(LocalDateTime.now(), username,messageToSend));
+                writer.writeObject(new MessageObj(LocalDateTime.now(), username, messageToSend));
                 writer.reset();
                 writer.flush();
             }
@@ -44,12 +57,23 @@ public class SocketClient {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                MessageObj msgFromGroupChat;
+                Object msgFromGroupChat;
                 while(socket.isConnected()){
                     try{
-                        msgFromGroupChat = (MessageObj) reader.readObject();
-                        System.out.println(msgFromGroupChat);
-                        textArea.append('\n'+ msgFromGroupChat.userName()+ ": "+ msgFromGroupChat.message());
+                        msgFromGroupChat = reader.readObject();
+                        if(msgFromGroupChat instanceof MessageObj){
+                            MessageObj msg = (MessageObj) msgFromGroupChat;
+
+                            textArea.append('\n'+ msg.userName()+ ": "+ msg.message());
+                        }
+                        if(msgFromGroupChat instanceof CommandObj){
+                            CommandObj cmd = (CommandObj) msgFromGroupChat;
+                            if(cmd.command().contains("online")){
+                                // set card to online;
+                            }else {
+                                // set card to offline;
+                            }
+                        }
                     } catch (IOException e) {
                         closeEverything(socket, reader, writer);
                     } catch (ClassNotFoundException e) {

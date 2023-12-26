@@ -7,13 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Delete MessagePanel.java">
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Complete UI for admin">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/CommandObj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/InitObj.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/CardControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/CardControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SpamPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SpamPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserFriendPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserFriendPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/UserManagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/UserManagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/socket/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/socket/SocketClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -72,7 +71,7 @@
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;195&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;309&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Minh&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;friends-status&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Code/Java/untitled2/src/main/java/SwingUI/Admin/GroupChatManage&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -95,7 +94,7 @@
       <recent name="C:\Code\Java\untitled2\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SwingUI.Admin.HomeFrame">
+  <component name="RunManager" selected="Application.ChatApp">
     <configuration name="ChatApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChatApp" />
       <module name="clientChat" />
@@ -158,11 +157,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ChatApp" />
         <item itemvalue="Application.SwingUI.Admin.HomeFrame" />
         <item itemvalue="Application.HomeFrame" />
         <item itemvalue="Application.CustomChart" />
         <item itemvalue="Application.ViewPanel" />
-        <item itemvalue="Application.ChatApp" />
       </list>
     </recent_temporary>
   </component>
@@ -177,6 +176,7 @@
       <workItem from="1702800198800" duration="47900000" />
       <workItem from="1702913112303" duration="1625000" />
       <workItem from="1702917384042" duration="9637000" />
+      <workItem from="1703580598113" duration="3146000" />
     </task>
     <task id="LOCAL-00001" summary="update code service">
       <created>1701324059438</created>
