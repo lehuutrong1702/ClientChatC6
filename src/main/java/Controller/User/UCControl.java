@@ -35,6 +35,11 @@ public class UCControl implements ActionListener {
                 throw new RuntimeException(ex);
             }
         } else {
+            try {
+                UserService.getInstance().setActive(false);
+            } catch (JsonProcessingException ex) {
+                throw new RuntimeException(ex);
+            }
             mainPanel.getHomeFrame().dispose();
             try {
                 new SignInFrame();

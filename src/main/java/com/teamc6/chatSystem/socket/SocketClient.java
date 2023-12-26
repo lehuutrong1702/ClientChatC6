@@ -4,7 +4,9 @@ package com.teamc6.chatSystem.socket;
 import com.teamc6.chatSystem.model.CommandObj;
 import com.teamc6.chatSystem.model.InitObj;
 import com.teamc6.chatSystem.model.MessageObj;
+import com.teamc6.chatSystem.model.User;
 import com.teamc6.chatSystem.properties.Account;
+import com.teamc6.chatSystem.service.UserService;
 
 import javax.swing.*;
 import java.io.*;
@@ -85,6 +87,7 @@ public class SocketClient {
     }
 
     public void closeEverything(Socket socket, ObjectInputStream reader, ObjectOutputStream writer){
+        System.out.println("Closing");
         try{
             if(reader != null){
                 reader.close();

@@ -77,6 +77,8 @@ public class UserService {
         return relationship;
     }
 
+
+
     public Set<User> getListFriend(Long id) throws JsonProcessingException {
         String url = String.format("http://localhost:8080/api/v1/users/%d/friends", id);
         Request request = new Request(url);
@@ -128,7 +130,15 @@ public class UserService {
         Page<User> pageUser = (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
         return  pageUser;
     }
+    public void setActive(boolean isActive) throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users/%d/active/%b", Account.getInstance().getId(), isActive);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
+        request.GET();
+        request.build();
+        request.send();
+    }
 
     public Page<GroupChat> filterGroupsByName(Long id, String groupname, long page, long size) throws JsonProcessingException {
         String url = String.format("http://localhost:8081/api/v1/users/%d/groups/%s?page=%d&size=%d", id, groupname, page, size);

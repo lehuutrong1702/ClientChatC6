@@ -12,15 +12,19 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 
 public class Card<T> extends JPanel {
+    JLabel status;
     public Card(T item, ListComponent listComponent) {
         setLayout(new BorderLayout());
-        setBackground(new Color(190, 255, 152));
         Border border = new MatteBorder(0, 0, 1, 0, Color.GRAY);
         Border margin = new EmptyBorder(10, 5, 10, 0);
         setBorder(new CompoundBorder(border, margin));
+        add(new JLabel("\uD83D\uDC64"), BorderLayout.WEST);
 
         if (item instanceof User u) {
+            this.status = new JLabel();
+            add(this.status, BorderLayout.SOUTH);
             add(new JLabel(u.getFullName()), BorderLayout.CENTER);
+            ChangeState(u.isActive());
         } else if (item instanceof GroupChat g) {
             add(new JLabel(g.getGroupName()), BorderLayout.CENTER);
         }
@@ -29,8 +33,18 @@ public class Card<T> extends JPanel {
                 listComponent.getSidePanel().getHomeFrame().getMainPanel(),
                 item
         ));
+//        addPropertyChangeListener(e -> {
+//            ChangeState((boolean)e.getNewValue());
+//        });
+    }
 
-        add(new JLabel("Online"), BorderLayout.SOUTH);
-        add(new JLabel("\uD83D\uDC64"), BorderLayout.WEST);
+    private void ChangeState(boolean isOnline){
+        if(isOnline) {
+            status.setText("Online");
+            setBackground(new Color(190, 255, 152));
+        }else{
+            status.setText("Offline");
+            setBackground(new Color(190, 50, 50));
+        }
     }
 }

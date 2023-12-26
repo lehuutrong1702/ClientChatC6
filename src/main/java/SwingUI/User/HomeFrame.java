@@ -1,7 +1,13 @@
 package SwingUI.User;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.service.UserService;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class HomeFrame extends JFrame {
     private SidePanel sidePanel;
@@ -24,6 +30,21 @@ public class HomeFrame extends JFrame {
 
         add(sidePanel, BorderLayout.WEST);
         add(mainPanel, BorderLayout.CENTER);
+
+        addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                try {
+                    UserService.getInstance().setActive(false);
+                } catch (JsonProcessingException ex) {
+                    throw new RuntimeException(ex);
+                }
+                e.getWindow().dispose();
+            }
+        });
+
         init();
     }
 
