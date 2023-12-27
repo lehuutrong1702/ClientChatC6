@@ -7,20 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Change user active state">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/TextSearchControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/BlockUserBtn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/ClearChatBtn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SpamReportBtn.java" afterDir="false" />
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="add user and change result with relationship">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/SearchPanelControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SearchPanelControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SearchCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SearchCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/Relationship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/Relationship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/Relationship.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/Relationship.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +176,8 @@
       <workItem from="1702913112303" duration="1625000" />
       <workItem from="1702917384042" duration="9637000" />
       <workItem from="1703580598113" duration="4822000" />
-      <workItem from="1703612271317" duration="21094000" />
+      <workItem from="1703612271317" duration="21541000" />
+      <workItem from="1703699299126" duration="1283000" />
     </task>
     <task id="LOCAL-00001" summary="update code service">
       <created>1701324059438</created>
@@ -378,7 +369,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703618209783</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="add user and change result with relationship">
+      <option name="closed" value="true" />
+      <created>1703678104811</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1703678104811</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,6 +423,7 @@
     <MESSAGE value="Delete MessagePanel.java" />
     <MESSAGE value="Update message sending protocol" />
     <MESSAGE value="Change user active state" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change user active state" />
+    <MESSAGE value="add user and change result with relationship" />
+    <option name="LAST_COMMIT_MESSAGE" value="add user and change result with relationship" />
   </component>
 </project>

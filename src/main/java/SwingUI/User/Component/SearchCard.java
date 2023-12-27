@@ -33,7 +33,6 @@ public class SearchCard<T> extends JPanel {
                 }
             } catch (JsonProcessingException e) {
                 bAdd.addMouseListener(new SearchCardControl(u.getUserId()));
-                throw new RuntimeException(e);
             }
 
         } else if (item instanceof GroupChat g) {
