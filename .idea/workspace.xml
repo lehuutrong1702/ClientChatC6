@@ -7,10 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="add user and change result with relationship">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/Relationship.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/Relationship.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" afterDir="false" />
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Search message in a chat">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +175,7 @@
       <workItem from="1702917384042" duration="9637000" />
       <workItem from="1703580598113" duration="4822000" />
       <workItem from="1703612271317" duration="21541000" />
-      <workItem from="1703699299126" duration="1283000" />
+      <workItem from="1703699299126" duration="2310000" />
     </task>
     <task id="LOCAL-00001" summary="update code service">
       <created>1701324059438</created>
@@ -377,7 +375,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703678104811</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Search message in a chat">
+      <option name="closed" value="true" />
+      <created>1703701674766</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1703701674766</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,6 +430,7 @@
     <MESSAGE value="Update message sending protocol" />
     <MESSAGE value="Change user active state" />
     <MESSAGE value="add user and change result with relationship" />
-    <option name="LAST_COMMIT_MESSAGE" value="add user and change result with relationship" />
+    <MESSAGE value="Search message in a chat" />
+    <option name="LAST_COMMIT_MESSAGE" value="Search message in a chat" />
   </component>
 </project>

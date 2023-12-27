@@ -108,10 +108,10 @@ public class GroupChatService {
     }
 
     public List<Message> searchInChat(long idGroup, String search) throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/groups/%d/search?search=%s", idGroup, search);
+        String url = String.format("http://localhost:8080/api/v1/groups/%d/search", idGroup);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
-        request.GET();
+        request.POST(search);
         request.build();
         request.send();
 
