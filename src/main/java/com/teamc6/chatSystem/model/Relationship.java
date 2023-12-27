@@ -1,27 +1,40 @@
 package com.teamc6.chatSystem.model;
 
 public class Relationship {
-    private long relationshipId;
-    private String relationshipName;
+    private long id;
+    private String name;
+    private GroupChat groupChat;
 
-    public Relationship(long relationshipId, String relationshipName) {
-        this.relationshipId = relationshipId;
-        this.relationshipName = relationshipName;
+    @Override
+    public String toString() {
+        return "Relationship{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", groupChat=" + groupChat +
+                '}';
     }
 
-    public long getRelationshipId() {
-        return relationshipId;
+    public long getId() {
+        return id;
     }
 
-    public void setRelationshipId(long relationshipId) {
-        this.relationshipId = relationshipId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getRelationshipName() {
-        return relationshipName;
+    public String getName() {
+        return name;
     }
 
-    public void setRelationshipName(String relationshipName) {
-        this.relationshipName = relationshipName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public GroupChat getGroupChat() {
+        return groupChat;
+    }
+
+    public void setGroupChat(GroupChat groupChat) {
+        this.groupChat = groupChat;
     }
 }

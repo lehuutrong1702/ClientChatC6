@@ -107,19 +107,31 @@ public class GroupChatService {
         return groupChat;
     }
 
+    public List<Message> searchInChat(long idGroup, String search) throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/groups/%d/search?search=%s", idGroup, search);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+        request.GET();
+        request.build();
+        request.send();
+
+        List<Message> messages = (List<Message>) request.getResBody(new TypeReference<List<Message>>() {});
+        return messages;
+    }
+
     public void setPage(long page) {
         this.page = page;
     }
 
+    public long getPage() {
+        return page;
+    }
+
     private long page = 0;
     private long size = 20;
-    private long total = 1;
     public List<Message> getOldMessages(long Id) throws JsonProcessingException {
-        if(page + 1 > total){
-            return new ArrayList<Message>();
-        }
+        System.out.println(Id);
         String url = String.format("http://localhost:8080/api/v1/groups/%d/messages?page=%d&size=%d", Id, page, size);
-        page++;
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -129,8 +141,11 @@ public class GroupChatService {
         request.send();
 
         Page<Message> pageMessage = (Page<Message>) request.getResBody(new TypeReference<Page<Message>>() {});
-        total = pageMessage.getTotalPages();
+        if(pageMessage == null){
+            return new ArrayList<Message>();
+        }
 
+        page++;
         return  pageMessage.getContent();
     }
     private static final GroupChatService INSTANCE = new GroupChatService();

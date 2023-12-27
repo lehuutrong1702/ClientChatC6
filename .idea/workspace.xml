@@ -7,14 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Update message sending protocol">
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Change user active state">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/TextSearchControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/BlockUserBtn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/ClearChatBtn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SpamReportBtn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/SignInControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SignInControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/UCControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/UCControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/SearchPanelControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SearchPanelControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SearchCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SearchCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/Relationship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/Relationship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/socket/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/socket/SocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -180,7 +186,7 @@
       <workItem from="1702913112303" duration="1625000" />
       <workItem from="1702917384042" duration="9637000" />
       <workItem from="1703580598113" duration="4822000" />
-      <workItem from="1703612271317" duration="5757000" />
+      <workItem from="1703612271317" duration="21094000" />
     </task>
     <task id="LOCAL-00001" summary="update code service">
       <created>1701324059438</created>
@@ -364,7 +370,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703584968047</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Change user active state">
+      <option name="closed" value="true" />
+      <created>1703618209783</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1703618209783</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,6 +423,7 @@
     <MESSAGE value="Complete UI for admin" />
     <MESSAGE value="Delete MessagePanel.java" />
     <MESSAGE value="Update message sending protocol" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update message sending protocol" />
+    <MESSAGE value="Change user active state" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change user active state" />
   </component>
 </project>

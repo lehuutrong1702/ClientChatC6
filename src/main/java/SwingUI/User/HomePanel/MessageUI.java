@@ -2,6 +2,7 @@ package SwingUI.User.HomePanel;
 
 import Controller.User.LoadMessageControl;
 import Controller.User.MessageUIControl;
+import Controller.User.TextSearchControl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.Connection;
 import com.teamc6.chatSystem.model.GroupChat;
@@ -21,6 +22,11 @@ import java.util.List;
 
 public class MessageUI<T> {
     private SocketClient socketClient;
+
+    public GroupChat getGroupChat() {
+        return groupChat;
+    }
+
     private GroupChat groupChat;
     private JPanel UiPanel;
     private JTextArea textArea;
@@ -31,6 +37,11 @@ public class MessageUI<T> {
     private JLabel name;
     private JPanel utilPanel;
     private JPanel messagePanel;
+
+    public JTextField getSearchField() {
+        return searchField;
+    }
+
     private JTextField searchField;
     private JScrollPane scrollPane;
 
@@ -42,22 +53,26 @@ public class MessageUI<T> {
         utilPanel.setPreferredSize(new Dimension(150, 550));
         textArea.setLineWrap(true);
 
+        GridBagConstraints comp_gbc = new GridBagConstraints();
+        comp_gbc.gridwidth = GridBagConstraints.REMAINDER;
+        comp_gbc.insets = new Insets(2, 0, 2, 0);
+        comp_gbc.weightx = 1;
+        comp_gbc.fill = GridBagConstraints.HORIZONTAL;
+
         if (item instanceof User u) {
             name.setText(u.getFullName());
             try {
+                System.out.println(u.getUserId());
                 groupChat = UserService.getInstance().getPrivateGroupChat(u.getUserId());
             } catch (JsonProcessingException e) {
                 throw new RuntimeException(e);
             }
-            utilPanel.add(new JButton("Delete chat"));
+            utilPanel.add(new JButton("Clear chat"), comp_gbc);
+            utilPanel.add(new JButton("Spam report"), comp_gbc);
+            utilPanel.add(new JButton("Block this user"), comp_gbc);
         } else if (item instanceof GroupChat g) {
             name.setText(g.getGroupName());
 
-            GridBagConstraints comp_gbc = new GridBagConstraints();
-            comp_gbc.gridwidth = GridBagConstraints.REMAINDER;
-            comp_gbc.insets = new Insets(2, 0, 2, 0);
-            comp_gbc.weightx = 1;
-            comp_gbc.fill = GridBagConstraints.HORIZONTAL;
             utilPanel.add(new JTextField("Enter name"), comp_gbc);
             utilPanel.add(new JButton("Rename"), comp_gbc);
             utilPanel.add(new JButton("Add"),comp_gbc);
@@ -87,7 +102,7 @@ public class MessageUI<T> {
 
         scrollPane.getVerticalScrollBar().addAdjustmentListener(new LoadMessageControl(scrollPane.getVerticalScrollBar(), textArea, groupChat));
         bSend.addActionListener(new MessageUIControl(this));
-
+        bSearch.addActionListener(new TextSearchControl(this));
 
         GridBagConstraints main_gbc = new GridBagConstraints();
         main_gbc.gridwidth = GridBagConstraints.REMAINDER;

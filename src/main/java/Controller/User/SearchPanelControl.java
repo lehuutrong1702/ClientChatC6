@@ -39,7 +39,9 @@ public class SearchPanelControl implements ActionListener {
                     Page<User> page = userService.filterUser(text, 0, 5);
                     java.util.List<User> userList = page.getContent();
                     for(User u : userList){
-                        resultPanel.add(new SearchCard<>(u));
+                        if(u.getUserId() != Account.getInstance().getId()){
+                            resultPanel.add(new SearchCard<>(u));
+                        }
                     }
                 }break;
                 case "Groups":{

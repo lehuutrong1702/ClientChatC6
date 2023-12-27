@@ -78,7 +78,6 @@ public class UserService {
     }
 
 
-
     public Set<User> getListFriend(Long id) throws JsonProcessingException {
         String url = String.format("http://localhost:8080/api/v1/users/%d/friends", id);
         Request request = new Request(url);
@@ -165,7 +164,17 @@ public class UserService {
 
         return (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
     }
+    public Relationship getRelationShip(Long id) throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users/%d/friends/%d", Account.getInstance().getId(), id);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
+        request.GET();
+        request.build();
+        request.send();
+        System.out.println(id);
+        return (Relationship) request.getResBody(new TypeReference<Relationship>() {});
+    }
     private static final UserService INSTANCE = new UserService();
 
     private UserService() {
