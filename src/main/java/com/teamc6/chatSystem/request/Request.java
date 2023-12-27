@@ -52,7 +52,7 @@ public class Request {
 
     }
 
-    public void DELETE(Object object){
+    public void DELETE(){
         builder.DELETE();
     }
     public void PUT(Object object){

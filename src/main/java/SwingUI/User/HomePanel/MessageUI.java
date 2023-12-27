@@ -1,5 +1,6 @@
 package SwingUI.User.HomePanel;
 
+import Controller.User.ClearControl;
 import Controller.User.LoadMessageControl;
 import Controller.User.MessageUIControl;
 import Controller.User.TextSearchControl;
@@ -53,51 +54,14 @@ public class MessageUI<T> {
         utilPanel.setPreferredSize(new Dimension(150, 550));
         textArea.setLineWrap(true);
 
-        GridBagConstraints comp_gbc = new GridBagConstraints();
-        comp_gbc.gridwidth = GridBagConstraints.REMAINDER;
-        comp_gbc.insets = new Insets(2, 0, 2, 0);
-        comp_gbc.weightx = 1;
-        comp_gbc.fill = GridBagConstraints.HORIZONTAL;
-
         if (item instanceof User u) {
-            name.setText(u.getFullName());
-            try {
-                System.out.println(u.getUserId());
-                groupChat = UserService.getInstance().getPrivateGroupChat(u.getUserId());
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
-            }
-            utilPanel.add(new JButton("Clear chat"), comp_gbc);
-            utilPanel.add(new JButton("Spam report"), comp_gbc);
-            utilPanel.add(new JButton("Block this user"), comp_gbc);
+            setUpPrivateUI(u);
         } else if (item instanceof GroupChat g) {
-            name.setText(g.getGroupName());
-
-            utilPanel.add(new JTextField("Enter name"), comp_gbc);
-            utilPanel.add(new JButton("Rename"), comp_gbc);
-            utilPanel.add(new JButton("Add"),comp_gbc);
-            utilPanel.add(new JButton("Remove"),comp_gbc);
-            utilPanel.add(new JButton("Assign admin"),comp_gbc);
+            setUpGroupUI(g);
         }
 
         if(groupChat != null) {
-            try {
-
-                Connection connection = GroupChatService.getInstance().getConnectionByID(groupChat.getId());
-                Socket socket = new Socket(connection.getIpv4(), connection.getPort());
-                socketClient = new SocketClient(socket, Account.getInstance().getUserName(), textArea);
-                List<Message> messages = GroupChatService.getInstance().getOldMessages(groupChat.getId());
-                for(Message m : messages){
-                    textArea.insert('\n'+ m.getUserName()+ ": "+ m.getMessage(), 0);
-                }
-                socketClient.listenForMessage();
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
-            } catch (UnknownHostException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            setUpChatConnection();
         }
 
         scrollPane.getVerticalScrollBar().addAdjustmentListener(new LoadMessageControl(scrollPane.getVerticalScrollBar(), textArea, groupChat));
@@ -109,6 +73,66 @@ public class MessageUI<T> {
         main_gbc.weightx = 1;
         main_gbc.weighty = 1;
         utilPanel.add(new JPanel(), main_gbc);
+    }
+    private void setUpPrivateUI(User u){
+        GridBagConstraints comp_gbc = new GridBagConstraints();
+        comp_gbc.gridwidth = GridBagConstraints.REMAINDER;
+        comp_gbc.insets = new Insets(2, 0, 2, 0);
+        comp_gbc.weightx = 1;
+        comp_gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        name.setText(u.getFullName());
+        try {
+            System.out.println(u.getUserId());
+            groupChat = UserService.getInstance().getPrivateGroupChat(u.getUserId());
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        var clearChatBtn = new JButton("Clear chat");
+        var blockBtn = new JButton("Block this user");
+        var spamReportBtn = new JButton("Spam report");
+        clearChatBtn.addActionListener(new ClearControl(textArea, groupChat));
+
+
+        utilPanel.add(clearChatBtn, comp_gbc);
+        utilPanel.add(spamReportBtn, comp_gbc);
+        utilPanel.add(blockBtn, comp_gbc);
+    }
+
+    private void setUpGroupUI(GroupChat g){
+        GridBagConstraints comp_gbc = new GridBagConstraints();
+        comp_gbc.gridwidth = GridBagConstraints.REMAINDER;
+        comp_gbc.insets = new Insets(2, 0, 2, 0);
+        comp_gbc.weightx = 1;
+        comp_gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        name.setText(g.getGroupName());
+
+        utilPanel.add(new JTextField("Enter name"), comp_gbc);
+        utilPanel.add(new JButton("Rename"), comp_gbc);
+        utilPanel.add(new JButton("Add"),comp_gbc);
+        utilPanel.add(new JButton("Remove"),comp_gbc);
+        utilPanel.add(new JButton("Assign admin"),comp_gbc);
+    }
+
+    private void setUpChatConnection(){
+        try {
+            Connection connection = GroupChatService.getInstance().getConnectionByID(groupChat.getId());
+            Socket socket = new Socket(connection.getIpv4(), connection.getPort());
+            socketClient = new SocketClient(socket, Account.getInstance().getUserName(), textArea);
+            List<Message> messages = GroupChatService.getInstance().getOldMessages(groupChat.getId());
+            for(Message m : messages){
+                textArea.insert('\n'+ m.getUserName()+ ": "+ m.getMessage(), 0);
+            }
+            socketClient.listenForMessage();
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public JPanel getUiPanel() {

@@ -7,8 +7,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Search message in a chat">
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Use new searchInChat api">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/BlockControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/ClearControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/BlockUserBtn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/ClearChatBtn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SpamReportBtn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/request/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/request/Request.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +184,7 @@
       <workItem from="1702917384042" duration="9637000" />
       <workItem from="1703580598113" duration="4822000" />
       <workItem from="1703612271317" duration="21541000" />
-      <workItem from="1703699299126" duration="2310000" />
+      <workItem from="1703699299126" duration="6782000" />
     </task>
     <task id="LOCAL-00001" summary="update code service">
       <created>1701324059438</created>
@@ -383,7 +392,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703701674766</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Use new searchInChat api">
+      <option name="closed" value="true" />
+      <created>1703702959902</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1703702959902</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,6 +448,7 @@
     <MESSAGE value="Change user active state" />
     <MESSAGE value="add user and change result with relationship" />
     <MESSAGE value="Search message in a chat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Search message in a chat" />
+    <MESSAGE value="Use new searchInChat api" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use new searchInChat api" />
   </component>
 </project>

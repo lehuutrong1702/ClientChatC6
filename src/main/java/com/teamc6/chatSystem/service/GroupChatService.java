@@ -107,6 +107,17 @@ public class GroupChatService {
         return groupChat;
     }
 
+    public void clearMessages(long id){
+        String url = String.format("http://localhost:8080/api/v1/groups/%d/messages", id);
+        Request request = new Request(url);
+
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.DELETE();
+        request.build();
+        request.send();
+    }
+
     public List<Message> searchInChat(long idGroup, String search) throws JsonProcessingException {
         String url = String.format("http://localhost:8080/api/v1/groups/%d/search", idGroup);
         Request request = new Request(url);
