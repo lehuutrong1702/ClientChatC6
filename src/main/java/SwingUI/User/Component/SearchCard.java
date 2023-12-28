@@ -1,6 +1,8 @@
 package SwingUI.User.Component;
 
+import Controller.User.BlockControl;
 import Controller.User.SearchCardControl;
+import Controller.User.UnFriendBtnControl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.GroupChat;
 import com.teamc6.chatSystem.model.Relationship;
@@ -28,13 +30,15 @@ public class SearchCard<T> extends JPanel {
                 System.out.println(relationship.toString());
                 if(Objects.equals(relationship.getName(), "friend")){
                     bAdd.setText("You are friends!");
+                    bDel.setText("UnFriend");
+                    bDel.addActionListener(new UnFriendBtnControl(u.getUserId()));
                 }else {
                     bAdd.addMouseListener(new SearchCardControl(u.getUserId()));
+                    bDel.addActionListener(new BlockControl(u.getUserId()));
                 }
             } catch (JsonProcessingException e) {
                 bAdd.addMouseListener(new SearchCardControl(u.getUserId()));
             }
-
         } else if (item instanceof GroupChat g) {
             name.setText(g.getGroupName());
         }

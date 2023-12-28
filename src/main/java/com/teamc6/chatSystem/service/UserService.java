@@ -151,6 +151,16 @@ public class UserService {
         Page<GroupChat> pageGroup = (Page<GroupChat>) request.getResBody(new TypeReference<Page<GroupChat>>() {});
         return  pageGroup;
     }
+    public void unFriend(Long id) {
+        String url = String.format("http://localhost:8080/api/v1/users/%d/friends/%d", Account.getInstance().getId(), id);
+        Request request = new Request(url);
+
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.DELETE();
+        request.build();
+        request.send();
+    }
 
     public GroupChat getPrivateGroupChat(Long id) throws JsonProcessingException {
 
