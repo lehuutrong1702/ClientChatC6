@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class UserService {
     public Page<User> filterUser(String username, long page, long size) throws JsonProcessingException {
-        String url = String.format("http://localhost:8081/api/v1/users/filter/username?username=%s&page=%d&size=%d", username, page, size);
+        String url = String.format("http://localhost:8081/api/v1/users/filter/%s?page=%d&size=%d", username, page, size);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 

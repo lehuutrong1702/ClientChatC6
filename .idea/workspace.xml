@@ -7,9 +7,9 @@
     <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="update code commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ChatApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ChatApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ChatApp$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ChatApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChatApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
