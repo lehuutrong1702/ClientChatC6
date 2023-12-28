@@ -65,37 +65,37 @@ public class ListComponent extends JPanel {
         }
     }
 
-    public void getList(boolean friends, String name) {
-        try {
-            for (var i = 0; i < mainList.getComponentCount() - 1; i++) {
-                mainList.remove(i);
-            }
-
-            Page list = null;
-            if (friends)
-                list = UserService.getInstance().filterFriendByName(Account.getInstance().getId(), name, 1, 20);
-            else
-                list = UserService.getInstance().filterGroupsByName(Account.getInstance().getId(), name, 1, 20);
-
-
-            if (list != null) {
-                GridBagConstraints comp_gbc = new GridBagConstraints();
-                comp_gbc.gridwidth = GridBagConstraints.REMAINDER;
-                comp_gbc.weightx = 1;
-                comp_gbc.fill = GridBagConstraints.HORIZONTAL;
-
-                for (var item : list.getContent()) {
-                    //card component
-                    Card newCard = new Card<>(item, this);
-                    mainList.add(newCard, comp_gbc, 0);
-                }
-            }
-
-            mainList.revalidate();
-            mainList.repaint();
-
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    public void getList(boolean friends, String name) {
+//        try {
+//            for (var i = 0; i < mainList.getComponentCount() - 1; i++) {
+//                mainList.remove(i);
+//            }
+//
+//            Page list = null;
+//            if (friends)
+//                list = UserService.getInstance().filterFriendByName(Account.getInstance().getId(), name, 1, 20);
+//            else
+//                list = UserService.getInstance().filterGroupsByName(Account.getInstance().getId(), name, 1, 20);
+//
+//
+//            if (list != null) {
+//                GridBagConstraints comp_gbc = new GridBagConstraints();
+//                comp_gbc.gridwidth = GridBagConstraints.REMAINDER;
+//                comp_gbc.weightx = 1;
+//                comp_gbc.fill = GridBagConstraints.HORIZONTAL;
+//
+//                for (var item : list.getContent()) {
+//                    //card component
+//                    Card newCard = new Card<>(item, this);
+//                    mainList.add(newCard, comp_gbc, 0);
+//                }
+//            }
+//
+//            mainList.revalidate();
+//            mainList.repaint();
+//
+//        } catch (JsonProcessingException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }

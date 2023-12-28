@@ -1,5 +1,6 @@
 package Controller.User;
 
+import SwingUI.User.Component.TextSearchFrame;
 import SwingUI.User.HomePanel.MessageUI;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.Message;
@@ -28,26 +29,12 @@ public class TextSearchControl implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Long groupID = messageUI.getGroupChat().getId();
         String context = messageUI.getSearchField().getText();
-        List<Message> messages= null;
+        List<Message> messages = null;
         try {
             messages = GroupChatService.getInstance().searchInChat(groupID, context);
         } catch (JsonProcessingException ex) {
             throw new RuntimeException(ex);
         }
-
-        Object[] headers = {"User", "Message", "Create at"};
-        DefaultTableModel model = new DefaultTableModel(headers, 0);
-        for(Message m : messages){
-            Object[] row = {m.getUserName(), m.getMessage(), m.getCreationDateTime()};
-            model.addRow(row);
-        }
-        JTable messagesTable = new JTable(model);
-
-        JFrame searchResult = new JFrame();
-        JScrollPane scrollPane = new JScrollPane(messagesTable);
-        searchResult.add(scrollPane);
-        searchResult.setSize(500,200);
-        searchResult.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        searchResult.setVisible(true);
+        var textSearch = new TextSearchFrame(messages);
     }
 }
