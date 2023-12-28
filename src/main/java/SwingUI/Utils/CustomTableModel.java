@@ -103,7 +103,7 @@ public class CustomTableModel extends AbstractTableModel {
                     String fullName = (String) value;
                     u.setFullName(fullName);
                 } else if (col == 3) {
-                    Date dob = DateAndString.StringtoDate((String) value);
+                    Date dob = DateAndString.StringtoDate((String) value, "dd/MM/yyyy");
                     if (dob == null) {
                         JOptionPane.showMessageDialog(null, "Date must be dd/MM/yyy");
                         return;

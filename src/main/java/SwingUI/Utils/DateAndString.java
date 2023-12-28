@@ -7,17 +7,17 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class DateAndString {
-    public static String DatetoString(Date date) {
+    public static String DatetoString(Date date, String format) {
         if (date == null)
             return "";
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat(format);
         return dateFormat.format(date);
     }
 
-    public static Date StringtoDate(String date) {
+    public static Date StringtoDate(String date, String format) {
         if (date == null)
             return null;
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat(format);
         try {
             return dateFormat.parse(date);
         } catch (ParseException e) {

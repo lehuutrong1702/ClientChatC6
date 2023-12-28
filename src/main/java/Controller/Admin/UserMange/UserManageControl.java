@@ -77,7 +77,7 @@ public class UserManageControl implements ActionListener {
                 homeFrame.replace(new HomePanel(homeFrame));
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + button.getText());
+                break;
         }
     }
 }

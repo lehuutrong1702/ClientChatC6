@@ -6,6 +6,8 @@ import com.teamc6.chatSystem.model.UserActiveSession;
 import com.teamc6.chatSystem.properties.Account;
 import com.teamc6.chatSystem.request.Request;
 
+import java.util.List;
+
 public class UserActiveSessionService {
     private static final UserActiveSessionService INSTANCE = new UserActiveSessionService();
 
@@ -44,6 +46,21 @@ public class UserActiveSessionService {
         request.send();
 
         UserActiveSession activeSession = (UserActiveSession) request.getResBody(new TypeReference<UserActiveSession>() {
+        });
+        return activeSession;
+    }
+
+    public List<UserActiveSession> getAll() throws JsonProcessingException {
+        String url = "http://localhost:8081/api/v1/user-active-sessions";
+        Request request = new Request(url);
+
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        List<UserActiveSession> activeSession = (List<UserActiveSession>) request.getResBody(new TypeReference<List<UserActiveSession>>() {
         });
         return activeSession;
     }

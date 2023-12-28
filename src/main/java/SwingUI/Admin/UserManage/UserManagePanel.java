@@ -46,7 +46,7 @@ public class UserManagePanel extends JPanel {
                     user.getUserId(),
                     user.getUserName(),
                     user.getFullName(),
-                    DateAndString.DatetoString(user.getBirthDay()),
+                    DateAndString.DatetoString(user.getBirthDay(), "dd/MM/yyyy"),
                     user.isGender() ? "Female" : "Male",
                     user.getEmail() != null ? user.getEmail() : "",
                     user.isActive()
@@ -164,11 +164,11 @@ public class UserManagePanel extends JPanel {
             if (sortsOptions.getSelectedIndex() == 1) {
                 List<RowSorter.SortKey> sortKeys = new ArrayList<>(6);
                 sortKeys.add(new RowSorter.SortKey(2, SortOrder.ASCENDING));
-                userList.setSortKeys(sortKeys);
+                userList.setSortKeys(sortKeys, 2);
             } else if (sortsOptions.getSelectedIndex() == 2) {
                 List<RowSorter.SortKey> sortKeys = new ArrayList<>(6);
                 sortKeys.add(new RowSorter.SortKey(3, SortOrder.ASCENDING));
-                userList.setSortKeys(sortKeys);
+                userList.setSortKeys(sortKeys, 3);
             }
         });
 

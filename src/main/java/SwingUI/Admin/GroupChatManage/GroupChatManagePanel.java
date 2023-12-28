@@ -1,14 +1,9 @@
 package SwingUI.Admin.GroupChatManage;
 
+import Controller.Admin.GroupChatManage.GroupChatMangeControl;
 import SwingUI.Admin.Component.ViewPanel;
-import SwingUI.Admin.HomeFrame;
-import SwingUI.Admin.HomePanel;
 import SwingUI.Utils.CustomFocusListener;
 import SwingUI.Utils.DateAndString;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatSystem.model.GroupChat;
-import com.teamc6.chatSystem.model.Page;
-import com.teamc6.chatSystem.service.GroupChatService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,45 +26,33 @@ public class GroupChatManagePanel extends JPanel {
 
         String[] cols = {"ID", "Name", "Created date"};
         List<Object[]> data = new ArrayList<>();
-        Page<GroupChat> listGroupChat;
-        try {
-            listGroupChat = GroupChatService.getInstance().getAll();
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
+//        Page<GroupChat> listGroupChat;
+//        try {
+//            listGroupChat = GroupChatService.getInstance().getAll();
+//        } catch (JsonProcessingException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        for (var group : listGroupChat.getContent()) {
+//            Object[] row = {
+//                    group.getId(),
+//                    group.getGroupName(),
+//                    DateAndString.DatetoString(group.getTimeCreate())
+//            };
+//            data.add(row);
+//        }
 
-        for (var group : listGroupChat.getContent()) {
-            Object[] row = {
-                    group.getId(),
-                    group.getGroupName(),
-                    DateAndString.DatetoString(group.getTimeCreate())
-            };
-            data.add(row);
-        }
+        Object[] row = {1, "Haha", DateAndString.DatetoString(new Date(), "dd/MM/yyyy")};
+        data.add(row);
 
         groupList = new ViewPanel(cols, data, false, 10);
         JPanel actions = new JPanel();
-
+        GroupChatMangeControl control = new GroupChatMangeControl();
         JButton bInfo = new JButton("View group info");
-        bInfo.addActionListener(e -> {
-            String value = getSelectedValueAtCol(0);
-            if (value == null)
-                return;
-
-            Component component = (Component) e.getSource();
-            HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
-
-            MemberPanel memberPanel = new MemberPanel(Long.parseLong(value));
-            homeFrame.replace(memberPanel.getMainPanel());
-        });
+        bInfo.addActionListener(control);
 
         JButton bReturn = new JButton("Return");
-        bReturn.addActionListener(e -> {
-            Component component = (Component) e.getSource();
-            HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
-
-            homeFrame.replace(new HomePanel(homeFrame));
-        });
+        bReturn.addActionListener(control);
 
         actions.add(bInfo);
         actions.add(bReturn);
@@ -78,7 +61,7 @@ public class GroupChatManagePanel extends JPanel {
         add(actions, BorderLayout.SOUTH);
     }
 
-    private String getSelectedValueAtCol(int col) {
+    public String getSelectedValueAtCol(int col) {
         JTable table = groupList.getTable();
         int selectedRow = table.getSelectedRow();
         if (selectedRow == -1)
@@ -95,11 +78,11 @@ public class GroupChatManagePanel extends JPanel {
             if (sortsOptions.getSelectedIndex() == 1) {
                 List<RowSorter.SortKey> sortKeys = new ArrayList<>(6);
                 sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
-                groupList.setSortKeys(sortKeys);
+                groupList.setSortKeys(sortKeys, 1);
             } else if (sortsOptions.getSelectedIndex() == 2) {
                 List<RowSorter.SortKey> sortKeys = new ArrayList<>(6);
                 sortKeys.add(new RowSorter.SortKey(2, SortOrder.ASCENDING));
-                groupList.setSortKeys(sortKeys);
+                groupList.setSortKeys(sortKeys, 2);
             }
         });
 

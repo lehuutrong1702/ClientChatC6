@@ -12,15 +12,16 @@ public class ViewPanel extends JPanel {
     private JTable table;
     private CustomTableModel model;
     private TableRowSorter<TableModel> sorter;
+
     public ViewPanel(String[] columnNames, List<Object[]> data, boolean editable, int col) {
         setOpaque(true);
 
         model = new CustomTableModel(columnNames, data, editable, col);
         table = new JTable(model);
+        table.setPreferredScrollableViewportSize(new Dimension(900, 500));
         sorter = new TableRowSorter<>(model);
         table.setRowSorter(sorter);
-        table.setPreferredScrollableViewportSize(new Dimension(900, 500));
-
+        removeAllSortKeys();
         //Create the scroll pane and add the table to it.
         JScrollPane scrollPane = new JScrollPane(table);
 
@@ -36,15 +37,19 @@ public class ViewPanel extends JPanel {
         return model;
     }
 
-    public void setSortKeys(List<RowSorter.SortKey> sortKeys) {
+    public void setSortKeys(List<RowSorter.SortKey> sortKeys, int col) {
         if (model.getRowCount() == 0)
             return;
+        sorter.setSortable(col, true);
         sorter.setSortKeys(sortKeys);
     }
 
     public void removeAllSortKeys() {
         if (model.getRowCount() == 0)
             return;
+        for (int i = 0; i < model.getColumnCount(); i++) {
+            sorter.setSortable(i, false);
+        }
         sorter.setSortKeys(null);
     }
 
@@ -57,7 +62,7 @@ public class ViewPanel extends JPanel {
     public void filterBoolean(boolean value, int col) {
         if (model.getRowCount() == 0)
             return;
-        RowFilter<Object,Object> booleanFilter = new RowFilter<Object,Object>() {
+        RowFilter<Object, Object> booleanFilter = new RowFilter<Object, Object>() {
             public boolean include(Entry<? extends Object, ? extends Object> entry) {
                 return entry.getValue(col).equals(value);
             }

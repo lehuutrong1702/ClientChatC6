@@ -7,6 +7,7 @@ import SwingUI.SignIn.SignInFrame;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.User;
 import com.teamc6.chatSystem.properties.Account;
+import com.teamc6.chatSystem.service.UserActiveSessionService;
 import com.teamc6.chatSystem.service.UserService;
 
 import javax.swing.*;
@@ -37,6 +38,7 @@ public class UCControl implements ActionListener {
         } else {
             mainPanel.getHomeFrame().dispose();
             try {
+                UserActiveSessionService.getInstance().endSession(Account.getInstance().getSessionID());
                 new SignInFrame();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
