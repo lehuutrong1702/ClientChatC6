@@ -94,6 +94,33 @@ public class GroupChatService {
         return connection;
     }
 
+    public GroupChat renameGroupChat(long idGroup, String name) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/groups/%d/%s", idGroup, name);
+        Request request = new Request(url);
+        System.out.println(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        // Sử dụng phương thức PATCH để cập nhật thông tin GroupChat
+        request.PUT(GroupChat.class);
+        request.build();
+        request.send();
+
+        //GroupChat groupChat = (GroupChat) request.getResBody(GroupChat.class);
+        return searchGroupChatById(idGroup);
+    }
+
+    public GroupChat deleteMember(long idGroup, long idMember) throws JsonProcessingException{
+        String url = String.format("http://localhost:8081/api/v1/groups/%d/members/%d", idGroup, idMember);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.DELETE(GroupChat.class);
+        request.build();
+        request.send();
+
+        //GroupChat groupChat = (GroupChat) request.getResBody(GroupChat.class);
+        return searchGroupChatById(idGroup);
+    }
     public GroupChat createGroupChat() throws JsonProcessingException{
         String url = "http://localhost:8081/api/v1/groups";
         Request request = new Request(url);
@@ -117,4 +144,6 @@ public class GroupChatService {
     public static GroupChatService getInstance() {
         return INSTANCE;
     }
+
+
 }

@@ -69,8 +69,8 @@ public class Request {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-
     }
+
     public void build(){
      httpRequest =  builder.build();
     }

@@ -1,77 +1,26 @@
 package com.teamc6.chatsystem;
 
-import javax.swing.*;
-import javax.swing.border.MatteBorder;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class App {
 
-    public static void main(String[] args) {
-        new App();
-    }
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatsystem.properties.Account;
+import com.teamc6.chatsystem.request.Request;
+import com.teamc6.chatsystem.model.*;
+import com.teamc6.chatsystem.service.AdminService;
+import com.teamc6.chatsystem.service.GroupChatService;
+import com.teamc6.chatsystem.service.UserService;
 
-    public App() {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (Exception ex) {
-                }
+import java.io.IOException;
 
-                JFrame frame = new JFrame("Test");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.add(new TestPane());
-                frame.pack();
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
-            }
-        });
-    }
+    public class App {
 
-    public class TestPane extends JPanel {
-
-        private JPanel mainList;
-
-        public TestPane() {
-            setLayout(new BorderLayout());
-
-            mainList = new JPanel(new GridBagLayout());
-            GridBagConstraints gbc = new GridBagConstraints();
-            gbc.gridwidth = GridBagConstraints.REMAINDER;
-            gbc.weightx = 1;
-            gbc.weighty = 1;
-            mainList.add(new JPanel(), gbc);
-
-            add(new JScrollPane(mainList));
-
-            JButton add = new JButton("Add");
-            add.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JPanel panel = new JPanel();
-                    panel.add(new JLabel("Hello"));
-                    //panel.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
-                    GridBagConstraints gbc = new GridBagConstraints();
-                    gbc.gridwidth = GridBagConstraints.REMAINDER;
-                    gbc.weightx = 1;
-                    gbc.fill = GridBagConstraints.HORIZONTAL;
-                    mainList.add(panel, gbc, 0);
-
-                    validate();
-                    repaint();
-                }
-            });
-
-            add(add, BorderLayout.SOUTH);
-
+        public static void main (String args[]) throws JsonProcessingException {
+            Account.getInstance().setId(19);
+            Account.getInstance().setUserName("LTAT123");
+            Account.getInstance().setPassWord("123");
+            System.out.println(GroupChatService.getInstance().renameGroupChat(1, "QNamFC"));
+            //System.out.println(GroupChatService.getInstance().deleteMember(1, 13));
+            //System.out.println(AdminService.getInstance().allUser(1, 2));
         }
 
-        @Override
-        public Dimension getPreferredSize() {
-            return new Dimension(200, 200);
-        }
     }
-}
