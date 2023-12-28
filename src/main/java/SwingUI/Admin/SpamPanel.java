@@ -31,11 +31,11 @@ public class SpamPanel extends JPanel {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
         String strDate = dateFormat.format(date);
 
-        String[] columnNames = {"Time", "Username", "Banned"};
+        String[] columnNames = {"ID", "Time", "Username", "Banned"};
         List<Object[]> data = new ArrayList<>();
-        Object[] row = {strDate, "Minh", false};
+        Object[] row = {1, strDate, "Minh", false};
         data.add(row);
-        userList = new ViewPanel(columnNames, data, true);
+        userList = new ViewPanel(columnNames, data, true, 2);
         JPanel actions = new JPanel();
 
         JButton bReturn = new JButton("Return");

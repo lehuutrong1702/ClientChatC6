@@ -29,7 +29,7 @@ public class SessionPanel extends JPanel {
             Object[] row = {strTime, "A", "B"};
             data.add(row);
         }
-        sessionList = new ViewPanel(columnNames, data, false);
+        sessionList = new ViewPanel(columnNames, data, false, 10);
         sessionList.getTable().setPreferredScrollableViewportSize(new Dimension(900, 550));
 
         JPanel actions = new JPanel();

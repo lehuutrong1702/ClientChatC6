@@ -32,7 +32,7 @@ public class CurrentUserPanel extends JPanel {
         List<Object[]> data = new ArrayList<>();
         Object[] row = {1, "Mary", 10, 2, 5};
         data.add(row);
-        userList = new ViewPanel(columnNames, data, false);
+        userList = new ViewPanel(columnNames, data, false, 10);
         JPanel actions = new JPanel();
 
         JButton bReturn = new JButton("Return");

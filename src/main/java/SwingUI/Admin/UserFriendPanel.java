@@ -26,7 +26,7 @@ public class UserFriendPanel extends JPanel {
         List<Object[]> data = new ArrayList<>();
         Object[] row = {1, "Mary", 10, 100};
         data.add(row);
-        userList = new ViewPanel(columnNames, data, false);
+        userList = new ViewPanel(columnNames, data, false, 10);
         JPanel actions = new JPanel();
 
         JButton bReturn = new JButton("Return");

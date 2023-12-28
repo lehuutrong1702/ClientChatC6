@@ -1,6 +1,6 @@
 package SwingUI.SignUp;
 
-import Controller.User.SignUpControl;
+import Controller.SignUpControl;
 import SwingUI.Utils.CustomDatePicker;
 import SwingUI.Utils.CustomFocusListener;
 import SwingUI.Utils.RoundedCornerBorder;

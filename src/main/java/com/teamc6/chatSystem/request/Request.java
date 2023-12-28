@@ -36,6 +36,18 @@ public class Request {
     public void authorization(String username, String password){
          builder.header("Authorization",getBasicAuthenticationHeader(username,password));
     }
+
+    public void PATCH(Object object){
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        try {
+            String jsonObject = objectMapper.writeValueAsString(object);
+            builder.method("PATCH",HttpRequest.BodyPublishers.ofString(jsonObject));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void GET(){
         builder.GET();
     }
@@ -52,7 +64,7 @@ public class Request {
 
     }
 
-    public void DELETE(Object object){
+    public void DELETE(){
         builder.DELETE();
     }
     public void PUT(Object object){

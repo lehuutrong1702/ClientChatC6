@@ -38,7 +38,7 @@ public class NewUserPanel extends JPanel {
         List<Object[]> data = new ArrayList<>();
         Object[] row = {1, "Minh", strTime};
         data.add(row);
-        userList = new ViewPanel(columnNames, data, true);
+        userList = new ViewPanel(columnNames, data, false, 10);
         JPanel actions = new JPanel();
 
         JButton bReturn = new JButton("Return");

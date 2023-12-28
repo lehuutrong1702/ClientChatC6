@@ -1,6 +1,6 @@
 package SwingUI.SignIn;
 
-import Controller.User.SignInControl;
+import Controller.SignInControl;
 import SwingUI.Utils.*;
 
 import javax.imageio.ImageIO;

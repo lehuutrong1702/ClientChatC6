@@ -1,4 +1,4 @@
-package Controller.User;
+package Controller;
 
 import SwingUI.SignIn.SignInFrame;
 import SwingUI.SignUp.SignUpFrame;
@@ -35,6 +35,7 @@ public class SignUpControl implements ActionListener {
             u.setFullName(fullname);
             u.setUserName(username);
             u.setGender(gender);
+            u.setTimeRegister(new java.util.Date());
             u.setRole("USER");
 
             try {

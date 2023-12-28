@@ -39,7 +39,7 @@ public class UserService {
     }
 
     public User findById(long Id) throws JsonProcessingException{
-        String url = String.format("http://localhost:8080/api/v1/users/search/id=%d", Id);
+        String url = String.format("http://localhost:8080/api/v1/users/%d", Id);
         System.out.println(url);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -77,6 +77,19 @@ public class UserService {
         return relationship;
     }
 
+    public Page<User> getAll() throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users?page=0&size=100");
+        Request request = new Request(url);
+
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<User> listUser = (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
+        return listUser;
+    }
+
     public Set<User> getListFriend(Long id) throws JsonProcessingException {
         String url = String.format("http://localhost:8080/api/v1/users/%d/friends", id);
         Request request = new Request(url);
@@ -103,8 +116,8 @@ public class UserService {
         return listGroup;
     }
 
-    public User updateUser(User u) throws JsonProcessingException{
-        String url = String.format("http://localhost:8080/api/v1/users/id=%d",  Account.getInstance().getId());
+    public User updateUser(User u, Long id) throws JsonProcessingException{
+        String url = String.format("http://localhost:8080/api/v1/users/%d",  id);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
         request.PUT(u);
@@ -141,6 +154,20 @@ public class UserService {
 
         Page<GroupChat> pageGroup = (Page<GroupChat>) request.getResBody(new TypeReference<Page<GroupChat>>() {});
         return  pageGroup;
+    }
+
+    public Boolean deleteUser(Long id) throws JsonProcessingException {
+
+        String url = String.format("http://localhost:8080/api/v1/users/%d", id);
+        System.out.println(id);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.DELETE();
+        request.build();
+        request.send();
+
+        return (Boolean) request.getResBody(new TypeReference<Boolean>() {});
     }
 
     public GroupChat getPrivateGroupChat(Long id) throws JsonProcessingException {

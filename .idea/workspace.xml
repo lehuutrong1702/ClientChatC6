@@ -7,13 +7,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Delete MessagePanel.java">
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Add UserActiveSession and update GroupChatManage">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin/GroupChatManage/GroupChatMangeControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin/UserMange/AddUserControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin/UserMange/UserManageControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/DateAndString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/UserActiveSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserActiveSessionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/CardControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/CardControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/InfoPanelControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/InfoPanelControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/SignInControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SignInControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/SignUpControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SignUpControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/Component/ViewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/Component/ViewPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/GroupChatManagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/GroupChatManagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SessionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SessionPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SpamPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SpamPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserFriendPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserFriendPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/AddPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/AddPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/UserManagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/UserManagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/SignIn/SignInFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/SignIn/SignInFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/SignUp/SignUpFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/SignUp/SignUpFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/properties/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/properties/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/request/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/request/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/request/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/request/Request.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,10 +185,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SwingUI.Admin.HomeFrame" />
+        <item itemvalue="Application.ChatApp" />
         <item itemvalue="Application.HomeFrame" />
         <item itemvalue="Application.CustomChart" />
         <item itemvalue="Application.ViewPanel" />
-        <item itemvalue="Application.ChatApp" />
       </list>
     </recent_temporary>
   </component>
@@ -352,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703235153060</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Update FilterPanel for Admin UI">
+      <option name="closed" value="true" />
+      <created>1703255827508</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1703255827508</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,6 +430,8 @@
     <MESSAGE value="Add finish manage student UI for admin" />
     <MESSAGE value="Complete UI for admin" />
     <MESSAGE value="Delete MessagePanel.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete MessagePanel.java" />
+    <MESSAGE value="Update FilterPanel for Admin UI" />
+    <MESSAGE value="Add UserActiveSession and update GroupChatManage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add UserActiveSession and update GroupChatManage" />
   </component>
 </project>

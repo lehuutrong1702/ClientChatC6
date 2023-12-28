@@ -3,6 +3,7 @@ package Controller.User;
 import SwingUI.User.HomePanel.InfoPanel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.properties.Account;
 import com.teamc6.chatSystem.service.UserService;
 
 import javax.swing.*;
@@ -34,7 +35,7 @@ public class InfoPanelControl implements ActionListener {
                 u.setBirthDay(dob);
                 u.setEmail(email);
 
-                User updatedUser = UserService.getInstance().updateUser(u);
+                User updatedUser = UserService.getInstance().updateUser(u, Account.getInstance().getId());
 
                 if (updatedUser == null)
                     JOptionPane.showMessageDialog(null, "Name and password must not be empty");
