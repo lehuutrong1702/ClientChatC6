@@ -1,9 +1,6 @@
 package SwingUI.User.HomePanel;
 
-import Controller.User.ClearControl;
-import Controller.User.LoadMessageControl;
-import Controller.User.MessageUIControl;
-import Controller.User.TextSearchControl;
+import Controller.User.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.Connection;
 import com.teamc6.chatSystem.model.GroupChat;
@@ -62,10 +59,9 @@ public class MessageUI<T> {
 
         if(groupChat != null) {
             setUpChatConnection();
+            bSend.addActionListener(new MessageUIControl(this));
         }
-
         scrollPane.getVerticalScrollBar().addAdjustmentListener(new LoadMessageControl(scrollPane.getVerticalScrollBar(), textArea, groupChat));
-        bSend.addActionListener(new MessageUIControl(this));
         bSearch.addActionListener(new TextSearchControl(this));
 
         GridBagConstraints main_gbc = new GridBagConstraints();
@@ -84,7 +80,14 @@ public class MessageUI<T> {
         name.setText(u.getFullName());
         try {
             System.out.println(u.getUserId());
-            groupChat = UserService.getInstance().getPrivateGroupChat(u.getUserId());
+            List<User> blockers = UserService.getInstance().blocking().getContent();
+
+            if(blockers.contains(u)){
+                textArea.append("YOU HAVE BLOCKED " + u.getUserName() + "!");
+                groupChat = null;
+            }else {
+                groupChat = UserService.getInstance().getPrivateGroupChat(u.getUserId());
+            }
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
@@ -93,7 +96,7 @@ public class MessageUI<T> {
         var blockBtn = new JButton("Block this user");
         var spamReportBtn = new JButton("Spam report");
         clearChatBtn.addActionListener(new ClearControl(textArea, groupChat));
-
+        blockBtn.addActionListener(new BlockControl(u.getUserId()));
 
         utilPanel.add(clearChatBtn, comp_gbc);
         utilPanel.add(spamReportBtn, comp_gbc);

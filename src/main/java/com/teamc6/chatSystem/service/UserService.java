@@ -185,6 +185,42 @@ public class UserService {
         System.out.println(id);
         return (Relationship) request.getResBody(new TypeReference<Relationship>() {});
     }
+
+    public void block(Long id) {
+        String url = String.format("http://localhost:8080/api/v1/users/%d/block/%d", Account.getInstance().getId(), id);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.POST(null);
+        request.build();
+        request.send();
+    }
+
+    public Page<User> blocking() throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users/%d/blocking", Account.getInstance().getId());
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        return (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
+    }
+
+    public Page<User> blockers() throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users/%d/blockers", Account.getInstance().getId());
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        return (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
+    }
+
+
     private static final UserService INSTANCE = new UserService();
 
     private UserService() {

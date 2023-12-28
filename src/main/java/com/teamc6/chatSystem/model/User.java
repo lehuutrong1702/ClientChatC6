@@ -1,6 +1,7 @@
 package com.teamc6.chatSystem.model;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class User {
     private long userId;
@@ -92,6 +93,19 @@ public class User {
 
     public void setActive(boolean active) {
         Active = active;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        User user = (User) object;
+        return getUserId() == user.getUserId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUserId());
     }
 
     @Override
