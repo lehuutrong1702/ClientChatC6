@@ -1,9 +1,21 @@
 package com.teamc6.chatSystem.properties;
 
+import com.teamc6.chatSystem.model.User;
+
 public class Account {
     private  long Id;
     private  String userName;
     private  String passWord;
+
+    public User getSelf() {
+        return self;
+    }
+
+    public void setSelf(User self) {
+        this.self = self;
+    }
+
+    private User self;
 
     public Account(String userName, String passWord) {
         this.userName = userName;
