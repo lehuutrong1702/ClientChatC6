@@ -97,6 +97,7 @@ public class MessageUI<T> {
         var spamReportBtn = new JButton("Spam report");
         clearChatBtn.addActionListener(new ClearControl(textArea, groupChat));
         blockBtn.addActionListener(new BlockControl(u.getUserId()));
+        spamReportBtn.addActionListener(new SpamControl(u.getUserId()));
 
         utilPanel.add(clearChatBtn, comp_gbc);
         utilPanel.add(spamReportBtn, comp_gbc);

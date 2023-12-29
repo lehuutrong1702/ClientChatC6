@@ -220,6 +220,16 @@ public class UserService {
         return (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
     }
 
+    public void reportSpam(long id){
+        String url = String.format("http://localhost:8080/api/v1/users/%d/spams", id);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.POST(null);
+        request.build();
+        request.send();
+    }
+
 
     private static final UserService INSTANCE = new UserService();
 

@@ -7,14 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Change text-search to use get request">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/TextSearchFrame.java" afterDir="false" />
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="refactor TextSearchControl and allow text-search in all friend chats">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SpamControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/SideSearchControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SideSearchControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/TextSearchControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/TextSearchControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/ListComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/ListComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +179,7 @@
       <workItem from="1703580598113" duration="4822000" />
       <workItem from="1703612271317" duration="21541000" />
       <workItem from="1703699299126" duration="19983000" />
-      <workItem from="1703778488394" duration="7073000" />
+      <workItem from="1703778488394" duration="8522000" />
     </task>
     <task id="LOCAL-00001" summary="update code service">
       <created>1701324059438</created>
@@ -438,7 +435,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703782609631</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="refactor TextSearchControl and allow text-search in all friend chats">
+      <option name="closed" value="true" />
+      <created>1703786337720</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1703786337720</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,6 +496,7 @@
     <MESSAGE value="Unfriend button and functionality" />
     <MESSAGE value="Block user button and functionality" />
     <MESSAGE value="Change text-search to use get request" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change text-search to use get request" />
+    <MESSAGE value="refactor TextSearchControl and allow text-search in all friend chats" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor TextSearchControl and allow text-search in all friend chats" />
   </component>
 </project>
