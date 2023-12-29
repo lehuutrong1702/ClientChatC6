@@ -71,7 +71,7 @@ public class GroupChatService {
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
-        request.PUT(GroupChat.class);
+        request.POST(GroupChat.class);
         request.build();
         request.send();
 
@@ -85,7 +85,7 @@ public class GroupChatService {
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
-        request.PUT(GroupChat.class);
+        request.POST(GroupChat.class);
         request.build();
         request.send();
 
@@ -93,20 +93,34 @@ public class GroupChatService {
         return groupChat;
     }
 
-    public GroupChat createGroupChat() throws JsonProcessingException{
+    public GroupChat createGroupChat(GroupChat g) throws JsonProcessingException{
         String url = "http://localhost:8080/api/v1/groups";
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+        System.out.println(g);
+        request.POST(g);
+        request.build();
+        request.send();
 
-        request.PUT(GroupChat.class);
+        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
+        System.out.println(groupChat);
+        return groupChat;
+    }
+    public GroupChat renameGroup(long id, String name) throws JsonProcessingException {
+        name = name.replace(" ", "%20");
+        String url = String.format("http://localhost:8080/api/v1/groups/%d?name=%s", id, name);
+        Request request = new Request(url);
+
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.PATCH(GroupChat.class);
         request.build();
         request.send();
 
         GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return groupChat;
     }
-
     public void clearMessages(long id){
         String url = String.format("http://localhost:8080/api/v1/groups/%d/messages", id);
         Request request = new Request(url);

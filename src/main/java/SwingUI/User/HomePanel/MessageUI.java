@@ -112,6 +112,7 @@ public class MessageUI<T> {
         comp_gbc.fill = GridBagConstraints.HORIZONTAL;
 
         name.setText(g.getGroupName());
+        groupChat = g;
 
         utilPanel.add(new JTextField("Enter name"), comp_gbc);
         utilPanel.add(new JButton("Rename"), comp_gbc);

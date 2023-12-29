@@ -140,7 +140,7 @@ public class UserService {
     }
 
     public Page<GroupChat> filterGroupsByName(Long id, String groupname, long page, long size) throws JsonProcessingException {
-        String url = String.format("http://localhost:8081/api/v1/users/%d/groups/%s?page=%d&size=%d", id, groupname, page, size);
+        String url = String.format("http://localhost:8080/api/v1/users/%d/groups/%s?page=%d&size=%d", id, groupname, page, size);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 

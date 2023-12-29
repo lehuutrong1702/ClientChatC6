@@ -16,12 +16,6 @@ public class MainPanel extends JPanel {
 
         Navbar navbar = new Navbar(this);
         add(navbar, BorderLayout.NORTH);
-
-        //User u = new User(); u.setFullName("Phan Van Nguyen");
-        GroupChat g = new GroupChat();
-        g.setGroupName("Doi hoa simp");
-        MessageUI messagePanel = new MessageUI(g);
-        add(messagePanel.getUiPanel(), BorderLayout.CENTER);
     }
 
     public HomeFrame getHomeFrame() {

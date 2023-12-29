@@ -66,6 +66,18 @@ public class Request {
         }
 
     }
+
+    public void PATCH(Object object){
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        try {
+            String jsonObject = objectMapper.writeValueAsString(object);
+            builder.method("PATCH",HttpRequest.BodyPublishers.ofString(jsonObject));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void build(){
      httpRequest =  builder.build();
     }
@@ -84,9 +96,8 @@ public class Request {
         objectMapper.findAndRegisterModules();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        if(httpResponse.statusCode() == 200)
-        {
-            Object  t= objectMapper.readValue(httpResponse.body(), T);
+        if(httpResponse.statusCode() == 200 || httpResponse.statusCode() == 201) {
+            Object t = objectMapper.readValue(httpResponse.body(), T);
             return (t);
         }
         else{

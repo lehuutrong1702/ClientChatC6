@@ -4,18 +4,18 @@ import java.util.Date;
 
 public class GroupChat {
     private long id;
+
+    @Override
+    public String toString() {
+        return "GroupChat{" +
+                "id=" + id +
+                ", groupName='" + groupName + '\'' +
+                ", timeCreate=" + timeCreate +
+                '}';
+    }
+
     private String groupName;
     private Date timeCreate;
-
-    public GroupChat(long id, String groupName, Date timeCreate) {
-        this.id = id;
-        this.groupName = groupName;
-        this.timeCreate = timeCreate;
-    }
-
-    public GroupChat() {
-
-    }
 
     public long getId() {
         return id;

@@ -1,7 +1,9 @@
 package SwingUI.User.Component;
 
+import Controller.User.GroupCreationControl;
 import SwingUI.User.SidePanel;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.GroupChat;
 import com.teamc6.chatSystem.model.Page;
 import com.teamc6.chatSystem.properties.Account;
 import com.teamc6.chatSystem.service.UserService;
@@ -50,14 +52,14 @@ public class ListComponent extends JPanel {
                 list = UserService.getInstance().getListFriend(Account.getInstance().getId());
             else {
                 list = UserService.getInstance().getListGroup();
-                mainList.add(new JButton("New group"), comp_gbc, 0);
+                var newGroup = new JButton("New group");
+                newGroup.addActionListener(new GroupCreationControl(this));
+                mainList.add(newGroup, comp_gbc, 0);
             }
             if (list != null) {
                 for (var item : list) {
                     //card component
-                    System.out.println(item.toString());
-                    Card newCard = new Card<>(item, this);
-                    mainList.add(newCard, comp_gbc, 0);
+                    addCard(item);
                 }
             }
 
@@ -66,6 +68,11 @@ public class ListComponent extends JPanel {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void addCard(Object item){
+        Card newCard = new Card<>(item, this);
+        mainList.add(newCard, comp_gbc, (item instanceof GroupChat ? 1 : 0));
     }
 
 //    public void getList(boolean friends, String name) {
