@@ -78,6 +78,19 @@ public class GroupChatService {
         GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
         return groupChat;
     }
+    public GroupChat removeMember(long groupID, long memberID) throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/groups/%d/members/%d", groupID, memberID);
+        Request request = new Request(url);
+
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.DELETE();
+        request.build();
+        request.send();
+
+        GroupChat groupChat = (GroupChat) request.getResBody(new TypeReference<GroupChat>() {});
+        return groupChat;
+    }
 
     public GroupChat addAdminGroupChat(long idGroup, long idAdmin) throws JsonProcessingException{
         String url = String.format("http://localhost:8080/api/v1/groups/%d/admins/%d", idGroup, idAdmin);
