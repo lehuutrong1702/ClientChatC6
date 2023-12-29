@@ -11,6 +11,8 @@ import java.awt.*;
 import java.util.Set;
 
 public class ListComponent extends JPanel {
+    private GridBagConstraints main_gbc;
+    private GridBagConstraints comp_gbc;
     JPanel mainList;
     SidePanel sidePanel;
 
@@ -23,11 +25,16 @@ public class ListComponent extends JPanel {
         setLayout(new BorderLayout());
 
         mainList = new JPanel(new GridBagLayout());
-        GridBagConstraints main_gbc = new GridBagConstraints();
+        main_gbc = new GridBagConstraints();
         main_gbc.gridwidth = GridBagConstraints.REMAINDER;
         main_gbc.weightx = 1;
         main_gbc.weighty = 1;
         mainList.add(new JPanel(), main_gbc);
+
+        comp_gbc = new GridBagConstraints();
+        comp_gbc.gridwidth = GridBagConstraints.REMAINDER;
+        comp_gbc.weightx = 1;
+        comp_gbc.fill = GridBagConstraints.HORIZONTAL;
         //getList(true);
 
         add(new JScrollPane(mainList));
@@ -35,24 +42,20 @@ public class ListComponent extends JPanel {
 
     public void getList(boolean friends) {
         try {
-            for (var i = 0; i < mainList.getComponentCount() - 1; i++) {
-                mainList.remove(i);
-            }
+            mainList.removeAll();
+            mainList.add(new JPanel(), main_gbc);
 
-            Set list;
+            Set list = null;
             if (friends)
                 list = UserService.getInstance().getListFriend(Account.getInstance().getId());
-            else
+            else {
                 list = UserService.getInstance().getListGroup();
-
+                mainList.add(new JButton("New group"), comp_gbc, 0);
+            }
             if (list != null) {
-                GridBagConstraints comp_gbc = new GridBagConstraints();
-                comp_gbc.gridwidth = GridBagConstraints.REMAINDER;
-                comp_gbc.weightx = 1;
-                comp_gbc.fill = GridBagConstraints.HORIZONTAL;
-
                 for (var item : list) {
                     //card component
+                    System.out.println(item.toString());
                     Card newCard = new Card<>(item, this);
                     mainList.add(newCard, comp_gbc, 0);
                 }

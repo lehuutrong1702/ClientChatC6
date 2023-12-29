@@ -45,11 +45,6 @@ public class SidePanel extends JPanel {
         listPanel.add(sideSearch, BorderLayout.NORTH);
         listPanel.add(list, BorderLayout.CENTER);
 
-        if (chatSideNav.getSelected() == chatSideNav.getGroups()) {
-            JButton addNew = new JButton("Add new group");
-            listPanel.add(addNew, BorderLayout.SOUTH);
-        }
-
         add(chatSideNav, BorderLayout.NORTH);
         add(listPanel, BorderLayout.CENTER);
     }
