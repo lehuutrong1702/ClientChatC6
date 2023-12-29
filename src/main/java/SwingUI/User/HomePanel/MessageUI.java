@@ -1,6 +1,8 @@
 package SwingUI.User.HomePanel;
 
 import Controller.User.*;
+import SwingUI.User.Component.ListComponent;
+import SwingUI.User.Component.MemberList;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.Connection;
 import com.teamc6.chatSystem.model.GroupChat;
@@ -48,7 +50,7 @@ public class MessageUI<T> {
         UiPanel.setPreferredSize(new Dimension(730, 550));
         message.setPreferredSize(new Dimension(500, 30));
         searchField.setPreferredSize(new Dimension(500, 30));
-        utilPanel.setPreferredSize(new Dimension(150, 550));
+        utilPanel.setPreferredSize(new Dimension(180, 550));
         textArea.setLineWrap(true);
 
         if (item instanceof User u) {
@@ -113,12 +115,17 @@ public class MessageUI<T> {
 
         name.setText(g.getGroupName());
         groupChat = g;
+        JButton renameBtn = new JButton("Rename group");
+        JButton addBtn = new JButton("Add member");
 
-        utilPanel.add(new JTextField("Enter name"), comp_gbc);
-        utilPanel.add(new JButton("Rename"), comp_gbc);
-        utilPanel.add(new JButton("Add"),comp_gbc);
-        utilPanel.add(new JButton("Remove"),comp_gbc);
-        utilPanel.add(new JButton("Assign admin"),comp_gbc);
+        MemberList memberList = new MemberList(groupChat);
+        memberList.getList();
+        renameBtn.addActionListener(new RenameGroupControl(groupChat));
+        addBtn.addActionListener(new AddMemberControl(groupChat, memberList));
+
+        utilPanel.add(renameBtn, comp_gbc);
+        utilPanel.add(addBtn,comp_gbc);
+        utilPanel.add(memberList,comp_gbc);
     }
 
     private void setUpChatConnection(){
