@@ -1,10 +1,8 @@
 package Controller.User;
 
-import SwingUI.User.Component.SideNav;
 import SwingUI.User.Component.SideSearch;
 import SwingUI.User.Component.TextSearchFrame;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatSystem.model.GroupChat;
 import com.teamc6.chatSystem.model.Message;
 import com.teamc6.chatSystem.model.User;
 import com.teamc6.chatSystem.properties.Account;

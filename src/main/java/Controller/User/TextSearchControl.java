@@ -6,14 +6,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.Message;
 import com.teamc6.chatSystem.service.GroupChatService;
 
-import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.text.Document;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;

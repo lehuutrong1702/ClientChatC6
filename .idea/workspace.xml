@@ -7,11 +7,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="refactor TextSearchControl and allow text-search in all friend chats">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SpamControl.java" afterDir="false" />
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Group chat creation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/AddMemberControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/AssignAdminControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/MemberCardControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/RemoveMemberControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/RenameGroupControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/MemberCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/MemberList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/SideSearchControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SideSearchControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/SignInControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SignInControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/TextSearchControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/TextSearchControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/properties/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/properties/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/GroupChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/GroupChat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,28 +75,28 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;195&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;309&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;friends-status&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Code/Java/untitled2/src/main/java/SwingUI/Admin/GroupChatManage&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "195",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "237",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "friends-status",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Code/Java/untitled2/src/main/java/SwingUI/Admin/GroupChatManage",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Code\Java\untitled2\src\main\java\SwingUI\Admin\GroupChatManage" />
@@ -114,7 +126,7 @@
       <module name="clientChat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="SwingUI.User.*" />
+          <option name="PATTERN" value="SwingUI.User.Component.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -443,7 +455,23 @@
       <option name="project" value="LOCAL" />
       <updated>1703786337720</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Refactor ListComponent and add &quot;new group button&quot;">
+      <option name="closed" value="true" />
+      <created>1703844384807</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1703844384807</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Group chat creation">
+      <option name="closed" value="true" />
+      <created>1703857165492</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1703857165492</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,8 +501,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update code service" />
-    <MESSAGE value="update code service 1" />
     <MESSAGE value="update Main frame" />
     <MESSAGE value="update getFriend list" />
     <MESSAGE value="update get friend/group list" />
@@ -497,6 +523,9 @@
     <MESSAGE value="Block user button and functionality" />
     <MESSAGE value="Change text-search to use get request" />
     <MESSAGE value="refactor TextSearchControl and allow text-search in all friend chats" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor TextSearchControl and allow text-search in all friend chats" />
+    <MESSAGE value="report spam controller" />
+    <MESSAGE value="Refactor ListComponent and add &quot;new group button&quot;" />
+    <MESSAGE value="Group chat creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Group chat creation" />
   </component>
 </project>

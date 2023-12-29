@@ -33,6 +33,7 @@ public class SignInControl implements ActionListener {
                     curUser.setId(u.getUserId());
                     curUser.setUserName(username);
                     curUser.setPassWord(password);
+                    curUser.setSelf(u);
                     UserService.getInstance().setActive(true);
                     signInFrame.dispose();
                     new HomeFrame();
