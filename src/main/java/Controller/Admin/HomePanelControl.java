@@ -1,9 +1,8 @@
 package Controller.Admin;
 
-import SwingUI.Admin.CurrentUser.ChoosePanel;
+import SwingUI.Admin.*;
 import SwingUI.Admin.CurrentUser.CurrentUserChart;
 import SwingUI.Admin.GroupChatManage.GroupChatManagePanel;
-import SwingUI.Admin.*;
 import SwingUI.Admin.NewUser.NewUserChart;
 import SwingUI.Admin.NewUser.NewUserPanel;
 import SwingUI.Admin.UserManage.UserManagePanel;
@@ -33,17 +32,15 @@ public class HomePanelControl implements ActionListener {
         } else if (button.getText().equals(actions[3])) {
             homeFrame.replace(new SpamPanel());
         } else if (button.getText().equals(actions[4])) {
-            homeFrame.replace(new NewUserPanel());
+            homeFrame.replace(new ChoosePanel(2));
         } else if (button.getText().equals(actions[5])) {
             homeFrame.replace(new NewUserChart());
         } else if (button.getText().equals(actions[6])) {
             homeFrame.replace(new UserFriendPanel());
         } else if (button.getText().equals(actions[7])) {
-            homeFrame.replace(new ChoosePanel());
-        } else if (button.getText().equals(actions[8])) {
-            homeFrame.replace(new CurrentUserChart());
+            homeFrame.replace(new ChoosePanel(1));
         } else {
-
+            homeFrame.replace(new CurrentUserChart());
         }
     }
 }

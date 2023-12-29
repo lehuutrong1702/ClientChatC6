@@ -2,10 +2,7 @@ package com.teamc6.chatSystem.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.teamc6.chatSystem.model.GroupChat;
-import com.teamc6.chatSystem.model.Page;
-import com.teamc6.chatSystem.model.Relationship;
-import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.model.*;
 import com.teamc6.chatSystem.properties.Account;
 import com.teamc6.chatSystem.request.Request;
 
@@ -114,6 +111,19 @@ public class UserService {
 
         Set<GroupChat> listGroup = (Set<GroupChat>) request.getResBody(new TypeReference<Set<GroupChat>>() {});
         return listGroup;
+    }
+
+    public Set<UserActiveSession> getActiveSession(Long id) throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users/%d/user-active-sessions", id);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Set<UserActiveSession> activeSessions = (Set<UserActiveSession>) request.getResBody(new TypeReference<Set<UserActiveSession>>() {});
+        return activeSessions;
     }
 
     public User updateUser(User u, Long id) throws JsonProcessingException{

@@ -1,5 +1,6 @@
 package SwingUI.Admin.CurrentUser;
 
+import SwingUI.Admin.ChoosePanel;
 import SwingUI.Admin.Component.ViewPanel;
 import SwingUI.Admin.HomeFrame;
 import SwingUI.Admin.HomePanel;
@@ -36,14 +37,11 @@ public class CurrentUserPanel extends JPanel {
         JPanel actions = new JPanel();
 
         JButton bReturn = new JButton("Return");
-        bReturn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Component component = (Component) e.getSource();
-                HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
+        bReturn.addActionListener(e -> {
+            Component component = (Component) e.getSource();
+            HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
 
-                homeFrame.replace(new ChoosePanel());
-            }
+            homeFrame.replace(new ChoosePanel(1));
         });
 
         actions.add(bReturn);

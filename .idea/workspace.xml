@@ -7,22 +7,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Add UserActiveSession and update GroupChatManage">
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Update view Active session">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Admin/GroupChatManage/GroupChatMangeControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin/GroupChatManage/GroupChatMangeControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Admin/UserMange/UserManageControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin/UserMange/UserManageControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/UCControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/UCControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/Component/ViewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/Component/ViewPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/GroupChatManagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/GroupChatManagePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/MemberPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/MemberPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/MemberPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/MemberPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SessionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SessionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/UserManagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/UserManagePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/DateAndString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/DateAndString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserActiveSessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserActiveSessionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/properties/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/properties/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/request/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/request/Request.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Admin/HomePanelControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin/HomePanelControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/ChoosePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/ChoosePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/SessionFriendPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/SessionFriendPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/SessionFriendPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/SessionFriendPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/ChartUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,17 +100,20 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Code\Java\untitled2\lib" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="SwingUI.Admin.NewUser" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.SwingUI.Admin.HomeFrame">
-    <configuration name="ChatApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ChatApp" />
+    <configuration name="ChartUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SwingUI.Utils.ChartUtils" />
       <module name="clientChat" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomChart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SwingUI.Utils.CustomChart" />
+    <configuration name="ChatApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ChatApp" />
       <module name="clientChat" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,7 +159,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.CustomChart" />
+      <item itemvalue="Application.ChartUtils" />
       <item itemvalue="Application.ViewPanel" />
       <item itemvalue="Application.SwingUI.Admin.HomeFrame" />
       <item itemvalue="Application.ChatApp" />
@@ -170,7 +170,7 @@
         <item itemvalue="Application.SwingUI.Admin.HomeFrame" />
         <item itemvalue="Application.ChatApp" />
         <item itemvalue="Application.HomeFrame" />
-        <item itemvalue="Application.CustomChart" />
+        <item itemvalue="Application.ChartUtils" />
         <item itemvalue="Application.ViewPanel" />
       </list>
     </recent_temporary>
@@ -377,7 +377,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703766947072</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Update view Active session">
+      <option name="closed" value="true" />
+      <created>1703782380898</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1703782380899</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,6 +431,7 @@
     <MESSAGE value="Delete MessagePanel.java" />
     <MESSAGE value="Update FilterPanel for Admin UI" />
     <MESSAGE value="Add UserActiveSession and update GroupChatManage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add UserActiveSession and update GroupChatManage" />
+    <MESSAGE value="Update view Active session" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update view Active session" />
   </component>
 </project>
