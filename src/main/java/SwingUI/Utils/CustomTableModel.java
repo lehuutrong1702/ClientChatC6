@@ -125,16 +125,19 @@ public class CustomTableModel extends AbstractTableModel {
                 var res = UserService.getInstance().updateUser(u, id);
                 if (res != null) {
                     JOptionPane.showMessageDialog(null, "User updated");
-                    data.get(row)[col] = value;
-                    fireTableCellUpdated(row, col);
-                } else
+                } else {
                     JOptionPane.showMessageDialog(null, "Update failed");
+                    return;
+                }
             } catch (JsonProcessingException e) {
                 throw new RuntimeException(e);
             }
-        } else if (_COL == 2) {
+        } else if (_COL == 3) {
             // xu ly ban user
         }
+
+        data.get(row)[col] = value;
+        fireTableCellUpdated(row, col);
 
         if (DEBUG) {
             System.out.println("New value of data:");

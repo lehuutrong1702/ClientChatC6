@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
+import java.util.Date;
 import java.util.List;
 
 public class ViewPanel extends JPanel {
@@ -59,6 +60,14 @@ public class ViewPanel extends JPanel {
         sorter.setRowFilter(RowFilter.regexFilter("(?i)" + text, col));
     }
 
+    public void filterDate(Date start, Date end, int col) {
+        if (model.getRowCount() == 0)
+            return;
+
+        sorter.setRowFilter(RowFilter.dateFilter(RowFilter.ComparisonType.AFTER, start, col));
+        sorter.setRowFilter(RowFilter.dateFilter(RowFilter.ComparisonType.BEFORE, end, col));
+    }
+
     public void filterNumber(int type, int num, int col) {
         if (model.getRowCount() == 0)
             return;
@@ -67,7 +76,7 @@ public class ViewPanel extends JPanel {
         else if (type == 1)
             sorter.setRowFilter(RowFilter.numberFilter(RowFilter.ComparisonType.EQUAL, num, col));
         else
-            sorter.setRowFilter(RowFilter.numberFilter(RowFilter.ComparisonType.BEFORE, num, col));
+            sorter.setRowFilter(RowFilter.numberFilter(RowFilter.ComparisonType.AFTER, num, col));
     }
 
     public void filterBoolean(boolean value, int col) {

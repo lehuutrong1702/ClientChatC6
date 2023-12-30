@@ -9,10 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Update CurrentUser, NewUser and SessionFriend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SignUpControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SignUpControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/Component/ViewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/Component/ViewPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SpamPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SpamPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserFriendPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserFriendPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomTableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
