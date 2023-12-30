@@ -1,11 +1,14 @@
 package com.teamc6.chatSystem.service;
 
+import SwingUI.Utils.DateAndString;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.teamc6.chatSystem.model.*;
 import com.teamc6.chatSystem.properties.Account;
 import com.teamc6.chatSystem.request.Request;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class UserService {
@@ -20,6 +23,50 @@ public class UserService {
 
         Page<User> pageUser = (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
         return  pageUser;
+    }
+
+    public Page<User> filterUser(String username, long page, long size) throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users/filter/%s?&page=%d&size=%d", username, page, size);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<User> pageUser = (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
+        return  pageUser;
+    }
+
+    public List<User> getByTime(Date start, Date end) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/user-active-sessions?start=%sT00:00:00&end=%sT00:00:00",
+                DateAndString.DatetoString(start, "yyyy-MM-dd"),
+                DateAndString.DatetoString(end, "yyyy-MM-dd")
+        );
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        List<User> userList = (List<User>) request.getResBody(new TypeReference<List<User>>() {});
+        return  userList;
+    }
+
+    public List<User> getByYear(int year) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/users/time-register?start=%d-01-01T00:00:00&end=%d-01-01T00:00:00",
+                year, year + 1
+        );
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        List<User> userList = (List<User>) request.getResBody(new TypeReference<List<User>>() {});
+        return userList;
     }
 
     public User adduser(User u) throws JsonProcessingException {

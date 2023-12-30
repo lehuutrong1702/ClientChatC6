@@ -63,20 +63,20 @@ public class CurrentUserChart extends JPanel {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-        for (int i = 0; i < 12; i++) {
-            int count = 0;
-            List<User> userList = new ArrayList<>();
-            for (var session: sessions) {
-                User u = session.getSessionUser();
-                if ((session.getTimeActive().getMonth() == i) && !userList.contains(u)) {
-                    userList.add(u);
-                    count++;
-                    sessions.remove(session);
-                }
+        int[] months = {0,0,0,0,0,0,0,0,0,0,0,0};
+        List<User> userList = new ArrayList<>();
+        for (var session: sessions) {
+            User u = session.getSessionUser();
+            if (!userList.contains(u)) {
+                userList.add(u);
+                months[session.getTimeActive().getMonth()]++;
             }
-            Object[] row = { count, i};
+        }
+        for (int i = 0; i < 12; i++) {
+            Object[] row = {months[i], i + 1};
             data.add(row);
         }
+
         chartPanel.setChart(ChartUtils.createChart("Active users", "Month", "Quantity", data));
         chartPanel.revalidate(); chartPanel.repaint();
     }

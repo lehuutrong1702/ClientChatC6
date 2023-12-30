@@ -35,7 +35,6 @@ public class SignUpControl implements ActionListener {
             u.setFullName(fullname);
             u.setUserName(username);
             u.setGender(gender);
-            u.setTimeRegister(new java.util.Date());
             u.setRole("USER");
 
             try {

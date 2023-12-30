@@ -6,6 +6,10 @@ import SwingUI.Admin.HomeFrame;
 import SwingUI.Admin.HomePanel;
 import SwingUI.Utils.CustomDatePicker;
 import SwingUI.Utils.CustomFocusListener;
+import SwingUI.Utils.DateAndString;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.service.UserService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,14 +36,23 @@ public class NewUserPanel extends JPanel {
 
         add(sortPanel, BorderLayout.NORTH);
 
-        Date date = new Date(2003 - 1900, Calendar.NOVEMBER, 10);
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-        String strTime = dateFormat.format(date);
-
         String[] columnNames = {"ID", "Username", "Full name", "Created time"};
         List<Object[]> data = new ArrayList<>();
-        Object[] row = {1, "Minh", "Pham Van Minh", strTime};
-        data.add(row);
+        List<User> users;
+        try {
+            users = UserService.getInstance().getByTime(first, last);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        for (var user: users) {
+            Object[] row = {
+                    user.getUserId(),
+                    user.getUserName(),
+                    user.getFullName(),
+                    DateAndString.DatetoString(user.getTimeRegister(), "dd/MM/yyyy hh:mm:ss")
+            };
+            data.add(row);
+        }
         userList = new ViewPanel(columnNames, data, false, 10);
         JPanel actions = new JPanel();
 

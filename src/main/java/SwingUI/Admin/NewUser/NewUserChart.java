@@ -4,6 +4,11 @@ import SwingUI.Admin.HomeFrame;
 import SwingUI.Admin.HomePanel;
 import SwingUI.Utils.ChartUtils;
 import SwingUI.Utils.CustomFocusListener;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.model.UserActiveSession;
+import com.teamc6.chatSystem.service.UserActiveSessionService;
+import com.teamc6.chatSystem.service.UserService;
 import org.jfree.chart.ChartPanel;
 
 import javax.swing.*;
@@ -52,8 +57,18 @@ public class NewUserChart extends JPanel {
 
     private void getChart(int year) {
         List<Object[]> data = new ArrayList<>();
-        for (int i = 1; i < 13; i++) {
-            Object[] row = { (int) Math.floor(i * Math.random()), i};
+        List<User> newUsers;
+        try {
+            newUsers = UserService.getInstance().getByYear(year);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        int[] months = {0,0,0,0,0,0,0,0,0,0,0,0};
+        for (var user: newUsers) {
+            months[user.getTimeRegister().getMonth()]++;
+        }
+        for (int i = 0; i < 12; i++) {
+            Object[] row = {months[i], i + 1};
             data.add(row);
         }
         chartPanel.setChart(ChartUtils.createChart("New users", "Month", "Quantity", data));
