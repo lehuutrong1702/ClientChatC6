@@ -8,14 +8,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ChoosePanel extends JPanel {
+    private CustomDatePicker first = new CustomDatePicker();
+    private CustomDatePicker last = new CustomDatePicker();
     public ChoosePanel(int choice) {
         setLayout(new GridBagLayout());
 
         JPanel filterPanel = new JPanel();
         filterPanel.add(new JLabel("From"));
-        filterPanel.add(new CustomDatePicker());
+        filterPanel.add(first);
         filterPanel.add(new JLabel("to"));
-        filterPanel.add(new CustomDatePicker());
+        filterPanel.add(last);
 
         JPanel options = getOptionPanel(choice);
 
@@ -26,7 +28,7 @@ public class ChoosePanel extends JPanel {
         add(options, gbc);
     }
 
-    private static JPanel getOptionPanel(int choice) {
+    private JPanel getOptionPanel(int choice) {
         JPanel options = new JPanel();
         JButton bView = new JButton("View current users");
         bView.addActionListener(e -> {
@@ -34,9 +36,9 @@ public class ChoosePanel extends JPanel {
             HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
 
             if (choice == 1)
-                homeFrame.replace(new CurrentUserPanel());
+                homeFrame.replace(new CurrentUserPanel(first.getDate(), last.getDate()));
             else
-                homeFrame.replace(new NewUserPanel());
+                homeFrame.replace(new NewUserPanel(first.getDate(), last.getDate()));
 
         });
         JButton bReturn = new JButton("Return");

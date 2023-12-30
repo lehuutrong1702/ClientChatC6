@@ -4,11 +4,16 @@ import SwingUI.Admin.HomeFrame;
 import SwingUI.Admin.HomePanel;
 import SwingUI.Utils.ChartUtils;
 import SwingUI.Utils.CustomFocusListener;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.model.UserActiveSession;
+import com.teamc6.chatSystem.service.UserActiveSessionService;
 import org.jfree.chart.ChartPanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class CurrentUserChart extends JPanel {
@@ -52,8 +57,24 @@ public class CurrentUserChart extends JPanel {
 
     private void getChart(int year) {
         List<Object[]> data = new ArrayList<>();
-        for (int i = 1; i < 13; i++) {
-            Object[] row = { (int) Math.floor(i * Math.random()), i};
+        List<UserActiveSession> sessions;
+        try {
+            sessions = UserActiveSessionService.getInstance().getByYear(year);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        for (int i = 0; i < 12; i++) {
+            int count = 0;
+            List<User> userList = new ArrayList<>();
+            for (var session: sessions) {
+                User u = session.getSessionUser();
+                if ((session.getTimeActive().getMonth() == i) && !userList.contains(u)) {
+                    userList.add(u);
+                    count++;
+                    sessions.remove(session);
+                }
+            }
+            Object[] row = { count, i};
             data.add(row);
         }
         chartPanel.setChart(ChartUtils.createChart("Active users", "Month", "Quantity", data));

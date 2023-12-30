@@ -22,7 +22,8 @@ public class NewUserPanel extends JPanel {
     JPanel sortPanel;
     ViewPanel userList;
 
-    public NewUserPanel() {
+
+    public NewUserPanel(Date first, Date last) {
         setSize(950, 650);
         setLayout(new BorderLayout());
 

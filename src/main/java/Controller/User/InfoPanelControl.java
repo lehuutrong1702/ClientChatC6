@@ -9,7 +9,7 @@ import com.teamc6.chatSystem.service.UserService;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
+import java.util.Date;
 
 public class InfoPanelControl implements ActionListener {
     private final InfoPanel infoPanel;

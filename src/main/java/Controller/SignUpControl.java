@@ -9,7 +9,7 @@ import com.teamc6.chatSystem.service.UserService;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 
 public class SignUpControl implements ActionListener {
     private final UserService userService;

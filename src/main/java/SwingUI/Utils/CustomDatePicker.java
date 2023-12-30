@@ -5,10 +5,10 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;
 
 public class CustomDatePicker extends JPanel {
@@ -44,18 +44,15 @@ public class CustomDatePicker extends JPanel {
     }
 
     public Date getDate() {
-        java.util.Date uDate = model.getValue();
-        return new Date(uDate.getTime());
+        return model.getValue();
     }
-
 
     public void setDate(int year, int month, int day) {
         model.setDate(year, month - 1, day);
     }
 
-    public void setDate(java.util.Date date) {
+    public void setDate(Date date) {
         if (date == null) return;
-
-        model.setDate(date.getYear(), date.getMonth(), date.getDay());
+        model.setValue(date);
     }
 }
