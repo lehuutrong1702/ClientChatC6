@@ -67,6 +67,9 @@ public class CurrentUserChart extends JPanel {
         List<User> userList = new ArrayList<>();
         for (var session: sessions) {
             User u = session.getSessionUser();
+            if (u.getRole().equalsIgnoreCase("admin"))
+                continue;
+
             if (!userList.contains(u)) {
                 userList.add(u);
                 months[session.getTimeActive().getMonth()]++;

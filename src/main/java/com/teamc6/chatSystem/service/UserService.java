@@ -26,10 +26,11 @@ public class UserService {
     }
 
     public List<User> getByTime(Date start, Date end) throws JsonProcessingException {
-        String url = String.format("http://localhost:8081/api/v1/user-active-sessions?start=%sT00:00:00&end=%sT00:00:00",
+        String url = String.format("http://localhost:8080/api/v1/users/time-register?start=%sT00:00:00&end=%sT00:00:00",
                 DateAndString.DatetoString(start, "yyyy-MM-dd"),
                 DateAndString.DatetoString(end, "yyyy-MM-dd")
         );
+        System.out.println(url);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
@@ -42,7 +43,7 @@ public class UserService {
     }
 
     public List<User> getByYear(int year) throws JsonProcessingException {
-        String url = String.format("http://localhost:8081/api/v1/users/time-register?start=%d-01-01T00:00:00&end=%d-01-01T00:00:00",
+        String url = String.format("http://localhost:8080/api/v1/users/time-register?start=%d-01-01T00:00:00&end=%d-01-01T00:00:00",
                 year, year + 1
         );
         Request request = new Request(url);

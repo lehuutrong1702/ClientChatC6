@@ -12,11 +12,9 @@ import java.io.IOException;
 import java.util.Date;
 
 public class SignUpControl implements ActionListener {
-    private final UserService userService;
     private final SignUpFrame SignUpFrame;
 
     public SignUpControl(SignUpFrame SignUpFrame) {
-        userService = UserService.getInstance();
         this.SignUpFrame = SignUpFrame;
     }
 
@@ -50,7 +48,7 @@ public class SignUpControl implements ActionListener {
 
         try {
             SignUpFrame.dispose();
-            SignInFrame signInFrame = new SignInFrame();
+            new SignInFrame();
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }

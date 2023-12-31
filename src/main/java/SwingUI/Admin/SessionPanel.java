@@ -3,6 +3,7 @@ package SwingUI.Admin;
 import SwingUI.Admin.Component.ViewPanel;
 import SwingUI.Utils.DateAndString;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.User;
 import com.teamc6.chatSystem.model.UserActiveSession;
 import com.teamc6.chatSystem.service.UserActiveSessionService;
 
@@ -28,10 +29,14 @@ public class SessionPanel extends JPanel {
         }
         List<Object[]> data = new ArrayList<>();
         for (var session: activeSessions) {
+            User u = session.getSessionUser();
+            if (u.getRole().equalsIgnoreCase("admin"))
+                continue;
+
             Object[] row = {
                     DateAndString.DatetoString(session.getTimeActive(), "dd/MM/yyyy hh:mm:ss"),
-                    session.getSessionUser().getUserName(),
-                    session.getSessionUser().getFullName()
+                    u.getUserName(),
+                    u.getFullName()
             };
             data.add(row);
         }

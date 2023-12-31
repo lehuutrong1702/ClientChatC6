@@ -45,6 +45,8 @@ public class NewUserPanel extends JPanel {
             throw new RuntimeException(e);
         }
         for (var user: users) {
+            if (user.getRole().equalsIgnoreCase("admin"))
+                continue;
             Object[] row = {
                     user.getUserId(),
                     user.getUserName(),

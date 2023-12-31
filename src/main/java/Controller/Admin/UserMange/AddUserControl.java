@@ -27,7 +27,7 @@ public class AddUserControl implements ActionListener {
         u.setFullName(fullname);
         u.setUserName(username);
         u.setGender(gender);
-        u.setTimeRegister(new java.util.Date());
+        u.setTimeRegister(new Date());
         u.setRole("USER");
 
         try {

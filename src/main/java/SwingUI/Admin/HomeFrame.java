@@ -1,8 +1,14 @@
 package SwingUI.Admin;
 
 import SwingUI.Admin.UserManage.UserManagePanel;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.UserActiveSession;
+import com.teamc6.chatSystem.properties.Account;
+import com.teamc6.chatSystem.service.UserActiveSessionService;
 
 import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class HomeFrame extends JFrame {
     public HomeFrame() {

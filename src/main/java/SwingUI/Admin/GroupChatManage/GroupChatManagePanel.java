@@ -4,6 +4,10 @@ import Controller.Admin.GroupChatManage.GroupChatMangeControl;
 import SwingUI.Admin.Component.ViewPanel;
 import SwingUI.Utils.CustomFocusListener;
 import SwingUI.Utils.DateAndString;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.GroupChat;
+import com.teamc6.chatSystem.model.Page;
+import com.teamc6.chatSystem.service.GroupChatService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,24 +30,22 @@ public class GroupChatManagePanel extends JPanel {
 
         String[] cols = {"ID", "Name", "Created date"};
         List<Object[]> data = new ArrayList<>();
-//        Page<GroupChat> listGroupChat;
-//        try {
-//            listGroupChat = GroupChatService.getInstance().getAll();
-//        } catch (JsonProcessingException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        for (var group : listGroupChat.getContent()) {
-//            Object[] row = {
-//                    group.getId(),
-//                    group.getGroupName(),
-//                    DateAndString.DatetoString(group.getTimeCreate())
-//            };
-//            data.add(row);
-//        }
+        Page<GroupChat> listGroupChat;
+        try {
+            listGroupChat = GroupChatService.getInstance().getAll();
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
 
-        Object[] row = {1, "Haha", DateAndString.DatetoString(new Date(), "dd/MM/yyyy")};
-        data.add(row);
+        for (var group : listGroupChat.getContent()) {
+            Object[] row = {
+                    group.getId(),
+                    group.getGroupName(),
+                    DateAndString.DatetoString(group.getTimeCreate(), "dd/MM/yyyy hh:mm:ss")
+            };
+            data.add(row);
+        }
+
 
         groupList = new ViewPanel(cols, data, false, 10);
         JPanel actions = new JPanel();

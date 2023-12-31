@@ -2,12 +2,17 @@ package SwingUI.Admin;
 
 import SwingUI.Admin.Component.ViewPanel;
 import SwingUI.Utils.CustomFocusListener;
+import SwingUI.Utils.DateAndString;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.Page;
+import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.service.UserService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 public class UserFriendPanel extends JPanel {
     JPanel filterPanel;
@@ -24,8 +29,39 @@ public class UserFriendPanel extends JPanel {
 
         String[] columnNames = {"ID", "Username", "Full name", "Created time", "Friends", "Friends of friends"};
         List<Object[]> data = new ArrayList<>();
-        Object[] row = {1, "Minh3107", "Pham Van Minh", new Date(), 10, 100};
-        data.add(row);
+        Page<User> users;
+        try {
+            users = UserService.getInstance().getAll();
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        for (var user : users.getContent()) {
+            if (user.getRole().equalsIgnoreCase("admin"))
+                continue;
+
+            int friendCount = 0;
+            int fofCount = 0;
+            try {
+                Set<User> friends = UserService.getInstance().getListFriend(user.getUserId());
+                friendCount = friends.size();
+
+                for (var friend : friends) {
+                    Set<User> friendsOfFriends = UserService.getInstance().getListFriend(friend.getUserId());
+                    fofCount += friendsOfFriends.size();
+                }
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+            Object[] row = {
+                    user.getUserId(),
+                    user.getUserName(),
+                    user.getFullName(),
+                    DateAndString.DatetoString(user.getTimeRegister(), "dd/MM/yyyy hh:mm:ss"),
+                    friendCount,
+                    fofCount
+            };
+            data.add(row);
+        }
         userList = new ViewPanel(columnNames, data, false, 10);
         JPanel actions = new JPanel();
 

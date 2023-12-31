@@ -1,6 +1,8 @@
 package SwingUI.User;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.properties.Account;
+import com.teamc6.chatSystem.service.UserActiveSessionService;
 import com.teamc6.chatSystem.service.UserService;
 
 import javax.swing.*;
@@ -38,6 +40,7 @@ public class HomeFrame extends JFrame {
             {
                 try {
                     UserService.getInstance().setActive(false);
+                    UserActiveSessionService.getInstance().endSession(Account.getInstance().getSessionID());
                 } catch (JsonProcessingException ex) {
                     throw new RuntimeException(ex);
                 }

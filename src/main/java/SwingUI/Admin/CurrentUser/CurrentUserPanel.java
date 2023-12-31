@@ -15,6 +15,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class CurrentUserPanel extends JPanel {
     JPanel filterPanel;
@@ -37,25 +39,22 @@ public class CurrentUserPanel extends JPanel {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-        for (var session : sessions) {
-            User u = session.getSessionUser();
+        Map<User, Long> curUsers = sessions.stream()
+                .collect(Collectors.groupingBy(UserActiveSession::getSessionUser, Collectors.counting()));
+
+        for (var user: curUsers.keySet()) {
+            if (user.getRole().equalsIgnoreCase("admin"))
+                continue;
+
             Object[] row = {
-                    session.getId(),
-                    u.getUserName(),
-                    DateAndString.DatetoString(u.getTimeRegister(), "dd/MM/yyyy hh:mm:ss"),
-                    1,
-                    0,
-                    0,
-                    1
+                    user.getUserId(),
+                    user.getUserName(),
+                    DateAndString.DatetoString(user.getTimeRegister(), "dd/MM/yyyy hh:mm:ss"),
+                    curUsers.get(user),
+                    0, 0,
+                    curUsers.get(user)
             };
-            int index = data.indexOf(row);
-            if (index == -1)
-                data.add(row);
-            else {
-                Object[] item = data.get(index);
-                item[3] = (int) item[3] + 1;
-                item[6] = (int) item[6] + 1;
-            }
+            data.add(row);
         }
         userList = new ViewPanel(columnNames, data, false, 10);
         JPanel actions = new JPanel();

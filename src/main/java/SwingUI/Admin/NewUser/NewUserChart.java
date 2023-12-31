@@ -6,8 +6,6 @@ import SwingUI.Utils.ChartUtils;
 import SwingUI.Utils.CustomFocusListener;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.User;
-import com.teamc6.chatSystem.model.UserActiveSession;
-import com.teamc6.chatSystem.service.UserActiveSessionService;
 import com.teamc6.chatSystem.service.UserService;
 import org.jfree.chart.ChartPanel;
 
@@ -63,8 +61,10 @@ public class NewUserChart extends JPanel {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-        int[] months = {0,0,0,0,0,0,0,0,0,0,0,0};
-        for (var user: newUsers) {
+        int[] months = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        for (var user : newUsers) {
+            if (user.getRole().equalsIgnoreCase("admin"))
+                continue;
             months[user.getTimeRegister().getMonth()]++;
         }
         for (int i = 0; i < 12; i++) {
@@ -72,6 +72,7 @@ public class NewUserChart extends JPanel {
             data.add(row);
         }
         chartPanel.setChart(ChartUtils.createChart("New users", "Month", "Quantity", data));
-        chartPanel.revalidate(); chartPanel.repaint();
+        chartPanel.revalidate();
+        chartPanel.repaint();
     }
 }

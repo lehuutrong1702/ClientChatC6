@@ -1,6 +1,5 @@
-package Controller.User;
+package Controller;
 
-import SwingUI.User.HomeFrame;
 import SwingUI.SignIn.SignInFrame;
 import SwingUI.SignUp.SignUpFrame;
 import com.fasterxml.jackson.core.JsonProcessingException;

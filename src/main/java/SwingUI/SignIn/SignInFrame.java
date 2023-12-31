@@ -1,6 +1,6 @@
 package SwingUI.SignIn;
 
-import Controller.User.SignInControl;
+import Controller.SignInControl;
 import SwingUI.Utils.*;
 
 import javax.imageio.ImageIO;
@@ -27,16 +27,8 @@ public class SignInFrame extends JFrame {
     private final JPasswordField pfPassword;
     private final SignInControl signInControl;
 
-    public JLabel getLbMain() {
-        return lbMain;
-    }
-
     public JButton getbSignIn() {
         return bSignIn;
-    }
-
-    public JButton getbSignUp() {
-        return bSignUp;
     }
 
     public JTextField getTfUsername() {
