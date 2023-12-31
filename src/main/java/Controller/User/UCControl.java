@@ -26,14 +26,9 @@ public class UCControl implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JComboBox<String> userControlList = userControl.getUserControlList();
         MainPanel mainPanel = userControl.getMainPanel();
-        var selectedItem = userControlList.getSelectedItem();
-        if (userControlList.getItemAt(0) == selectedItem) {
-            try {
-                User u = UserService.getInstance().findByUserName(Account.getInstance().getUserName());
-                mainPanel.replace(new InfoPanel(u));
-            } catch (JsonProcessingException ex) {
-                throw new RuntimeException(ex);
-            }
+        if (userControlList.getSelectedIndex() == 0) {
+            //                User u = UserService.getInstance().findByUserName(Account.getInstance().getUserName());
+            mainPanel.replace(new InfoPanel());
         } else {
             try {
                 UserService.getInstance().setActive(false);

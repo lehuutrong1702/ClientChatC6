@@ -39,7 +39,7 @@ public class UserService {
     }
 
     public User findById(long Id) throws JsonProcessingException{
-        String url = String.format("http://localhost:8080/api/v1/users/search/id=%d", Id);
+        String url = String.format("http://localhost:8080/api/v1/users/%d", Id);
         System.out.println(url);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
@@ -105,7 +105,8 @@ public class UserService {
     }
 
     public User updateUser(User u) throws JsonProcessingException{
-        String url = String.format("http://localhost:8080/api/v1/users/id=%d",  Account.getInstance().getId());
+        String url = String.format("http://localhost:8080/api/v1/users/%d",  Account.getInstance().getId());
+        System.out.println(url);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
         request.PUT(u);

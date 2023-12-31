@@ -20,8 +20,12 @@ public class InfoPanel extends JPanel {
     private final JTextField tfEmail;
     private User u;
 
-    public InfoPanel(User u) {
-        this.u = u;
+    public InfoPanel() {
+        try {
+            getInfo();
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
 
         datePicker = new CustomDatePicker();
 

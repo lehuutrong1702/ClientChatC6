@@ -28,6 +28,7 @@ public class SignInControl implements ActionListener {
             String password = signInFrame.getPfPassword().getText();
             try {
                 User u = UserService.getInstance().findByUserName(username);
+                System.out.println(u);
                 if(u != null && BCrypt.checkpw(password, u.getPassword())){
                     Account curUser = Account.getInstance();
                     curUser.setId(u.getUserId());
