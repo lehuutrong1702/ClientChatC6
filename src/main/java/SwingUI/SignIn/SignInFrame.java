@@ -1,11 +1,7 @@
 package SwingUI.SignIn;
 
-import Controller.SignInControl;
-import SwingUI.SignUp.SignUpFrame;
+import Controller.User.SignInControl;
 import SwingUI.Utils.*;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.teamc6.chatsystem.model.User;
-import com.teamc6.chatsystem.service.UserService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

@@ -7,30 +7,106 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="add controllers and update ui">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/ChatControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/InfoPanelControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/MessageUIControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Group chat creation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin/HomePanelControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/AddMemberControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/AssignAdminControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/BlockControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/ClearControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/GroupCreationControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/LoadMessageControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/MemberCardControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/RemoveMemberControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/RenameGroupControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SearchCardControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SearchPanelControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SideSearchControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SpamControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/TextSearchControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/User/UnFriendBtnControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/Component/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/Component/ListComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/Component/ViewPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/ChoosePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserChart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/GroupChatManagePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/MemberPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/MemberPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/HomeFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/HomePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserChart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SessionPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SpamPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserFriendPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/AddPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/SessionFriendPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/SessionFriendPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserManage/UserManagePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/ListComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/MemberCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/MemberList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SearchCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/TextSearchFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomChart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomTableModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/CommandObj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/InitObj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/MessageObj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/Relationship.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/socket/SocketClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SideNavControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SideNavControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SidePanelControl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SideSearchControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SideSearchControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UCControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SideNav.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/UserControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/UserControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/InfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/InfoPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessagePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessageUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessageUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessageUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessageUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Home/SidePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CardControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/CardControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ChatControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/ChatControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/InfoPanelControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/InfoPanelControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MessageUIControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/MessageUIControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/NavSearchControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/NavSearchControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SideNavControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SideNavControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SideSearchControl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SignInControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SignInControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SignUpControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SignUpControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UCControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/UCControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/ListComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/NavSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/NavSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SearchCard.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SearchCard.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SearchCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SideNav.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SideNav.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/SideSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SideSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Component/UserControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/UserControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/InfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/InfoPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessagePanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessageUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/MessageUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/SearchPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/SearchPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/HomePanel/SearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/SearchPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/Navbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Navbar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Home/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/SidePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/SignIn/SignInFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/SignIn/SignInFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/SignUp/SignUpFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/SignUp/SignUpFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomDatePicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomDatePicker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/GroupChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/GroupChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/Connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/GroupChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/GroupChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/Relationship.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/properties/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/properties/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/request/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/request/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/GroupChatService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatsystem/socket/SocketClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ChatApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChatApp$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ChatApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChatApp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$3.class" afterDir="false" />
@@ -45,21 +121,30 @@
       <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignUp/SignUpFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/Utils/RoundedCornerBorder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/Utils/RoundedCornerBorder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/GroupChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/GroupChat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/Page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/Page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/Relationship.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/Relationship.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/properties/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/properties/Account.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/request/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/request/Request.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/AdminService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/GroupChatService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Main.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -67,10 +152,24 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Minh" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;khiembimaster&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="0a3bbdba-1ff9-4e4a-8714-46e37042f2f2" />
+        <option name="url" value="https://github.com/lehuutrong1702/ClientChatC6.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -93,51 +192,52 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "195",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "309",
-    "git-widget-placeholder": "master",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "237",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Code/Java/jdatepicker-1.3.4.jar",
+    "last_opened_file_path": "C:/Code/Java/untitled2/src/main/java/SwingUI/Admin/GroupChatManage",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Global Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Code\Java\untitled2\src\main\java\SwingUI\Admin\GroupChatManage" />
       <recent name="C:\Code\Java\untitled2\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Code\Java\untitled2\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HomeFrame">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.teamc6.chatsystem.App" />
-      <module name="clientChat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.teamc6.chatsystem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ChatApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.ChatApp">
+    <configuration name="ChatApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChatApp" />
       <module name="clientChat" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CustomChart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SwingUI.Utils.CustomChart" />
+      <module name="clientChat" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HomeFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SwingUI.Home.HomeFrame" />
+      <option name="MAIN_CLASS_NAME" value="SwingUI.User.HomeFrame" />
       <module name="clientChat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="SwingUI.Home.*" />
+          <option name="PATTERN" value="SwingUI.User.Component.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -145,13 +245,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SwingUI.Admin.HomeFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SwingUI.Admin.HomeFrame" />
+      <module name="clientChat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SwingUI.Admin.Component.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ViewPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SwingUI.Admin.Component.ViewPanel" />
+      <module name="clientChat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SwingUI.Admin.Component.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.CustomChart" />
+      <item itemvalue="Application.ViewPanel" />
+      <item itemvalue="Application.SwingUI.Admin.HomeFrame" />
+      <item itemvalue="Application.ChatApp" />
+      <item itemvalue="Application.HomeFrame" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HomeFrame" />
         <item itemvalue="Application.ChatApp" />
-        <item itemvalue="Application.App" />
-        <item itemvalue="Application.ChatApp" />
+        <item itemvalue="Application.SwingUI.Admin.HomeFrame" />
         <item itemvalue="Application.HomeFrame" />
+        <item itemvalue="Application.CustomChart" />
+        <item itemvalue="Application.ViewPanel" />
       </list>
     </recent_temporary>
   </component>
@@ -163,6 +296,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701314065428</updated>
+      <workItem from="1702800198800" duration="47900000" />
+      <workItem from="1702913112303" duration="1625000" />
+      <workItem from="1702917384042" duration="9637000" />
+      <workItem from="1703580598113" duration="4822000" />
+      <workItem from="1703612271317" duration="21541000" />
+      <workItem from="1703699299126" duration="19983000" />
+      <workItem from="1703778488394" duration="8522000" />
     </task>
     <task id="LOCAL-00001" summary="update code service">
       <created>1701324059438</created>
@@ -234,10 +374,236 @@
       <option name="project" value="LOCAL" />
       <updated>1702224012545</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add controllers and update ui">
+      <option name="closed" value="true" />
+      <created>1702845027343</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702845027343</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add controllers and update ui">
+      <option name="closed" value="true" />
+      <created>1702845058767</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702845058767</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add controllers and update ui">
+      <option name="closed" value="true" />
+      <created>1702845097832</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702845097832</updated>
+    </task>
+    <task id="LOCAL-00013" summary="refactor messaging object">
+      <option name="closed" value="true" />
+      <created>1702879581004</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702879581004</updated>
+    </task>
+    <task id="LOCAL-00014" summary="refactor messaging object">
+      <option name="closed" value="true" />
+      <created>1702879619647</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1702879619647</updated>
+    </task>
+    <task id="LOCAL-00015" summary="refactor messaging object">
+      <option name="closed" value="true" />
+      <created>1702910232558</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1702910232558</updated>
+    </task>
+    <task id="LOCAL-00016" summary="refactor messaging object">
+      <option name="closed" value="true" />
+      <created>1702912393039</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1702912393039</updated>
+    </task>
+    <task id="LOCAL-00017" summary="refactor messaging object">
+      <option name="closed" value="true" />
+      <created>1702912845876</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1702912845876</updated>
+    </task>
+    <task id="LOCAL-00018" summary="refactor messaging object">
+      <option name="closed" value="true" />
+      <created>1702912906340</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1702912906340</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add admin page">
+      <option name="closed" value="true" />
+      <created>1702978231200</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1702978231200</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Add finish manage student UI for admin">
+      <option name="closed" value="true" />
+      <created>1703134408483</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1703134408483</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Complete UI for admin">
+      <option name="closed" value="true" />
+      <created>1703232093332</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1703232093332</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Delete MessagePanel.java">
+      <option name="closed" value="true" />
+      <created>1703235153060</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1703235153060</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Update message sending protocol">
+      <option name="closed" value="true" />
+      <created>1703584968047</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1703584968047</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Change user active state">
+      <option name="closed" value="true" />
+      <created>1703618209783</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1703618209783</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add user and change result with relationship">
+      <option name="closed" value="true" />
+      <created>1703678104811</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1703678104811</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Search message in a chat">
+      <option name="closed" value="true" />
+      <created>1703701674766</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1703701674766</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Use new searchInChat api">
+      <option name="closed" value="true" />
+      <created>1703702959902</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1703702959902</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Clear chat function">
+      <option name="closed" value="true" />
+      <created>1703707565097</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1703707565097</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Unfriend button and functionality">
+      <option name="closed" value="true" />
+      <created>1703751054517</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1703751054517</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Block user button and functionality">
+      <option name="closed" value="true" />
+      <created>1703757228234</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1703757228235</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Block user button and functionality">
+      <option name="closed" value="true" />
+      <created>1703779794227</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1703779794227</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Change text-search to use get request">
+      <option name="closed" value="true" />
+      <created>1703782609631</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1703782609631</updated>
+    </task>
+    <task id="LOCAL-00033" summary="refactor TextSearchControl and allow text-search in all friend chats">
+      <option name="closed" value="true" />
+      <created>1703786337720</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1703786337720</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Refactor ListComponent and add &quot;new group button&quot;">
+      <option name="closed" value="true" />
+      <created>1703844384807</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1703844384807</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Group chat creation">
+      <option name="closed" value="true" />
+      <created>1703857165492</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1703857165492</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -248,7 +614,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Minh" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -261,8 +627,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update code service" />
-    <MESSAGE value="update code service 1" />
     <MESSAGE value="update Main frame" />
     <MESSAGE value="update getFriend list" />
     <MESSAGE value="update get friend/group list" />
@@ -270,6 +634,24 @@
     <MESSAGE value="update SignUp and MainFrame" />
     <MESSAGE value="update SearchUI and MessageUI" />
     <MESSAGE value="add controllers and update ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="add controllers and update ui" />
+    <MESSAGE value="refactor messaging object" />
+    <MESSAGE value="Add admin page" />
+    <MESSAGE value="Add finish manage student UI for admin" />
+    <MESSAGE value="Complete UI for admin" />
+    <MESSAGE value="Delete MessagePanel.java" />
+    <MESSAGE value="Update message sending protocol" />
+    <MESSAGE value="Change user active state" />
+    <MESSAGE value="add user and change result with relationship" />
+    <MESSAGE value="Search message in a chat" />
+    <MESSAGE value="Use new searchInChat api" />
+    <MESSAGE value="Clear chat function" />
+    <MESSAGE value="Unfriend button and functionality" />
+    <MESSAGE value="Block user button and functionality" />
+    <MESSAGE value="Change text-search to use get request" />
+    <MESSAGE value="refactor TextSearchControl and allow text-search in all friend chats" />
+    <MESSAGE value="report spam controller" />
+    <MESSAGE value="Refactor ListComponent and add &quot;new group button&quot;" />
+    <MESSAGE value="Group chat creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Group chat creation" />
   </component>
 </project>

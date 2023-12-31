@@ -1,22 +1,16 @@
 package SwingUI.SignUp;
 
-import Controller.SignUpControl;
+import Controller.User.SignUpControl;
 import SwingUI.Utils.CustomDatePicker;
 import SwingUI.Utils.CustomFocusListener;
 import SwingUI.Utils.RoundedCornerBorder;
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
-import java.util.Properties;
 
 public class SignUpFrame extends JFrame {
     private final JLabel lbMain;
