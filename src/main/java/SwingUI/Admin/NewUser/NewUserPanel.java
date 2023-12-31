@@ -1,10 +1,15 @@
 package SwingUI.Admin.NewUser;
 
+import SwingUI.Admin.ChoosePanel;
 import SwingUI.Admin.Component.ViewPanel;
 import SwingUI.Admin.HomeFrame;
 import SwingUI.Admin.HomePanel;
 import SwingUI.Utils.CustomDatePicker;
 import SwingUI.Utils.CustomFocusListener;
+import SwingUI.Utils.DateAndString;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.service.UserService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +26,8 @@ public class NewUserPanel extends JPanel {
     JPanel sortPanel;
     ViewPanel userList;
 
-    public NewUserPanel() {
+
+    public NewUserPanel(Date first, Date last) {
         setSize(950, 650);
         setLayout(new BorderLayout());
 
@@ -30,26 +36,32 @@ public class NewUserPanel extends JPanel {
 
         add(sortPanel, BorderLayout.NORTH);
 
-        Date date = new Date(2003 - 1900, Calendar.NOVEMBER, 10);
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-        String strTime = dateFormat.format(date);
-
-        String[] columnNames = {"ID", "Username", "Created time"};
+        String[] columnNames = {"ID", "Username", "Full name", "Created time"};
         List<Object[]> data = new ArrayList<>();
-        Object[] row = {1, "Minh", strTime};
-        data.add(row);
-        userList = new ViewPanel(columnNames, data, true);
+        List<User> users;
+        try {
+            users = UserService.getInstance().getByTime(first, last);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        for (var user: users) {
+            Object[] row = {
+                    user.getUserId(),
+                    user.getUserName(),
+                    user.getFullName(),
+                    DateAndString.DatetoString(user.getTimeRegister(), "dd/MM/yyyy hh:mm:ss")
+            };
+            data.add(row);
+        }
+        userList = new ViewPanel(columnNames, data, false, 10);
         JPanel actions = new JPanel();
 
         JButton bReturn = new JButton("Return");
-        bReturn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Component component = (Component) e.getSource();
-                HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
+        bReturn.addActionListener(e -> {
+            Component component = (Component) e.getSource();
+            HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
 
-                homeFrame.replace(new HomePanel(homeFrame));
-            }
+            homeFrame.replace(new ChoosePanel(2));
         });
 
         actions.add(bReturn);
@@ -60,23 +72,30 @@ public class NewUserPanel extends JPanel {
 
     private void initSortPanel() {
         JLabel sortByLabel = new JLabel("Sort by");
-        String[] sorts = {"Name", "Date"};
+        String[] sorts = {"Any", "Name", "Date"};
         JComboBox<String> sortsOptions = new JComboBox<>(sorts);
-        sortsOptions.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                var selectedItem = sortsOptions.getSelectedItem();
-                if (sortsOptions.getItemAt(0) == selectedItem) {
-
-                } else {
-
-                }
+        sortsOptions.addActionListener(e -> {
+            userList.removeAllSortKeys();
+            if (sortsOptions.getSelectedIndex() == 1) {
+                List<RowSorter.SortKey> sortKeys = new ArrayList<>(6);
+                sortKeys.add(new RowSorter.SortKey(2, SortOrder.ASCENDING));
+                userList.setSortKeys(sortKeys, 2);
+            } else if (sortsOptions.getSelectedIndex() == 2) {
+                List<RowSorter.SortKey> sortKeys = new ArrayList<>(6);
+                sortKeys.add(new RowSorter.SortKey(3, SortOrder.ASCENDING));
+                userList.setSortKeys(sortKeys, 3);
             }
         });
 
         JTextField name = new JTextField("Enter name");
         name.addFocusListener(new CustomFocusListener(name, "Enter name"));
         JButton bFilter = new JButton("Filter");
+        bFilter.addActionListener(e -> {
+            if (name.getText().equals("Enter name") || name.getText().isEmpty())
+                userList.removeAllFilters();
+            else
+                userList.filterText(name.getText(), 2);
+        });
 
         sortPanel.add(sortByLabel);
         sortPanel.add(sortsOptions);

@@ -36,6 +36,7 @@ public class Request {
     public void authorization(String username, String password){
          builder.header("Authorization",getBasicAuthenticationHeader(username,password));
     }
+
     public void GET(){
         builder.GET();
     }

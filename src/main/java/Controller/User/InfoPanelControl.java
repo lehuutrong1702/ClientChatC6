@@ -25,8 +25,7 @@ public class InfoPanelControl implements ActionListener {
         String password = infoPanel.getTfPassword().getText();
         Date dob = infoPanel.getDatePicker().getDate();
         String email = infoPanel.getTfEmail().getText();
-
-        if (name.isEmpty() || password.isEmpty()) {
+        if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Name and password must not be empty");
         }
         else{
@@ -36,7 +35,7 @@ public class InfoPanelControl implements ActionListener {
                 u.setPassword(password);
                 u.setBirthDay(dob);
                 u.setEmail(email);
-                User updatedUser = UserService.getInstance().updateUser(u);
+                User updatedUser = UserService.getInstance().updateUser(u, u.getUserId());
                 Account.getInstance().setPassWord(password);
 
                 if (updatedUser == null)

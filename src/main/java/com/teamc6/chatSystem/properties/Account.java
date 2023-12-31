@@ -3,9 +3,11 @@ package com.teamc6.chatSystem.properties;
 import com.teamc6.chatSystem.model.User;
 
 public class Account {
-    private  long Id;
-    private  String userName;
-    private  String passWord;
+    private static final Account INSTANCE = new Account();
+    private long Id;
+    private String userName;
+    private String passWord;
+    private long sessionID;
 
     public User getSelf() {
         return self;
@@ -20,6 +22,23 @@ public class Account {
     public Account(String userName, String passWord) {
         this.userName = userName;
         this.passWord = passWord;
+    }
+
+    // Private constructor to avoid client applications to use constructor
+    private Account() {
+
+    }
+
+    public static Account getInstance() {
+        return INSTANCE;
+    }
+
+    public long getSessionID() {
+        return sessionID;
+    }
+
+    public void setSessionID(long sessionID) {
+        this.sessionID = sessionID;
     }
 
     public String getUserName() {
@@ -44,16 +63,5 @@ public class Account {
 
     public void setId(long id) {
         Id = id;
-    }
-
-    private static final Account INSTANCE = new Account();
-
-    // Private constructor to avoid client applications to use constructor
-    private Account() {
-
-    }
-
-    public static Account getInstance() {
-        return INSTANCE;
     }
 }

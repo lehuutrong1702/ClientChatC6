@@ -1,5 +1,6 @@
 package SwingUI.Admin.UserManage;
 
+import Controller.Admin.UserMange.AddUserControl;
 import SwingUI.Admin.HomeFrame;
 import SwingUI.Utils.CustomDatePicker;
 import SwingUI.Utils.CustomFocusListener;
@@ -181,19 +182,13 @@ public class AddPanel extends JPanel {
         return tfUsername;
     }
 
-
     public void addEventListeners() {
         tfUsername.addFocusListener(new CustomFocusListener(tfUsername, "Enter username"));
         tfPassword.addFocusListener(new CustomFocusListener(tfPassword, "Enter password"));
         tfFullname.addFocusListener(new CustomFocusListener(tfFullname, "Enter full name"));
         tfEmail.addFocusListener(new CustomFocusListener(tfEmail, "Enter email"));
 
-        bAdd.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
+        bAdd.addActionListener(new AddUserControl());
 
         bReturn.addActionListener(new ActionListener() {
             @Override

@@ -1,23 +1,24 @@
 package SwingUI.Admin.UserManage;
 
+import Controller.Admin.UserMange.UserManageControl;
 import SwingUI.Admin.Component.ViewPanel;
-import SwingUI.Admin.HomeFrame;
-import SwingUI.Admin.HomePanel;
+import SwingUI.Utils.CustomFocusListener;
+import SwingUI.Utils.DateAndString;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.Page;
+import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.service.UserService;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class UserManagePanel extends JPanel {
-    JPanel filterPanel;
-    ViewPanel userList;
+    private final JPanel filterPanel;
+    private final ViewPanel userList;
+
+    private final List<Object[]> data = new ArrayList<>();
 
     public UserManagePanel() {
         setSize(950, 650);
@@ -28,78 +29,50 @@ public class UserManagePanel extends JPanel {
 
         add(filterPanel, BorderLayout.NORTH);
 
-        Date date = new Date(2003 - 1900, Calendar.NOVEMBER, 10);
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String strDate = dateFormat.format(date);
+        String[] columnNames = {"ID", "Username", "Full Name",
+                "Birthdate", "Gender", "Email", "Online"};
 
-        String[] columnNames = {"ID", "Username", "Full Name", "Address",
-                "Birthdate", "Gender", "Email", "Banned"};
-        List<Object[]> data = new ArrayList<>();
-        Object[] row = {1, "Mary", "Campione", "Snowboarding", strDate, "Male", "phamminh@gmail.com", false};
-        data.add(row);
-        userList = new ViewPanel(columnNames, data, true);
+        Page<User> listUser;
+        try {
+            listUser = UserService.getInstance().getAll();
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        for (var user : listUser.getContent()) {
+            if (user.getRole().equalsIgnoreCase("admin"))
+                continue;
+            Object[] row = {
+                    user.getUserId(),
+                    user.getUserName(),
+                    user.getFullName(),
+                    DateAndString.DatetoString(user.getBirthDay(), "dd/MM/yyyy"),
+                    user.isGender() ? "Female" : "Male",
+                    user.getEmail() != null ? user.getEmail() : "",
+                    user.isActive()
+            };
+            data.add(row);
+        }
+
+        userList = new ViewPanel(columnNames, data, true, 1);
+
         JPanel actions = new JPanel();
 
+        UserManageControl control = new UserManageControl();
         JButton bAdd = new JButton("Add");
-        bAdd.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Component component = (Component) e.getSource();
-                HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
-
-                homeFrame.replace(new AddPanel());
-            }
-        });
+        bAdd.addActionListener(control);
 
         JButton bDel = new JButton("Delete");
-        bDel.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
+        bDel.addActionListener(control);
 
         JButton bSnaFnd = new JButton("Sessions and friends");
-        bSnaFnd.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String value = getSelectedValueAtCol(0);
-                if (value == null)
-                    return;
-                Component component = (Component) e.getSource();
-                HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
+        bSnaFnd.addActionListener(control);
 
-
-                SessionFriendPanel panel = new SessionFriendPanel(Long.parseLong(value));
-                homeFrame.replace(panel.getMainPanel());
-            }
-        });
         JButton bChgPwd = new JButton("Change password");
-        bChgPwd.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (userList.getTable().getSelectedRow() == -1)
-                    return;
+        bChgPwd.addActionListener(control);
 
-                //lay username hoac id, neu muon lay id thi columnindex=0
-                String value = getSelectedValueAtCol(1);
-                String newPassword = JOptionPane.showInputDialog("Enter new password for " + value);
-
-                if (newPassword != null) {
-                    //update password
-                }
-            }
-        });
         JButton bReturn = new JButton("Return");
-        bReturn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Component component = (Component) e.getSource();
-                HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
-
-                homeFrame.replace(new HomePanel(homeFrame));
-            }
-        });
+        bReturn.addActionListener(control);
 
         actions.add(bAdd);
         actions.add(bDel);
@@ -111,7 +84,19 @@ public class UserManagePanel extends JPanel {
         add(actions, BorderLayout.SOUTH);
     }
 
-    private String getSelectedValueAtCol(int col) {
+    public List<Object[]> getData() {
+        return data;
+    }
+
+    public ViewPanel getUserList() {
+        return userList;
+    }
+
+    public int getSelectedRow() {
+        return userList.getTable().getSelectedRow();
+    }
+
+    public String getSelectedValueAtCol(int col) {
         JTable table = userList.getTable();
         int selectedRow = table.getSelectedRow();
         if (selectedRow == -1)
@@ -123,40 +108,67 @@ public class UserManagePanel extends JPanel {
         JLabel filterByLabel = new JLabel("Filter by");
         String[] filters = {"Any", "Name", "Username", "Status"};
         JComboBox<String> filtersOption = new JComboBox<>(filters);
-        filtersOption.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                resetFilterPanel();
-                var selectedItem = filtersOption.getSelectedItem();
-                if (filtersOption.getItemAt(1) == selectedItem) {
-                    filterPanel.add(new JTextField("Input name"), 2);
-                    filterPanel.add(new JButton("Filter"), 3);
-                } else if (filtersOption.getItemAt(2) == selectedItem) {
-                    filterPanel.add(new JTextField("Input username"), 2);
-                    filterPanel.add(new JButton("Filter"), 3);
-                } else if (filtersOption.getItemAt(3) == selectedItem) {
-                    String[] status = {"Active", "Offline"};
-                    JComboBox<String> statusFilter = new JComboBox<>(status);
-                    filterPanel.add(statusFilter, 2);
-                }
+        filtersOption.addActionListener(e -> {
+            resetFilterPanel();
+            userList.removeAllFilters();
+            var selectedItem = filtersOption.getSelectedItem();
+            if (filtersOption.getSelectedIndex() == 1) {
+                JTextField name = new JTextField("Input name");
+                name.addFocusListener(new CustomFocusListener(name, "Input name"));
 
-                filterPanel.revalidate();
-                filterPanel.repaint();
+                JButton bNameFilter = new JButton("Filter");
+                bNameFilter.addActionListener(e1 -> {
+                    if (name.getText().equals("Input name") || name.getText().isEmpty())
+                        userList.removeAllFilters();
+                    else
+                        userList.filterText(name.getText(), 2);
+                });
+
+                filterPanel.add(name, 2);
+                filterPanel.add(bNameFilter, 3);
+            } else if (filtersOption.getSelectedIndex() == 2) {
+                JTextField username = new JTextField("Input username");
+                username.addFocusListener(new CustomFocusListener(username, "Input username"));
+                filterPanel.add(username, 2);
+                JButton bUsername = new JButton("Filter");
+                bUsername.addActionListener(e12 -> {
+                    if (username.getText().equals("Input username") || username.getText().isEmpty())
+                        userList.removeAllFilters();
+                    else
+                        userList.filterText(bUsername.getText(), 1);
+                });
+                filterPanel.add(bUsername, 3);
+            } else if (filtersOption.getItemAt(3) == selectedItem) {
+                String[] status = {"Any", "Active", "Offline"};
+                JComboBox<String> statusFilter = new JComboBox<>(status);
+                statusFilter.addActionListener(e13 -> {
+                    userList.removeAllFilters();
+                    if (statusFilter.getSelectedIndex() == 1) {
+                        userList.filterBoolean(true, 6);
+                    } else if (statusFilter.getSelectedIndex() == 2) {
+                        userList.filterBoolean(false, 6);
+                    }
+                });
+                filterPanel.add(statusFilter, 2);
             }
+
+            filterPanel.revalidate();
+            filterPanel.repaint();
         });
 
         JLabel sortByLabel = new JLabel("Sort by");
-        String[] sorts = {"Name", "Date"};
+        String[] sorts = {"Any", "Name", "Date"};
         JComboBox<String> sortsOptions = new JComboBox<>(sorts);
-        sortsOptions.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                var selectedItem = sortsOptions.getSelectedItem();
-                if (sortsOptions.getItemAt(0) == selectedItem) {
-
-                } else {
-
-                }
+        sortsOptions.addActionListener(e -> {
+            userList.removeAllSortKeys();
+            if (sortsOptions.getSelectedIndex() == 1) {
+                List<RowSorter.SortKey> sortKeys = new ArrayList<>(6);
+                sortKeys.add(new RowSorter.SortKey(2, SortOrder.ASCENDING));
+                userList.setSortKeys(sortKeys, 2);
+            } else if (sortsOptions.getSelectedIndex() == 2) {
+                List<RowSorter.SortKey> sortKeys = new ArrayList<>(6);
+                sortKeys.add(new RowSorter.SortKey(3, SortOrder.ASCENDING));
+                userList.setSortKeys(sortKeys, 3);
             }
         });
 

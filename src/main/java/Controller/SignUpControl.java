@@ -1,4 +1,4 @@
-package Controller.User;
+package Controller;
 
 import SwingUI.SignIn.SignInFrame;
 import SwingUI.SignUp.SignUpFrame;

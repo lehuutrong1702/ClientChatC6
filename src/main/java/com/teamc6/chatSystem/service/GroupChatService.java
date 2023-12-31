@@ -37,6 +37,20 @@ public class GroupChatService {
         return group;
     }
 
+    public Page<GroupChat> getAll() throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/groups");
+        Request request = new Request(url);
+
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<GroupChat> groups = (Page<GroupChat>) request.getResBody(new TypeReference<Page<GroupChat>>() {});
+        return groups;
+    }
+
     public Set<User> listMember(long Id) throws JsonProcessingException{
         String url = String.format("http://localhost:8080/api/v1/groups/%d/members", Id);
         Request request = new Request(url);

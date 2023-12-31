@@ -1,14 +1,14 @@
 package com.teamc6.chatSystem.service;
 
+import SwingUI.Utils.DateAndString;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.teamc6.chatSystem.model.GroupChat;
-import com.teamc6.chatSystem.model.Page;
-import com.teamc6.chatSystem.model.Relationship;
-import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.model.*;
 import com.teamc6.chatSystem.properties.Account;
 import com.teamc6.chatSystem.request.Request;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class UserService {
@@ -23,6 +23,37 @@ public class UserService {
 
         Page<User> pageUser = (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
         return  pageUser;
+    }
+
+    public List<User> getByTime(Date start, Date end) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/user-active-sessions?start=%sT00:00:00&end=%sT00:00:00",
+                DateAndString.DatetoString(start, "yyyy-MM-dd"),
+                DateAndString.DatetoString(end, "yyyy-MM-dd")
+        );
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        List<User> userList = (List<User>) request.getResBody(new TypeReference<List<User>>() {});
+        return  userList;
+    }
+
+    public List<User> getByYear(int year) throws JsonProcessingException {
+        String url = String.format("http://localhost:8081/api/v1/users/time-register?start=%d-01-01T00:00:00&end=%d-01-01T00:00:00",
+                year, year + 1
+        );
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        List<User> userList = (List<User>) request.getResBody(new TypeReference<List<User>>() {});
+        return userList;
     }
 
     public User adduser(User u) throws JsonProcessingException {
@@ -77,6 +108,18 @@ public class UserService {
         return relationship;
     }
 
+    public Page<User> getAll() throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users?page=0&size=100");
+        Request request = new Request(url);
+
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+        request.GET();
+        request.build();
+        request.send();
+
+        Page<User> listUser = (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
+        return listUser;
+    }
 
     public Set<User> getListFriend(Long id) throws JsonProcessingException {
         String url = String.format("http://localhost:8080/api/v1/users/%d/friends", id);
@@ -104,9 +147,21 @@ public class UserService {
         return listGroup;
     }
 
-    public User updateUser(User u) throws JsonProcessingException{
-        String url = String.format("http://localhost:8080/api/v1/users/%d",  Account.getInstance().getId());
-        System.out.println(url);
+    public Set<UserActiveSession> getActiveSession(Long id) throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users/%d/user-active-sessions", id);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        Set<UserActiveSession> activeSessions = (Set<UserActiveSession>) request.getResBody(new TypeReference<Set<UserActiveSession>>() {});
+        return activeSessions;
+    }
+
+    public User updateUser(User u, Long id) throws JsonProcessingException{
+        String url = String.format("http://localhost:8080/api/v1/users/%d",  id);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
         request.PUT(u);
@@ -161,6 +216,20 @@ public class UserService {
         request.DELETE();
         request.build();
         request.send();
+    }
+
+    public Boolean deleteUser(Long id) throws JsonProcessingException {
+
+        String url = String.format("http://localhost:8080/api/v1/users/%d", id);
+        System.out.println(id);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.DELETE();
+        request.build();
+        request.send();
+
+        return (Boolean) request.getResBody(new TypeReference<Boolean>() {});
     }
 
     public GroupChat getPrivateGroupChat(Long id) throws JsonProcessingException {
