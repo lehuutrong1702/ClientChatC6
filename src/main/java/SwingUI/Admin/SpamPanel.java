@@ -23,7 +23,6 @@ public class SpamPanel extends JPanel {
 
         add(filterPanel, BorderLayout.NORTH);
 
-
         String[] columnNames = {"ID", "Time", "Username", "Full name", "Banned"};
         List<Object[]> data = new ArrayList<>();
 
