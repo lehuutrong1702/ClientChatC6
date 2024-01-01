@@ -3,6 +3,12 @@ package SwingUI.Admin;
 import SwingUI.Admin.Component.ViewPanel;
 import SwingUI.Utils.CustomDatePicker;
 import SwingUI.Utils.CustomFocusListener;
+import SwingUI.Utils.DateAndString;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.Page;
+import com.teamc6.chatSystem.model.ReportSpam;
+import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.service.ReportSpamService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,9 +31,23 @@ public class SpamPanel extends JPanel {
 
         String[] columnNames = {"ID", "Time", "Username", "Full name", "Banned"};
         List<Object[]> data = new ArrayList<>();
-
-        Object[] row = {1, new Date(), "minh3107", "Pham Van Minh", false};
-        data.add(row);
+        Page<ReportSpam> spams;
+        try {
+            spams = ReportSpamService.getInstance().getAll();
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        for (var spam: spams.getContent()) {
+            User reported = spam.getReportUser();
+            Object[] row = {
+                    spam.getId(),
+                    DateAndString.DatetoString(spam.getTimeReport(), "dd/MM/yyyy hh:mm:ss"),
+                    reported.getUserName(),
+                    reported.getFullName(),
+                    reported.isActive()
+            };
+            data.add(row);
+        }
 
         userList = new ViewPanel(columnNames, data, true, 3);
         JPanel actions = new JPanel();

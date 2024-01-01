@@ -39,7 +39,6 @@ public class HomeFrame extends JFrame {
             public void windowClosing(WindowEvent e)
             {
                 try {
-                    UserService.getInstance().setActive(false);
                     UserActiveSessionService.getInstance().endSession(Account.getInstance().getSessionID());
                 } catch (JsonProcessingException ex) {
                     throw new RuntimeException(ex);

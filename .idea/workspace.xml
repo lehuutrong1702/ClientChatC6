@@ -7,34 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="merge Minh's branch into master">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/model/ReportSpam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Update Admin">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/ReportSpamService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Admin/UserMange/AddUserControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin/UserMange/AddUserControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SignInControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SignInControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SignUpControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SignUpControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/UCControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/UCControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/GroupChatManagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/GroupChatManagePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/HomeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/NewUser/NewUserPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SessionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SessionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserFriendPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/UserFriendPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/SignIn/SignInFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/SignIn/SignInFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserActiveSessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserActiveSessionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SpamPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/SpamPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/CustomTableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SwingUI/SignIn/SignInFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,30 +63,31 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChatApp.executor": "Run",
-    "Application.SwingUI.Admin.HomeFrame.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "195",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "309",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Code/Java/untitled2/src/main/java/SwingUI/Admin/GroupChatManage",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propCompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChatApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SwingUI.Admin.HomeFrame.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;195&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;309&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Code/Java/untitled2/src/main/java/SwingUI/Admin/GroupChatManage&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Code\Java\untitled2\src\main\java\SwingUI\Admin\GroupChatManage" />
@@ -427,7 +406,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703959135163</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Update Admin">
+      <option name="closed" value="true" />
+      <created>1704029766918</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1704029766918</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,6 +480,7 @@
     <MESSAGE value="Update UserFriendPanel and SpamPanel" />
     <MESSAGE value="Update security configuration to allow profile manipulation" />
     <MESSAGE value="merge Minh's branch into master" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge Minh's branch into master" />
+    <MESSAGE value="Update Admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Admin" />
   </component>
 </project>

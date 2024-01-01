@@ -39,7 +39,6 @@ public class SignInControl implements ActionListener {
                     curUser.setSessionID(activeSession.getId());
 
                     curUser.setSelf(u);
-                    UserService.getInstance().setActive(true);
                     signInFrame.dispose();
                     if (u.getRole().equals("USER"))
                         new SwingUI.User.HomeFrame();

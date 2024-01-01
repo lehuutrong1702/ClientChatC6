@@ -186,8 +186,8 @@ public class UserService {
         Page<User> pageUser = (Page<User>) request.getResBody(new TypeReference<Page<User>>() {});
         return  pageUser;
     }
-    public void setActive(boolean isActive) throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/users/%d/active/%b", Account.getInstance().getId(), isActive);
+    public void setActive(Long id, boolean isActive) throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users/%d/active/%b", id, isActive);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 

@@ -89,12 +89,8 @@ public class CustomTableModel extends AbstractTableModel {
 
         if (_COL == 1) {
             Long id = (Long) data.get(row)[0];
-            System.out.println(id);
-            System.out.println(Account.getInstance().getUserName());
-            System.out.println(Account.getInstance().getPassWord());
-            User u;
             try {
-                u = UserService.getInstance().findById(id);
+                User u = UserService.getInstance().findById(id);
                 if (col == 2) {
                     if (((String) value).isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Full name must not be null");
@@ -124,6 +120,8 @@ public class CustomTableModel extends AbstractTableModel {
                 }
                 var res = UserService.getInstance().updateUser(u, id);
                 if (res != null) {
+                    data.get(row)[col] = value;
+                    fireTableCellUpdated(row, col);
                     JOptionPane.showMessageDialog(null, "User updated");
                 } else {
                     JOptionPane.showMessageDialog(null, "Update failed");
@@ -134,10 +132,15 @@ public class CustomTableModel extends AbstractTableModel {
             }
         } else if (_COL == 3) {
             // xu ly ban user
+            Long id = (Long) data.get(row)[0];
+            try {
+                UserService.getInstance().setActive(id ,(boolean) value);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+            data.get(row)[col] = value;
+            fireTableCellUpdated(row, col);
         }
-
-        data.get(row)[col] = value;
-        fireTableCellUpdated(row, col);
 
         if (DEBUG) {
             System.out.println("New value of data:");
