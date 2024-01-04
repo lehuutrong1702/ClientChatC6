@@ -42,6 +42,15 @@ public class UserManagePanel extends JPanel {
         for (var user : listUser.getContent()) {
             if (user.getRole().equalsIgnoreCase("admin"))
                 continue;
+
+            boolean online;
+
+            try {
+                online = UserService.getInstance().isOnline(user.getUserId());
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+
             Object[] row = {
                     user.getUserId(),
                     user.getUserName(),
@@ -49,7 +58,7 @@ public class UserManagePanel extends JPanel {
                     DateAndString.DatetoString(user.getBirthDay(), "dd/MM/yyyy"),
                     user.isGender() ? "Female" : "Male",
                     user.getEmail() != null ? user.getEmail() : "",
-                    user.isActive()
+                    online
             };
             data.add(row);
         }
