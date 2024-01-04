@@ -85,6 +85,7 @@ public class UserFriendPanel extends JPanel {
         JComboBox<String> filtersOption = new JComboBox<>(filters);
         filtersOption.addActionListener(e -> {
             resetFilterPanel();
+            userList.removeAllFilters();
             if (filtersOption.getSelectedIndex() == 1) {
                 JTextField name = new JTextField("Enter name");
                 name.addFocusListener(new CustomFocusListener(name, "Enter name"));
