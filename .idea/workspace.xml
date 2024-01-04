@@ -3,11 +3,22 @@
   <component name="AnalysisUIOptions">
     <option name="SCOPE_TYPE" value="3" />
   </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="clientChat:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Fix filter for UserFriendPanel" />
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Fix filter">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/clientChat_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/CurrentUser/CurrentUserChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/ChartUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Utils/ChartUtils.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,8 +73,10 @@
     &quot;Application.ChatApp.executor&quot;: &quot;Run&quot;,
     &quot;Application.HomeFrame.executor&quot;: &quot;Run&quot;,
     &quot;Application.SwingUI.Admin.HomeFrame.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;195&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;309&quot;,
@@ -71,11 +84,11 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Code/Java/untitled2/src/main/java/SwingUI/Admin/GroupChatManage&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Code/Java/untitled2/out/artifacts/clientChat_jar/clientChat.jar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
@@ -95,7 +108,7 @@
       <recent name="SwingUI.Admin.NewUser" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.HomeFrame">
     <configuration name="ChatApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChatApp" />
       <module name="clientChat" />
@@ -103,8 +116,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HomeFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SwingUI.Admin.HomeFrame" />
+      <module name="clientChat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SwingUI.Admin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/clientChat_jar/clientChat.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Code\Java\untitled2" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.HomeFrame" />
+      <item itemvalue="Application.ChatApp" />
+      <item itemvalue="JAR Application.Unnamed" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HomeFrame" />
         <item itemvalue="Application.ChatApp" />
       </list>
     </recent_temporary>
@@ -442,7 +480,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704375807141</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Fix filter">
+      <option name="closed" value="true" />
+      <created>1704376163626</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1704376163626</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,7 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update SignUp and MainFrame" />
     <MESSAGE value="update SearchUI and MessageUI" />
     <MESSAGE value="add controllers and update ui" />
     <MESSAGE value="refactor messaging object" />
@@ -512,6 +557,7 @@
     <MESSAGE value="Change SignInControl" />
     <MESSAGE value="Fix filter for UserManagePanel" />
     <MESSAGE value="Fix filter for UserFriendPanel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix filter for UserFriendPanel" />
+    <MESSAGE value="Fix filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix filter" />
   </component>
 </project>

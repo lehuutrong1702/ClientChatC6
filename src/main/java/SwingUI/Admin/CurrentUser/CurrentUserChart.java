@@ -13,7 +13,6 @@ import org.jfree.chart.ChartPanel;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class CurrentUserChart extends JPanel {
@@ -63,9 +62,9 @@ public class CurrentUserChart extends JPanel {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-        int[] months = {0,0,0,0,0,0,0,0,0,0,0,0};
+        int[] months = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         List<User> userList = new ArrayList<>();
-        for (var session: sessions) {
+        for (var session : sessions) {
             User u = session.getSessionUser();
             if (u.getRole().equalsIgnoreCase("admin"))
                 continue;
@@ -81,6 +80,7 @@ public class CurrentUserChart extends JPanel {
         }
 
         chartPanel.setChart(ChartUtils.createChart("Active users", "Month", "Quantity", data));
-        chartPanel.revalidate(); chartPanel.repaint();
+        chartPanel.revalidate();
+        chartPanel.repaint();
     }
 }

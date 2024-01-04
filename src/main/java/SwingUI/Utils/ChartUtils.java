@@ -11,8 +11,8 @@ import java.util.List;
 public class ChartUtils {
     public static JFreeChart createChart(String title, String categoryAxisLabel, String valueAxisLabel, List<Object[]> data) {
         return ChartFactory.createBarChart(
-                "New users",
-                "Month", "Numbers",
+                title,
+                categoryAxisLabel, valueAxisLabel,
                 createDataset(data), PlotOrientation.VERTICAL, false, false, false);
     }
 
