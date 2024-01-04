@@ -7,7 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Update all" />
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Delete App.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Admin/UserMange/UserManageControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin/UserMange/UserManageControl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +97,7 @@
       <recent name="SwingUI.Admin.NewUser" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ChatApp">
+  <component name="RunManager">
     <configuration name="ChatApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChatApp" />
       <module name="clientChat" />
@@ -102,27 +105,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HomeFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SwingUI.User.HomeFrame" />
-      <module name="clientChat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SwingUI.User.Component.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.ChatApp" />
-      <item itemvalue="Application.HomeFrame" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ChatApp" />
-        <item itemvalue="Application.HomeFrame" />
       </list>
     </recent_temporary>
   </component>
@@ -395,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704342256571</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Delete App.java">
+      <option name="closed" value="true" />
+      <created>1704342827998</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1704342827998</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,6 +456,7 @@
     <MESSAGE value="merge Minh's branch into master" />
     <MESSAGE value="Update Admin" />
     <MESSAGE value="Update all" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update all" />
+    <MESSAGE value="Delete App.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete App.java" />
   </component>
 </project>

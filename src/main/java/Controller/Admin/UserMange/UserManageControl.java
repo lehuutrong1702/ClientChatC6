@@ -56,14 +56,15 @@ public class UserManageControl implements ActionListener {
                     return;
 
                 //lay username hoac id, neu muon lay id thi columnindex=0
-                value = userManagePanel.getSelectedValueAtCol(0);
+                value = userManagePanel.getSelectedValueAtCol(1);
                 String newPassword = JOptionPane.showInputDialog("Enter new password for " + value);
 
                 if (newPassword != null) {
                     try {
-                        User u = UserService.getInstance().findById(Long.parseLong(value));
+                        long id = Long.parseLong(userManagePanel.getSelectedValueAtCol(0));
+                        User u = UserService.getInstance().findById(id);
                         u.setPassword(newPassword);
-                        User updated = UserService.getInstance().updateUser(u, Long.valueOf(value));
+                        User updated = UserService.getInstance().updateUser(u, id);
                         if (updated != null)
                             JOptionPane.showMessageDialog(null, "Update successfully");
                         else
