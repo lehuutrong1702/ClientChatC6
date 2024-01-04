@@ -29,13 +29,13 @@ public class SignInControl implements ActionListener {
             String password = signInFrame.getPfPassword().getText();
             try {
                 User u = UserService.getInstance().findByUserName(username);
-                System.out.println(u);
-                if (!u.isActive()) {
-                    JOptionPane.showMessageDialog(null, "Account has been banned!");
-                    return;
-                }
 
                 if (u != null && BCrypt.checkpw(password, u.getPassword())) {
+                    if (!u.isActive()) {
+                        JOptionPane.showMessageDialog(null, "Account has been banned!");
+                        return;
+                    }
+
                     Account curUser = Account.getInstance();
                     curUser.setId(u.getUserId());
                     curUser.setUserName(username);
