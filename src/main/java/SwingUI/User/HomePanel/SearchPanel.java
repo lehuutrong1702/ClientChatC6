@@ -28,14 +28,6 @@ public class SearchPanel extends JPanel{
         who.addElement("Groups");
         this.comboBox1.setModel(who);
         this.comboBox1.addActionListener(new SearchPanelControl(this.comboBox1, this.comboBox2, this.ResultPanel, text));
-
-        DefaultComboBoxModel<String> what = new DefaultComboBoxModel<>();
-        what.addElement("Any");
-        what.addElement("Name");
-        what.addElement("Created time");
-        this.comboBox2.setModel(what);
-        this.comboBox2.addActionListener(new SearchPanelControl(this.comboBox1, this.comboBox2, this.ResultPanel, text));
-
         this.ResultPanel.setLayout(new GridLayout(10, 3));
 
     }

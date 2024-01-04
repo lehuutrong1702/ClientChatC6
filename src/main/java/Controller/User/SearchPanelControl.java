@@ -29,9 +29,7 @@ public class SearchPanelControl implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         resultPanel.removeAll();
-
         String context = (String) this.filterContext.getSelectedItem();
-        String condition = (String) this.filterCondition.getSelectedItem();
         try {
             System.out.println(text);
             switch (context){
@@ -45,15 +43,14 @@ public class SearchPanelControl implements ActionListener {
                     }
                 }break;
                 case "Groups":{
-
-                    Page<GroupChat> page = userService.filterGroupsByName(Account.getInstance().getId(),text,0, 5);
+                    Page<GroupChat> page = userService.filterGroupsByName(Account.getInstance().getId(),text,0, 50);
                     java.util.List<GroupChat> groupChatList = page.getContent();
                     for(GroupChat u : groupChatList){
                         resultPanel.add(new SearchCard<>(u));
                     }
                 }break;
             }
-
+        resultPanel.revalidate(); resultPanel.repaint();
         } catch (JsonProcessingException err) {
             throw new RuntimeException(err);
         }

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.User;
 import com.teamc6.chatSystem.service.UserService;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -34,23 +35,30 @@ public class SignUpControl implements ActionListener {
             u.setUserName(username);
             u.setGender(gender);
             u.setRole("USER");
+            u.setActive(true);
 
             try {
-                UserService.getInstance().adduser(u);
+                User added = UserService.getInstance().adduser(u);
+                if (added == null) {
+                    JOptionPane.showMessageDialog(null, "Username existed");
+                } else {
+                    try {
+                        SignUpFrame.dispose();
+                        new SignInFrame();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
             } catch (JsonProcessingException ex) {
                 throw new RuntimeException(ex);
             }
-
-            System.out.println(u);
         } else {
-            SignUpFrame.dispose();
-        }
-
-        try {
-            SignUpFrame.dispose();
-            new SignInFrame();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
+            try {
+                SignUpFrame.dispose();
+                new SignInFrame();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 }

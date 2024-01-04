@@ -44,7 +44,7 @@ public class SpamPanel extends JPanel {
                     DateAndString.DatetoString(spam.getTimeReport(), "dd/MM/yyyy hh:mm:ss"),
                     reported.getUserName(),
                     reported.getFullName(),
-                    reported.isActive()
+                    !reported.isActive()
             };
             data.add(row);
         }

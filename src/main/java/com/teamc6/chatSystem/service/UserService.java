@@ -67,7 +67,7 @@ public class UserService {
         request.send();
 
         User user = (User) request.getResBody(new TypeReference<User>() {});
-        return  user;
+        return user;
     }
 
     public User findById(long Id) throws JsonProcessingException{
@@ -187,11 +187,12 @@ public class UserService {
         return  pageUser;
     }
     public void setActive(Long id, boolean isActive) throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/users/%d/active/%b", id, isActive);
+        String url = String.format("http://localhost:8080/api/v1/users/%d/active/%b", id, !isActive);
         Request request = new Request(url);
+        System.out.println(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
-        request.GET();
+        request.POST(null);
         request.build();
         request.send();
     }

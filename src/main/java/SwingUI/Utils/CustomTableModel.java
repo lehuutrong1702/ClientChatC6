@@ -132,9 +132,10 @@ public class CustomTableModel extends AbstractTableModel {
             }
         } else if (_COL == 3) {
             // xu ly ban user
-            Long id = (Long) data.get(row)[0];
+            String name = (String) data.get(row)[2];
             try {
-                UserService.getInstance().setActive(id ,(boolean) value);
+                User u = UserService.getInstance().findByUserName(name);
+                UserService.getInstance().setActive(u.getUserId() ,(boolean) value);
             } catch (JsonProcessingException e) {
                 throw new RuntimeException(e);
             }
