@@ -19,15 +19,16 @@ public class AddUserControl implements ActionListener {
         String fullname =  addPanel.getTfFullname().getText();
         Date dob = addPanel.getDatePicker().getDate();
         String email = addPanel.getTfEmail().getText();
-        boolean gender = addPanel.getGender().getSelection().getActionCommand().equals("Male");
+        boolean gender = addPanel.getGender().getSelection().getActionCommand().equalsIgnoreCase("male");
 
         User u = new User();
         u.setEmail(email);
         u.setBirthDay(dob);
         u.setFullName(fullname);
         u.setUserName(username);
-        u.setGender(gender);
+        u.setGender(!gender);
         u.setTimeRegister(new Date());
+        u.setActive(true);
         u.setRole("USER");
 
         try {

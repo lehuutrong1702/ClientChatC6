@@ -15,7 +15,6 @@ public class AddPanel extends JPanel {
     private final JButton bAdd;
     private final JButton bReturn;
     private final JTextField tfUsername;
-    private final JTextField tfPassword;
     private final JTextField tfFullname;
     private final JTextField tfEmail;
 
@@ -43,24 +42,7 @@ public class AddPanel extends JPanel {
                 setBorder(new RoundedCornerBorder());
             }
         };
-        tfPassword = new JTextField() {
-            protected void paintComponent(Graphics g) {
-                if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
-                    Graphics2D g2 = (Graphics2D) g.create();
-                    g2.setPaint(getBackground());
-                    g2.fill(((RoundedCornerBorder) getBorder()).getBorderShape(
-                            0, 0, getWidth() - 1, getHeight() - 1));
-                    g2.dispose();
-                }
-                super.paintComponent(g);
-            }
 
-            public void updateUI() {
-                super.updateUI();
-                setOpaque(false);
-                setBorder(new RoundedCornerBorder());
-            }
-        };
         tfFullname = new JTextField() {
             protected void paintComponent(Graphics g) {
                 if (!isOpaque() && getBorder() instanceof RoundedCornerBorder) {
@@ -184,7 +166,6 @@ public class AddPanel extends JPanel {
 
     public void addEventListeners() {
         tfUsername.addFocusListener(new CustomFocusListener(tfUsername, "Enter username"));
-        tfPassword.addFocusListener(new CustomFocusListener(tfPassword, "Enter password"));
         tfFullname.addFocusListener(new CustomFocusListener(tfFullname, "Enter full name"));
         tfEmail.addFocusListener(new CustomFocusListener(tfEmail, "Enter email"));
 
@@ -203,7 +184,6 @@ public class AddPanel extends JPanel {
 
     public void init() {
         tfUsername.setPreferredSize(new Dimension(250, 35));
-        tfPassword.setPreferredSize(new Dimension(250, 35));
         tfFullname.setPreferredSize(new Dimension(250, 35));
         tfEmail.setPreferredSize(new Dimension(250, 35));
         datePicker.setPreferredSize(new Dimension(250, 35));
@@ -217,8 +197,6 @@ public class AddPanel extends JPanel {
 
         tfUsername.setText("Enter username");
         tfUsername.setForeground(Color.gray);
-        tfPassword.setText("Enter password");
-        tfPassword.setForeground(Color.gray);
         tfFullname.setText("Enter full name");
         tfFullname.setForeground(Color.gray);
         tfEmail.setText("Enter email");
@@ -239,10 +217,6 @@ public class AddPanel extends JPanel {
         input.insets = textInsets;
         input.gridy = 1;
         add(tfUsername, input);
-
-        input.insets = textInsets;
-        input.gridy = 2;
-        add(tfPassword, input);
 
         input.insets = textInsets;
         input.gridy = 3;

@@ -31,8 +31,9 @@ public class UserManageControl implements ActionListener {
 
                 //lay username hoac id, neu muon lay id thi columnindex=0
                 value = userManagePanel.getSelectedValueAtCol(0);
+                System.out.println(value);
                 try {
-                    Boolean success = UserService.getInstance().deleteUser(Long.valueOf(value));
+                    boolean success = UserService.getInstance().deleteUser(Long.valueOf(value));
                     if (success) {
                         userManagePanel.getUserList().getModel().removeRow(row);
                         JOptionPane.showMessageDialog(null, "Delete successfully");

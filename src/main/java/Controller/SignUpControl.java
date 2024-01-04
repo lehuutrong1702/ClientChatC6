@@ -26,14 +26,14 @@ public class SignUpControl implements ActionListener {
             String fullname =  SignUpFrame.getTfFullname().getText();
             Date dob = SignUpFrame.getDatePicker().getDate();
             String email = SignUpFrame.getTfEmail().getText();
-            boolean gender = SignUpFrame.getGender().getSelection().getActionCommand().equals("Male");
+            boolean gender = SignUpFrame.getGender().getSelection().getActionCommand().equalsIgnoreCase("male");
 
             User u = new User();
             u.setEmail(email);
             u.setBirthDay(dob);
             u.setFullName(fullname);
             u.setUserName(username);
-            u.setGender(gender);
+            u.setGender(!gender);
             u.setRole("USER");
             u.setActive(true);
 

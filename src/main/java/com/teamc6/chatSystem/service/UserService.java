@@ -238,7 +238,6 @@ public class UserService {
     }
 
     public Boolean deleteUser(Long id) throws JsonProcessingException {
-
         String url = String.format("http://localhost:8080/api/v1/users/%d", id);
         System.out.println(id);
         Request request = new Request(url);
