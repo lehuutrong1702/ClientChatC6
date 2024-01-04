@@ -18,7 +18,7 @@ import java.util.List;
 
 public class SpamPanel extends JPanel {
     JPanel filterPanel;
-    ViewPanel userList;
+    ViewPanel spamList;
 
     public SpamPanel() {
         setSize(950, 650);
@@ -49,7 +49,7 @@ public class SpamPanel extends JPanel {
             data.add(row);
         }
 
-        userList = new ViewPanel(columnNames, data, true, 3);
+        spamList = new ViewPanel(columnNames, data, true, 3);
         JPanel actions = new JPanel();
 
         JButton bReturn = new JButton("Return");
@@ -62,7 +62,7 @@ public class SpamPanel extends JPanel {
 
         actions.add(bReturn);
 
-        add(userList, BorderLayout.CENTER);
+        add(spamList, BorderLayout.CENTER);
         add(actions, BorderLayout.SOUTH);
     }
 
@@ -72,16 +72,16 @@ public class SpamPanel extends JPanel {
         JComboBox<String> filtersOption = new JComboBox<>(filters);
         filtersOption.addActionListener(e -> {
             resetFilterPanel();
-            userList.removeAllFilters();
+            spamList.removeAllFilters();
             if (filtersOption.getSelectedIndex() == 1) {
                 JTextField name = new JTextField("Enter name");
                 name.addFocusListener(new CustomFocusListener(name, "Enter name"));
                 JButton bFilter = new JButton("Filter");
                 bFilter.addActionListener(e1 -> {
                     if (name.getText().equals("Enter name") || name.getText().isEmpty())
-                        userList.removeAllFilters();
+                        spamList.removeAllFilters();
                     else
-                        userList.filterText(name.getText(), 3);
+                        spamList.filterText(name.getText(), 3);
                 });
                 filterPanel.add(name, 2);
                 filterPanel.add(bFilter, 3);
@@ -90,7 +90,7 @@ public class SpamPanel extends JPanel {
                 CustomDatePicker endPicker = new CustomDatePicker();
                 JButton bFilter = new JButton("Filter");
                 bFilter.addActionListener(e1 -> {
-                    userList.filterDate(startPicker.getDate(), endPicker.getDate(), 1);
+                    spamList.filterDate(startPicker.getDate(), endPicker.getDate(), 1);
                 });
 
                 filterPanel.add(new JLabel("From"), 2);
@@ -107,15 +107,15 @@ public class SpamPanel extends JPanel {
         String[] sorts = {"Any", "Name", "Date"};
         JComboBox<String> sortsOptions = new JComboBox<>(sorts);
         sortsOptions.addActionListener(e -> {
-            userList.removeAllSortKeys();
+            spamList.removeAllSortKeys();
             if (sortsOptions.getSelectedIndex() == 1) {
                 List<RowSorter.SortKey> sortKeys = new ArrayList<>(6);
                 sortKeys.add(new RowSorter.SortKey(3, SortOrder.ASCENDING));
-                userList.setSortKeys(sortKeys, 3);
+                spamList.setSortKeys(sortKeys, 3);
             } else if (sortsOptions.getSelectedIndex() == 2) {
                 List<RowSorter.SortKey> sortKeys = new ArrayList<>(6);
                 sortKeys.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
-                userList.setSortKeys(sortKeys, 1);
+                spamList.setSortKeys(sortKeys, 1);
             }
         });
 

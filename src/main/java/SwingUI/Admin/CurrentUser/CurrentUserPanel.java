@@ -86,6 +86,7 @@ public class CurrentUserPanel extends JPanel {
         JComboBox<String> filtersOption = new JComboBox<>(filters);
         filtersOption.addActionListener(e -> {
             resetFilterPanel();
+            userList.removeAllFilters();
             if (filtersOption.getSelectedIndex() == 1) {
                 JTextField username = new JTextField("Enter username");
                 username.addFocusListener(new CustomFocusListener(username, "Enter username"));

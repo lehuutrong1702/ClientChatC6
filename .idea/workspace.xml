@@ -7,9 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Fix filter for UserManagePanel">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Fix filter for UserFriendPanel" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -436,7 +434,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704374138688</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Fix filter for UserFriendPanel">
+      <option name="closed" value="true" />
+      <created>1704375807141</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1704375807141</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update searching" />
     <MESSAGE value="update SignUp and MainFrame" />
     <MESSAGE value="update SearchUI and MessageUI" />
     <MESSAGE value="add controllers and update ui" />
@@ -506,6 +511,7 @@
     <MESSAGE value="Update UI" />
     <MESSAGE value="Change SignInControl" />
     <MESSAGE value="Fix filter for UserManagePanel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix filter for UserManagePanel" />
+    <MESSAGE value="Fix filter for UserFriendPanel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix filter for UserFriendPanel" />
   </component>
 </project>
