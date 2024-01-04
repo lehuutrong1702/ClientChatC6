@@ -1,10 +1,10 @@
 package com.teamc6.chatSystem.model;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Message {
     private long id;
-    private LocalDateTime creationDateTime;
+    private Date creationDateTime;
     private String userName;
     private String message;
     private GroupChat groupChat;
@@ -13,7 +13,7 @@ public class Message {
         return id;
     }
 
-    public LocalDateTime getCreationDateTime() {
+    public Date getCreationDateTime() {
         return creationDateTime;
     }
 

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.User;
 import com.teamc6.chatSystem.model.UserActiveSession;
 import com.teamc6.chatSystem.service.UserActiveSessionService;
+import com.teamc6.chatSystem.service.UserService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,14 +46,20 @@ public class CurrentUserPanel extends JPanel {
         for (var user: curUsers.keySet()) {
             if (user.getRole().equalsIgnoreCase("admin"))
                 continue;
-
+            List<Integer> counts;
+            try {
+                counts = UserService.getInstance().getChatByTimeSend(first, last, user.getUserName());
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
             Object[] row = {
                     user.getUserId(),
                     user.getUserName(),
                     DateAndString.DatetoString(user.getTimeRegister(), "dd/MM/yyyy hh:mm:ss"),
                     curUsers.get(user),
-                    0, 0,
-                    curUsers.get(user)
+                    counts.get(0),
+                    counts.get(1),
+                    curUsers.get(user) +  counts.get(0) + counts.get(1)
             };
             data.add(row);
         }

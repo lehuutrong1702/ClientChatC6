@@ -70,7 +70,7 @@ public class UserActiveSessionService {
     }
 
     public List<UserActiveSession> getByTime(Date start, Date end) throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/user-active-sessions?start=%sT00:00:00&end=%sT00:00:00",
+        String url = String.format("http://localhost:8080/api/v1/user-active-sessions?start=%sT00:00:00&end=%sT23:59:59",
                 DateAndString.DatetoString(start, "yyyy-MM-dd"),
                 DateAndString.DatetoString(end, "yyyy-MM-dd")
         );

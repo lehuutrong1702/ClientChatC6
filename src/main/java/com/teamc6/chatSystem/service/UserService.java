@@ -30,7 +30,6 @@ public class UserService {
                 DateAndString.DatetoString(start, "yyyy-MM-dd"),
                 DateAndString.DatetoString(end, "yyyy-MM-dd")
         );
-        System.out.println(url);
         Request request = new Request(url);
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
 
@@ -55,6 +54,23 @@ public class UserService {
 
         List<User> userList = (List<User>) request.getResBody(new TypeReference<List<User>>() {});
         return userList;
+    }
+
+    public List<Integer> getChatByTimeSend(Date start, Date end, String username) throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users/chatsAtTime?start=%sT00:00:00&end=%sT23:59:59&user_name=%s",
+                DateAndString.DatetoString(start, "yyyy-MM-dd"),
+                DateAndString.DatetoString(end, "yyyy-MM-dd"),
+                username
+        );
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        List<Integer> count = (List<Integer>) request.getResBody(new TypeReference<List<Integer>>() {});
+        return count;
     }
 
     public User adduser(User u) throws JsonProcessingException {

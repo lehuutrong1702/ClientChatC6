@@ -109,8 +109,6 @@ public class InfoPanel extends JPanel {
         bUpdate.addActionListener(new InfoPanelControl(this));
 
         init();
-
-
     }
 
     public CustomDatePicker getDatePicker() {

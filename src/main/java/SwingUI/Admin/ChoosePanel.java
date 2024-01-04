@@ -30,7 +30,11 @@ public class ChoosePanel extends JPanel {
 
     private JPanel getOptionPanel(int choice) {
         JPanel options = new JPanel();
-        JButton bView = new JButton("View current users");
+        JButton bView = new JButton();
+        if (choice == 1)
+            bView.setText("View current users");
+        else
+            bView.setText("View new users");
         bView.addActionListener(e -> {
             Component component = (Component) e.getSource();
             HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(component);
