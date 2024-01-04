@@ -38,6 +38,9 @@ public class GroupChatManagePanel extends JPanel {
         }
 
         for (var group : listGroupChat.getContent()) {
+            if (group.getTimeCreate() == null)
+                continue;
+
             Object[] row = {
                     group.getId(),
                     group.getGroupName(),

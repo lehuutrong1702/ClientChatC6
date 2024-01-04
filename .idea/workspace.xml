@@ -9,10 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Update Admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/MemberCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/MemberCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/teamc6/chatsystem/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/GroupChatManagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/Admin/GroupChatManage/GroupChatManagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/MemberList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/MemberList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/GroupChatService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,13 +108,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomChart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SwingUI.Utils.CustomChart" />
-      <module name="clientChat" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HomeFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SwingUI.User.HomeFrame" />
       <module name="clientChat" />
@@ -155,7 +148,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.CustomChart" />
       <item itemvalue="Application.ViewPanel" />
       <item itemvalue="Application.SwingUI.Admin.HomeFrame" />
       <item itemvalue="Application.ChatApp" />
@@ -167,7 +159,6 @@
         <item itemvalue="Application.SwingUI.Admin.HomeFrame" />
         <item itemvalue="Application.HomeFrame" />
         <item itemvalue="Application.ViewPanel" />
-        <item itemvalue="Application.CustomChart" />
       </list>
     </recent_temporary>
   </component>
@@ -416,7 +407,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704029766918</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Update Admin">
+      <option name="closed" value="true" />
+      <created>1704336599493</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1704336599493</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,6 +482,6 @@
     <MESSAGE value="Update security configuration to allow profile manipulation" />
     <MESSAGE value="merge Minh's branch into master" />
     <MESSAGE value="Update Admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Admin" />
   </component>
 </project>

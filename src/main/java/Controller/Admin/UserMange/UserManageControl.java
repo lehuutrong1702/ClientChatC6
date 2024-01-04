@@ -56,7 +56,7 @@ public class UserManageControl implements ActionListener {
                     return;
 
                 //lay username hoac id, neu muon lay id thi columnindex=0
-                value = userManagePanel.getSelectedValueAtCol(1);
+                value = userManagePanel.getSelectedValueAtCol(0);
                 String newPassword = JOptionPane.showInputDialog("Enter new password for " + value);
 
                 if (newPassword != null) {

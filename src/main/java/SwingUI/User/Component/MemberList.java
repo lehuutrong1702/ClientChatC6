@@ -30,6 +30,7 @@ public class MemberList extends JPanel {
         setLayout(new BorderLayout());
         mainList = new JPanel(new GridBagLayout());
         main_gbc = new GridBagConstraints();
+        mainList.setPreferredSize(new Dimension(150, 550));
         main_gbc.gridwidth = GridBagConstraints.REMAINDER;
         main_gbc.weightx = 1;
         main_gbc.weighty = 1;

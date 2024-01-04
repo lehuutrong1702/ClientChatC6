@@ -120,6 +120,7 @@ public class MessageUI<T> {
 
         MemberList memberList = new MemberList(groupChat);
         memberList.getList();
+        memberList.setPreferredSize(new Dimension(150, 350));
         renameBtn.addActionListener(new RenameGroupControl(groupChat));
         addBtn.addActionListener(new AddMemberControl(groupChat, memberList));
 

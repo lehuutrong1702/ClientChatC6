@@ -38,7 +38,7 @@ public class GroupChatService {
     }
 
     public Page<GroupChat> getAll() throws JsonProcessingException {
-        String url = String.format("http://localhost:8080/api/v1/groups");
+        String url = "http://localhost:8080/api/v1/groups?page=0&size=200";
         Request request = new Request(url);
 
         request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
