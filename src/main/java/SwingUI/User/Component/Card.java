@@ -1,8 +1,10 @@
 package SwingUI.User.Component;
 
 import Controller.User.CardControl;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.teamc6.chatSystem.model.GroupChat;
 import com.teamc6.chatSystem.model.User;
+import com.teamc6.chatSystem.service.UserService;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -24,7 +26,11 @@ public class Card<T> extends JPanel {
             this.status = new JLabel();
             add(this.status, BorderLayout.SOUTH);
             add(new JLabel(u.getFullName()), BorderLayout.CENTER);
-            ChangeState(u.isActive());
+            try {
+                ChangeState(UserService.getInstance().isOnline(u.getUserId()));
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
         } else if (item instanceof GroupChat g) {
             add(new JLabel(g.getGroupName()), BorderLayout.CENTER);
         }

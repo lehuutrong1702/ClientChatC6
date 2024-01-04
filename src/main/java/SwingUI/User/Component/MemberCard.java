@@ -29,7 +29,11 @@ public class MemberCard extends JPanel {
         this.status = new JLabel();
         add(this.status, BorderLayout.SOUTH);
         add(new JLabel(u.getUserName()), BorderLayout.CENTER);
-        ChangeState(u.isActive());
+        try {
+            ChangeState(UserService.getInstance().isOnline(u.getUserId()));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
         popupMenu = new JPopupMenu();
         try {
             if(GroupChatService.getInstance().listAdmin(memberList.getGroup().getId()).contains(Account.getInstance().getSelf())){

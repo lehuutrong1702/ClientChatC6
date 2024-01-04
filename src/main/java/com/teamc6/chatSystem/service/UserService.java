@@ -301,6 +301,18 @@ public class UserService {
         request.send();
     }
 
+    public boolean isOnline(long id) throws JsonProcessingException {
+        String url = String.format("http://localhost:8080/api/v1/users/%d/online", id);
+        Request request = new Request(url);
+        request.authorization(Account.getInstance().getUserName(), Account.getInstance().getPassWord());
+
+        request.GET();
+        request.build();
+        request.send();
+
+        return (boolean) request.getResBody(new TypeReference<Boolean>() {});
+    }
+
 
     private static final UserService INSTANCE = new UserService();
 
