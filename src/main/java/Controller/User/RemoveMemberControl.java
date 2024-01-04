@@ -2,6 +2,7 @@ package Controller.User;
 
 import SwingUI.User.Component.MemberList;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.teamc6.chatSystem.model.CommandObj;
 import com.teamc6.chatSystem.model.GroupChat;
 import com.teamc6.chatSystem.model.User;
 import com.teamc6.chatSystem.service.GroupChatService;
@@ -9,6 +10,8 @@ import com.teamc6.chatSystem.service.GroupChatService;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 public class RemoveMemberControl implements ActionListener {
     private final GroupChat groupChat;
@@ -28,6 +31,8 @@ public class RemoveMemberControl implements ActionListener {
         int confirmation = JOptionPane.showConfirmDialog(frame, "You attempt to remove " + member.getUserName() + " from the chat!");
         if(confirmation == 0) {
             try {
+                this.memberList.getSocketClient()
+                        .sendCommand(new CommandObj(LocalDateTime.now(), member.getUserId(), "KICK"));
                 GroupChatService.getInstance().removeMember(groupChat.getId(), member.getUserId());
             } catch (JsonProcessingException ex) {
                 throw new RuntimeException(ex);

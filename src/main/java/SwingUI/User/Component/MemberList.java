@@ -9,12 +9,18 @@ import com.teamc6.chatSystem.model.User;
 import com.teamc6.chatSystem.properties.Account;
 import com.teamc6.chatSystem.service.GroupChatService;
 import com.teamc6.chatSystem.service.UserService;
+import com.teamc6.chatSystem.socket.SocketClient;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Set;
 
 public class MemberList extends JPanel {
+    public SocketClient getSocketClient() {
+        return socketClient;
+    }
+
+    private SocketClient socketClient;
     private GridBagConstraints main_gbc;
     private GridBagConstraints comp_gbc;
     JPanel mainList;
@@ -25,7 +31,8 @@ public class MemberList extends JPanel {
 
     GroupChat group;
 
-    public MemberList(GroupChat g) {
+    public MemberList(GroupChat g, SocketClient socketClient) {
+        this.socketClient = socketClient;
         this.group = g;
         setLayout(new BorderLayout());
         mainList = new JPanel(new GridBagLayout());

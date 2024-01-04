@@ -1,6 +1,7 @@
 package com.teamc6.chatSystem.socket;
 
 
+import SwingUI.User.HomeFrame;
 import com.teamc6.chatSystem.model.CommandObj;
 import com.teamc6.chatSystem.model.InitObj;
 import com.teamc6.chatSystem.model.MessageObj;
@@ -20,7 +21,10 @@ public class SocketClient {
     private ObjectOutputStream writer;
     private String username;
 
-    public SocketClient(Socket socket, String username, JTextArea textArea) {
+    public SocketClient() {
+    }
+
+    public void init(Socket socket, String username, JTextArea textArea) {
         try {
             this.socket = socket;
             this.reader = new ObjectInputStream(socket.getInputStream());
@@ -42,6 +46,17 @@ public class SocketClient {
         }
     }
 
+    public void sendCommand(CommandObj cmd){
+        try {
+            if (socket.isConnected()){
+                writer.writeObject(cmd);
+                writer.reset();
+                writer.flush();
+            }
+        } catch (IOException e) {
+            closeEverything(socket, reader, writer);
+        }
+    }
     public void sendMessage(String messageToSend){
         try {
             if (socket.isConnected()){
@@ -68,10 +83,16 @@ public class SocketClient {
 
                             textArea.append('\n'+ msg.userName()+ ": "+ msg.message());
                         }
+                        System.out.println(msgFromGroupChat);
                         if(msgFromGroupChat instanceof CommandObj){
                             CommandObj cmd = (CommandObj) msgFromGroupChat;
-                            if(cmd.command().contains("online")){
+                            if(cmd.command().contains("KICK")){
                                 // set card to online;
+                                if(cmd.userId() == Account.getInstance().getId()){
+                                    HomeFrame homeFrame = (HomeFrame) SwingUtilities.getRoot(textArea);
+                                    System.out.println(SwingUtilities.getRoot(textArea));
+                                    homeFrame.getMainPanel().replace(new JPanel());
+                                }
                             }else {
                                 // set card to offline;
                             }

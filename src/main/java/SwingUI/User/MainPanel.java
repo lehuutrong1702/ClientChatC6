@@ -32,7 +32,9 @@ public class MainPanel extends JPanel {
         if (layout.getLayoutComponent(BorderLayout.CENTER) != null)
             remove(layout.getLayoutComponent(BorderLayout.CENTER));
 
-        add(panel, BorderLayout.CENTER);
+        if (panel != null)
+            add(panel, BorderLayout.CENTER);
+
         revalidate();
         repaint();
     }

@@ -53,6 +53,7 @@ public class MessageUI<T> {
         utilPanel.setPreferredSize(new Dimension(180, 550));
         textArea.setLineWrap(true);
 
+        socketClient = new SocketClient();
         if (item instanceof User u) {
             setUpPrivateUI(u);
         } else if (item instanceof GroupChat g) {
@@ -63,6 +64,7 @@ public class MessageUI<T> {
             setUpChatConnection();
             bSend.addActionListener(new MessageUIControl(this));
         }
+
         scrollPane.getVerticalScrollBar().addAdjustmentListener(new LoadMessageControl(scrollPane.getVerticalScrollBar(), textArea, groupChat));
         bSearch.addActionListener(new TextSearchControl(this));
 
@@ -118,7 +120,7 @@ public class MessageUI<T> {
         JButton renameBtn = new JButton("Rename group");
         JButton addBtn = new JButton("Add member");
 
-        MemberList memberList = new MemberList(groupChat);
+        MemberList memberList = new MemberList(groupChat, socketClient);
         memberList.getList();
         memberList.setPreferredSize(new Dimension(150, 350));
         renameBtn.addActionListener(new RenameGroupControl(groupChat));
@@ -133,7 +135,7 @@ public class MessageUI<T> {
         try {
             Connection connection = GroupChatService.getInstance().getConnectionByID(groupChat.getId());
             Socket socket = new Socket(connection.getIpv4(), connection.getPort());
-            socketClient = new SocketClient(socket, Account.getInstance().getUserName(), textArea);
+            socketClient.init(socket, Account.getInstance().getUserName(), textArea);
             List<Message> messages = GroupChatService.getInstance().getOldMessages(groupChat.getId());
             for(Message m : messages){
                 textArea.insert('\n'+ m.getUserName()+ ": "+ m.getMessage(), 0);

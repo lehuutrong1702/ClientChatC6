@@ -7,9 +7,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Delete App.java">
+    <list default="true" id="2a51ab45-9043-49a7-90c8-69f6db29ed2e" name="Changes" comment="Update password for users">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Admin/UserMange/UserManageControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin/UserMange/UserManageControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/RemoveMemberControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/RemoveMemberControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/SideNavControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/SideNavControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/User/UCControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/User/UCControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/MemberList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/MemberList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SideNav.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/Component/SideNav.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/HomePanel/MessageUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SwingUI/User/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SwingUI/User/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/socket/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teamc6/chatSystem/socket/SocketClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +71,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.ChatApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HomeFrame.executor&quot;: &quot;Run&quot;,
     &quot;Application.SwingUI.Admin.HomeFrame.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -97,7 +106,7 @@
       <recent name="SwingUI.Admin.NewUser" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.HomeFrame">
     <configuration name="ChatApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChatApp" />
       <module name="clientChat" />
@@ -105,8 +114,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HomeFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SwingUI.User.HomeFrame" />
+      <module name="clientChat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SwingUI.User.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ChatApp" />
+      <item itemvalue="Application.HomeFrame" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HomeFrame" />
         <item itemvalue="Application.ChatApp" />
       </list>
     </recent_temporary>
@@ -388,7 +415,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704342827998</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Update password for users">
+      <option name="closed" value="true" />
+      <created>1704343973539</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1704343973539</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,6 +492,7 @@
     <MESSAGE value="Update Admin" />
     <MESSAGE value="Update all" />
     <MESSAGE value="Delete App.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete App.java" />
+    <MESSAGE value="Update password for users" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update password for users" />
   </component>
 </project>

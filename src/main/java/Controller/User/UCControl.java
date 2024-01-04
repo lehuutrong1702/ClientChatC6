@@ -31,11 +31,6 @@ public class UCControl implements ActionListener {
             //                User u = UserService.getInstance().findByUserName(Account.getInstance().getUserName());
             mainPanel.replace(new InfoPanel());
         } else {
-            try {
-                UserActiveSessionService.getInstance().endSession(Account.getInstance().getSessionID());
-            } catch (JsonProcessingException ex) {
-                throw new RuntimeException(ex);
-            }
             mainPanel.getHomeFrame().dispose();
             try {
                 UserActiveSessionService.getInstance().endSession(Account.getInstance().getSessionID());
