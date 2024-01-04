@@ -144,7 +144,7 @@ public class UserManagePanel extends JPanel {
                     if (username.getText().equals("Input username") || username.getText().isEmpty())
                         userList.removeAllFilters();
                     else
-                        userList.filterText(bUsername.getText(), 1);
+                        userList.filterText(username.getText(), 1);
                 });
                 filterPanel.add(bUsername, 3);
             } else if (filtersOption.getItemAt(3) == selectedItem) {
